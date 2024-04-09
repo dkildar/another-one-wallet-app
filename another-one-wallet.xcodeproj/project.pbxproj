@@ -13,6 +13,9 @@
 		788A897A2BC514940002F91E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 788A89792BC514940002F91E /* Preview Assets.xcassets */; };
 		788A897C2BC514940002F91E /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788A897B2BC514940002F91E /* Persistence.swift */; };
 		788A897F2BC514940002F91E /* another_one_wallet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 788A897D2BC514940002F91E /* another_one_wallet.xcdatamodeld */; };
+		788A898A2BC519050002F91E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788A89892BC519050002F91E /* HomeView.swift */; };
+		788A898C2BC519160002F91E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788A898B2BC519160002F91E /* SettingsView.swift */; };
+		788A898E2BC519440002F91E /* BankAccountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788A898D2BC519440002F91E /* BankAccountsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +26,9 @@
 		788A89792BC514940002F91E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		788A897B2BC514940002F91E /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		788A897E2BC514940002F91E /* another_one_wallet.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = another_one_wallet.xcdatamodel; sourceTree = "<group>"; };
+		788A89892BC519050002F91E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		788A898B2BC519160002F91E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		788A898D2BC519440002F91E /* BankAccountsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +61,7 @@
 		788A89712BC514930002F91E /* another-one-wallet */ = {
 			isa = PBXGroup;
 			children = (
+				788A89852BC518C80002F91E /* features */,
 				788A89722BC514930002F91E /* another_one_walletApp.swift */,
 				788A89742BC514930002F91E /* ContentView.swift */,
 				788A89762BC514940002F91E /* Assets.xcassets */,
@@ -71,6 +78,40 @@
 				788A89792BC514940002F91E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		788A89852BC518C80002F91E /* features */ = {
+			isa = PBXGroup;
+			children = (
+				788A89882BC518F50002F91E /* bank-accounts */,
+				788A89872BC518D10002F91E /* settings */,
+				788A89862BC518CE0002F91E /* home */,
+			);
+			path = features;
+			sourceTree = "<group>";
+		};
+		788A89862BC518CE0002F91E /* home */ = {
+			isa = PBXGroup;
+			children = (
+				788A89892BC519050002F91E /* HomeView.swift */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
+		788A89872BC518D10002F91E /* settings */ = {
+			isa = PBXGroup;
+			children = (
+				788A898B2BC519160002F91E /* SettingsView.swift */,
+			);
+			path = settings;
+			sourceTree = "<group>";
+		};
+		788A89882BC518F50002F91E /* bank-accounts */ = {
+			isa = PBXGroup;
+			children = (
+				788A898D2BC519440002F91E /* BankAccountsView.swift */,
+			);
+			path = "bank-accounts";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,9 +184,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				788A898C2BC519160002F91E /* SettingsView.swift in Sources */,
 				788A897C2BC514940002F91E /* Persistence.swift in Sources */,
 				788A897F2BC514940002F91E /* another_one_wallet.xcdatamodeld in Sources */,
 				788A89752BC514930002F91E /* ContentView.swift in Sources */,
+				788A898E2BC519440002F91E /* BankAccountsView.swift in Sources */,
+				788A898A2BC519050002F91E /* HomeView.swift in Sources */,
 				788A89732BC514930002F91E /* another_one_walletApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
