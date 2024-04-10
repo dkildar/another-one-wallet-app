@@ -20,6 +20,8 @@
 		788A898E2BC519440002F91E /* BankAccountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788A898D2BC519440002F91E /* BankAccountsView.swift */; };
 		78A14B0D2BC712EC00CA7B12 /* BankAccountExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A14B0C2BC712EC00CA7B12 /* BankAccountExtension.swift */; };
 		78A14B0F2BC7146500CA7B12 /* BankAccountDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A14B0E2BC7146500CA7B12 /* BankAccountDetailsView.swift */; };
+		78A14B122BC71B0600CA7B12 /* SFSymbolsPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 78A14B112BC71B0600CA7B12 /* SFSymbolsPicker */; };
+		78A14B152BC71F4400CA7B12 /* ListIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A14B142BC71F4400CA7B12 /* ListIconView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,7 @@
 		788A89932BC51DBA0002F91E /* another-one-wallet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "another-one-wallet.entitlements"; sourceTree = "<group>"; };
 		78A14B0C2BC712EC00CA7B12 /* BankAccountExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountExtension.swift; sourceTree = "<group>"; };
 		78A14B0E2BC7146500CA7B12 /* BankAccountDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountDetailsView.swift; sourceTree = "<group>"; };
+		78A14B142BC71F4400CA7B12 /* ListIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListIconView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78A14B122BC71B0600CA7B12 /* SFSymbolsPicker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +98,7 @@
 		788A89852BC518C80002F91E /* features */ = {
 			isa = PBXGroup;
 			children = (
+				78A14B132BC71F3500CA7B12 /* shared */,
 				788A89882BC518F50002F91E /* bank-accounts */,
 				788A89872BC518D10002F91E /* settings */,
 				788A89862BC518CE0002F91E /* home */,
@@ -144,6 +149,14 @@
 			path = entities;
 			sourceTree = "<group>";
 		};
+		78A14B132BC71F3500CA7B12 /* shared */ = {
+			isa = PBXGroup;
+			children = (
+				78A14B142BC71F4400CA7B12 /* ListIconView.swift */,
+			);
+			path = shared;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -160,6 +173,9 @@
 			dependencies = (
 			);
 			name = "another-one-wallet";
+			packageProductDependencies = (
+				78A14B112BC71B0600CA7B12 /* SFSymbolsPicker */,
+			);
 			productName = "another-one-wallet";
 			productReference = 788A896F2BC514930002F91E /* another-one-wallet.app */;
 			productType = "com.apple.product-type.application";
@@ -188,6 +204,9 @@
 				Base,
 			);
 			mainGroup = 788A89662BC514930002F91E;
+			packageReferences = (
+				78A14B102BC71B0600CA7B12 /* XCRemoteSwiftPackageReference "SFSymbolsPicker" */,
+			);
 			productRefGroup = 788A89702BC514930002F91E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -217,6 +236,7 @@
 				788A898C2BC519160002F91E /* SettingsView.swift in Sources */,
 				7876ABB72BC52B8A00323F65 /* CreateBankAccountView.swift in Sources */,
 				788A897C2BC514940002F91E /* Persistence.swift in Sources */,
+				78A14B152BC71F4400CA7B12 /* ListIconView.swift in Sources */,
 				788A897F2BC514940002F91E /* another_one_wallet.xcdatamodeld in Sources */,
 				788A89752BC514930002F91E /* ContentView.swift in Sources */,
 				78A14B0F2BC7146500CA7B12 /* BankAccountDetailsView.swift in Sources */,
@@ -436,6 +456,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		78A14B102BC71B0600CA7B12 /* XCRemoteSwiftPackageReference "SFSymbolsPicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alessiorubicini/SFSymbolsPicker";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		78A14B112BC71B0600CA7B12 /* SFSymbolsPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 78A14B102BC71B0600CA7B12 /* XCRemoteSwiftPackageReference "SFSymbolsPicker" */;
+			productName = SFSymbolsPicker;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		788A897D2BC514940002F91E /* another_one_wallet.xcdatamodeld */ = {

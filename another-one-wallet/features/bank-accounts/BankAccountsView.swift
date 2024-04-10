@@ -19,11 +19,16 @@ struct BankAccountsView: View {
                     BankAccountDetailsView(account: .constant(account))
                         .navigationTitle(account.name ?? "")
                 } label: {
-                    VStack(alignment: .leading) {
-                        Text(account.name ?? "")
-                        Text(CURRENCIES_MAP[account.getCurrency()] ?? "")
-                            .font(.caption)
-                            .foregroundColor(.gray)
+                    HStack(alignment: .center) {
+                        ListIconView(string: account.icon ?? "")
+                            .padding(.trailing, 4)
+                        
+                        VStack(alignment: .leading) {
+                            Text(account.name ?? "")
+                            Text(CURRENCIES_MAP[account.getCurrency()] ?? "")
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                        }
                     }
                 }
             }

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreData
+import SFSymbolsPicker
 
 struct CreateBankAccountView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
@@ -14,6 +15,8 @@ struct CreateBankAccountView: View {
     @State var showSheet = false
     @State var name = ""
     @State var currency = Currencies.USD
+    @State var icon = "plus"
+    @State var isSymbolPickerShow = false
     
     var body: some View {
         Button(action: {
@@ -25,25 +28,39 @@ struct CreateBankAccountView: View {
             List {
                 TextField("Name", text: $name)
                 Picker(selection: $currency, label: Text("Currency")) {
-                    Text("USD").tag(Currencies.USD)
-                    Text("RUB").tag(Currencies.USD)
+                    ForEach(Array(CURRENCIES_MAP.keys), id: \.rawValue) { currency in
+                        Text(CURRENCIES_MAP[currency] ?? "").tag(currency)
+                    }
                 }
+                Button {
+                    isSymbolPickerShow.toggle()
+                } label: {
+                    HStack {
+                        Image(systemName: icon)
+                        Text("Pick an icon")
+                    }
+                }
+                
+                Button("Create") {
+                    let account = BankAccount(context: managedObjectContext)
+                    account.id = UUID.init()
+                    account.name = name
+                    account.currency = currency.rawValue
+                    account.icon = icon
+                    account.address = ""
+                    do {
+                        try managedObjectContext.save()
+                    } catch {
+                        print(error)
+                    }
+                    showSheet.toggle()
+                }
+                .disabled(name.isEmpty)
             }
-            .navigationTitle("Add an account")
             
-            Button("Submit") {
-                let account = BankAccount(context: managedObjectContext)
-                account.id = UUID.init()
-                account.name = "Name test"
-                account.currency = currency.rawValue
-                account.address = ""
-                do {
-                    try managedObjectContext.save()
-                } catch {
-                    print(error)
-                }
-                showSheet.toggle()
-            }
+            .sheet(isPresented: $isSymbolPickerShow, content: {
+                SymbolsPicker(selection: $icon, title: "Pick a symbol", autoDismiss: true)
+            })
         }
     }
 }
