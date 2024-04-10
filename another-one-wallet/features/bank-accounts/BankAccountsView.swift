@@ -6,13 +6,33 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct BankAccountsView: View {
-    private var parks: [String] = []
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(sortDescriptors: [], animation: .easeIn) var accounts: FetchedResults<BankAccount>
     
     var body: some View {
         NavigationStack {
-            Text("Accounts")
+            List(accounts, id: \.id) { account in
+                NavigationLink {
+                    BankAccountDetailsView(account: .constant(account))
+                        .navigationTitle(account.name ?? "")
+                } label: {
+                    VStack(alignment: .leading) {
+                        Text(account.name ?? "")
+                        Text(CURRENCIES_MAP[account.getCurrency()] ?? "")
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                    }
+                }
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    CreateBankAccountView()
+                }
+            }
+            .navigationTitle("Bank accounts")
         }
     }
 }

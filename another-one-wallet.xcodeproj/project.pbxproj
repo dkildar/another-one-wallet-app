@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7876ABB72BC52B8A00323F65 /* CreateBankAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7876ABB62BC52B8A00323F65 /* CreateBankAccountView.swift */; };
+		7876ABB92BC52D2400323F65 /* Currencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7876ABB82BC52D2400323F65 /* Currencies.swift */; };
 		788A89732BC514930002F91E /* another_one_walletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788A89722BC514930002F91E /* another_one_walletApp.swift */; };
 		788A89752BC514930002F91E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788A89742BC514930002F91E /* ContentView.swift */; };
 		788A89772BC514940002F91E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 788A89762BC514940002F91E /* Assets.xcassets */; };
@@ -16,9 +18,13 @@
 		788A898A2BC519050002F91E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788A89892BC519050002F91E /* HomeView.swift */; };
 		788A898C2BC519160002F91E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788A898B2BC519160002F91E /* SettingsView.swift */; };
 		788A898E2BC519440002F91E /* BankAccountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788A898D2BC519440002F91E /* BankAccountsView.swift */; };
+		78A14B0D2BC712EC00CA7B12 /* BankAccountExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A14B0C2BC712EC00CA7B12 /* BankAccountExtension.swift */; };
+		78A14B0F2BC7146500CA7B12 /* BankAccountDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A14B0E2BC7146500CA7B12 /* BankAccountDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7876ABB62BC52B8A00323F65 /* CreateBankAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBankAccountView.swift; sourceTree = "<group>"; };
+		7876ABB82BC52D2400323F65 /* Currencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currencies.swift; sourceTree = "<group>"; };
 		788A896F2BC514930002F91E /* another-one-wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "another-one-wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		788A89722BC514930002F91E /* another_one_walletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = another_one_walletApp.swift; sourceTree = "<group>"; };
 		788A89742BC514930002F91E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -29,6 +35,9 @@
 		788A89892BC519050002F91E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		788A898B2BC519160002F91E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		788A898D2BC519440002F91E /* BankAccountsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountsView.swift; sourceTree = "<group>"; };
+		788A89932BC51DBA0002F91E /* another-one-wallet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "another-one-wallet.entitlements"; sourceTree = "<group>"; };
+		78A14B0C2BC712EC00CA7B12 /* BankAccountExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountExtension.swift; sourceTree = "<group>"; };
+		78A14B0E2BC7146500CA7B12 /* BankAccountDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +70,8 @@
 		788A89712BC514930002F91E /* another-one-wallet */ = {
 			isa = PBXGroup;
 			children = (
+				788A89932BC51DBA0002F91E /* another-one-wallet.entitlements */,
+				788A898F2BC51CF10002F91E /* core */,
 				788A89852BC518C80002F91E /* features */,
 				788A89722BC514930002F91E /* another_one_walletApp.swift */,
 				788A89742BC514930002F91E /* ContentView.swift */,
@@ -110,8 +121,27 @@
 			isa = PBXGroup;
 			children = (
 				788A898D2BC519440002F91E /* BankAccountsView.swift */,
+				7876ABB62BC52B8A00323F65 /* CreateBankAccountView.swift */,
+				78A14B0E2BC7146500CA7B12 /* BankAccountDetailsView.swift */,
 			);
 			path = "bank-accounts";
+			sourceTree = "<group>";
+		};
+		788A898F2BC51CF10002F91E /* core */ = {
+			isa = PBXGroup;
+			children = (
+				788A89942BC51E4A0002F91E /* entities */,
+			);
+			path = core;
+			sourceTree = "<group>";
+		};
+		788A89942BC51E4A0002F91E /* entities */ = {
+			isa = PBXGroup;
+			children = (
+				7876ABB82BC52D2400323F65 /* Currencies.swift */,
+				78A14B0C2BC712EC00CA7B12 /* BankAccountExtension.swift */,
+			);
+			path = entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,10 +215,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				788A898C2BC519160002F91E /* SettingsView.swift in Sources */,
+				7876ABB72BC52B8A00323F65 /* CreateBankAccountView.swift in Sources */,
 				788A897C2BC514940002F91E /* Persistence.swift in Sources */,
 				788A897F2BC514940002F91E /* another_one_wallet.xcdatamodeld in Sources */,
 				788A89752BC514930002F91E /* ContentView.swift in Sources */,
+				78A14B0F2BC7146500CA7B12 /* BankAccountDetailsView.swift in Sources */,
+				78A14B0D2BC712EC00CA7B12 /* BankAccountExtension.swift in Sources */,
 				788A898E2BC519440002F91E /* BankAccountsView.swift in Sources */,
+				7876ABB92BC52D2400323F65 /* Currencies.swift in Sources */,
 				788A898A2BC519050002F91E /* HomeView.swift in Sources */,
 				788A89732BC514930002F91E /* another_one_walletApp.swift in Sources */,
 			);
@@ -321,12 +355,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "another-one-wallet/another-one-wallet.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"another-one-wallet/Preview Content\"";
 				DEVELOPMENT_TEAM = G4FYKWX7TU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = AOWallet;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -350,12 +387,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "another-one-wallet/another-one-wallet.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"another-one-wallet/Preview Content\"";
 				DEVELOPMENT_TEAM = G4FYKWX7TU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = AOWallet;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

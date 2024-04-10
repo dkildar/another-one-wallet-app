@@ -9,7 +9,8 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-    @State var currentTab: String = "Home"
+    @Environment(\.managedObjectContext) private var viewContext
+    @State var currentTab = 1
     
     var body: some View {
         NavigationView {
