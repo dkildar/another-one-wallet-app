@@ -15,16 +15,18 @@ struct BankAccountsView: View {
     var body: some View {
         NavigationStack {
             List(accounts, id: \.id) { account in
-                NavigationLink {
-                    BankAccountDetailsView(account: .constant(account))
-                        .navigationTitle(account.name ?? "")
-                } label: {
-                    if (account.getAccountType() == .Managing) {
-                        ManagedAccountItemView(account: account)
-                    } else if (account.getAccountType() == .LinkedCrypto) {
-                        CryptoAccountItemView(account: account)
+                VStack {
+                    NavigationLink {
+                        BankAccountDetailsView(account: .constant(account))
+                            .navigationTitle(account.name ?? "")
+                    } label: {
+                        if (account.getAccountType() == .Managing) {
+                            ManagedAccountItemView(account: account)
+                        } else if (account.getAccountType() == .LinkedCrypto) {
+                            CryptoAccountItemView(account: account)
+                        }
                     }
-                }
+                }.padding(.vertical, 8)
             }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {

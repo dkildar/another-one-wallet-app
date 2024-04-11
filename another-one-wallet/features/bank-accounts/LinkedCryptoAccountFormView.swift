@@ -9,6 +9,7 @@ import SwiftUI
 import SFSymbolsPicker
 
 struct LinkedCryptoAccountFormView: View {
+    @EnvironmentObject var cryptoAccountController: CryptoAccountsController
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.dismiss) var dismiss
     
@@ -23,6 +24,7 @@ struct LinkedCryptoAccountFormView: View {
             
             do {
                 try managedObjectContext.save()
+                cryptoAccountController.loadAccounts()
             } catch {
                 print(error)
             }

@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct TRC20ItemView: View {
-    var token: WithPriceTokens
+    var token: CryptoToken
+    
+    init(token: CryptoToken) {
+        self.token = token
+    }
     
     var body: some View {
         HStack {
-            if let logo = token.tokenLogo {
+            if let logo = token.logo {
                 AsyncImage(url: URL(string: logo)!) { image in
                     image.image?.resizable()
                 }
@@ -20,7 +24,7 @@ struct TRC20ItemView: View {
                     .frame(width: 24, height: 24, alignment: .center)
             }
             VStack(alignment: .leading) {
-                Text(token.tokenName ?? "")
+                Text(token.name ?? "")
                     .font(.callout)
                 //                Text(account.cryptoNetwork ?? "")
                 //                    .font(.caption)

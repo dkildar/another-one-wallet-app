@@ -22,7 +22,6 @@ actor TRC20Client {
         guard var urlComponents = URLComponents(url: URL(string: "https://apilist.tronscanapi.com/api/accountv2")!, resolvingAgainstBaseURL: false) else {
             fatalError("No URL for TRC20")
         }
-        debugPrint("Fetching trc20 details for \(address)")
         
         urlComponents.queryItems = [URLQueryItem(name: "address", value: address)]
         
