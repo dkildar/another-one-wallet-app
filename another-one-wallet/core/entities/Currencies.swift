@@ -7,19 +7,25 @@
 
 import Foundation
 
-enum Currencies: Int32 {
-    case USD = 0
-    case RUB = 1
-    case SOL = 2
-    case USDT = 3
-    case TON = 4
+struct AppCurrency : Hashable {
+    var currency: Locale.Currency
+    
+    init(currency: Currencies) {
+        self.currency = Locale.Currency(currency.rawValue)
+    }
+    
+    init(currency: CryptoCurrencies) {
+        self.currency = Locale.Currency(currency.rawValue)
+    }
+    
+    enum Currencies: String, CaseIterable {
+        case USD = "USD"
+        case RUB = "RUB"
+    }
+    
+    enum CryptoCurrencies: String, CaseIterable {
+        case SOL = "SOL"
+        case USDT = "USDT"
+        case TON = "TON"
+    }
 }
-
-
-var CURRENCIES_MAP = [
-    Currencies.USD: "USD",
-    Currencies.RUB: "RUB",
-    Currencies.SOL: "SOL",
-    Currencies.TON: "TON",
-    Currencies.USDT: "USDT"
-]

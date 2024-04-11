@@ -23,11 +23,19 @@ struct BankAccountsView: View {
                         ListIconView(string: account.icon ?? "")
                             .padding(.trailing, 4)
                         
-                        VStack(alignment: .leading) {
-                            Text(account.name ?? "")
-                            Text(CURRENCIES_MAP[account.getCurrency()] ?? "")
+                        HStack {
+                            VStack(alignment: .leading) {
+                                Text(account.name ?? "")
+                                Text(account.getCurrency().currency.identifier)
+                                    .font(.caption)
+                                    .foregroundColor(.gray)
+                            }
+                            
+                            Spacer()
+                            
+                            Text(String(account.balance))
                                 .font(.caption)
-                                .foregroundColor(.gray)
+                                .foregroundStyle(Color.blue)
                         }
                     }
                 }

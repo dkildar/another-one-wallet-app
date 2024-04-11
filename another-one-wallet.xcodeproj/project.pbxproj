@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		785269BB2BC799C600757C02 /* BasicAccountCreateFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785269BA2BC799C600757C02 /* BasicAccountCreateFormView.swift */; };
+		785366D32BC7970400DB180D /* ManagedBankAccountFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785366D22BC7970400DB180D /* ManagedBankAccountFormView.swift */; };
+		785366D52BC7971300DB180D /* LinkedCryptoAccountFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785366D42BC7971200DB180D /* LinkedCryptoAccountFormView.swift */; };
 		7876ABB72BC52B8A00323F65 /* CreateBankAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7876ABB62BC52B8A00323F65 /* CreateBankAccountView.swift */; };
 		7876ABB92BC52D2400323F65 /* Currencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7876ABB82BC52D2400323F65 /* Currencies.swift */; };
 		788A89732BC514930002F91E /* another_one_walletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788A89722BC514930002F91E /* another_one_walletApp.swift */; };
@@ -25,6 +28,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		785269BA2BC799C600757C02 /* BasicAccountCreateFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAccountCreateFormView.swift; sourceTree = "<group>"; };
+		785366D22BC7970400DB180D /* ManagedBankAccountFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedBankAccountFormView.swift; sourceTree = "<group>"; };
+		785366D42BC7971200DB180D /* LinkedCryptoAccountFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedCryptoAccountFormView.swift; sourceTree = "<group>"; };
 		7876ABB62BC52B8A00323F65 /* CreateBankAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBankAccountView.swift; sourceTree = "<group>"; };
 		7876ABB82BC52D2400323F65 /* Currencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currencies.swift; sourceTree = "<group>"; };
 		788A896F2BC514930002F91E /* another-one-wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "another-one-wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +134,9 @@
 				788A898D2BC519440002F91E /* BankAccountsView.swift */,
 				7876ABB62BC52B8A00323F65 /* CreateBankAccountView.swift */,
 				78A14B0E2BC7146500CA7B12 /* BankAccountDetailsView.swift */,
+				785366D22BC7970400DB180D /* ManagedBankAccountFormView.swift */,
+				785366D42BC7971200DB180D /* LinkedCryptoAccountFormView.swift */,
+				785269BA2BC799C600757C02 /* BasicAccountCreateFormView.swift */,
 			);
 			path = "bank-accounts";
 			sourceTree = "<group>";
@@ -234,10 +243,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				788A898C2BC519160002F91E /* SettingsView.swift in Sources */,
+				785269BB2BC799C600757C02 /* BasicAccountCreateFormView.swift in Sources */,
+				785366D32BC7970400DB180D /* ManagedBankAccountFormView.swift in Sources */,
 				7876ABB72BC52B8A00323F65 /* CreateBankAccountView.swift in Sources */,
 				788A897C2BC514940002F91E /* Persistence.swift in Sources */,
 				78A14B152BC71F4400CA7B12 /* ListIconView.swift in Sources */,
 				788A897F2BC514940002F91E /* another_one_wallet.xcdatamodeld in Sources */,
+				785366D52BC7971300DB180D /* LinkedCryptoAccountFormView.swift in Sources */,
 				788A89752BC514930002F91E /* ContentView.swift in Sources */,
 				78A14B0F2BC7146500CA7B12 /* BankAccountDetailsView.swift in Sources */,
 				78A14B0D2BC712EC00CA7B12 /* BankAccountExtension.swift in Sources */,

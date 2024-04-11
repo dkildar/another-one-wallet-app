@@ -7,8 +7,20 @@
 
 import Foundation
 
+enum BankAccountType: Int16 {
+    case Managing = 0
+    case LinkedCrypto = 1
+}
+
 extension BankAccount {
-    func getCurrency() -> Currencies {
-        return Currencies.init(rawValue: currency) ?? .USD
+    func getCurrency() -> AppCurrency {
+        let accountType = BankAccountType.init(rawValue: type)
+        
+        return switch accountType {
+        case .Managing: AppCurrency(currency: AppCurrency.Currencies.init(rawValue: currency ?? "USD") ?? .USD)
+        case.LinkedCrypto: AppCurrency(currency: AppCurrency.CryptoCurrencies.init(rawValue: currency ?? "USDT") ?? .USDT)
+        case .none:
+            fatalError("Not supporting bank account")
+        }
     }
 }
