@@ -32,7 +32,7 @@ struct BankAccountsView: View {
                             }
                             
                             Spacer()
-                            
+                    
                             Text(String(account.balance))
                                 .font(.caption)
                                 .foregroundStyle(Color.blue)

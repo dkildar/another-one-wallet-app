@@ -9,7 +9,13 @@ import SwiftUI
 
 struct SettingsView: View {
     var body: some View {
-        Text("Settings view")
+        NavigationStack {
+            List {
+                NavigationLink {} label: {
+                    Text("Application currency")
+                }
+            }
+        }
     }
 }
 

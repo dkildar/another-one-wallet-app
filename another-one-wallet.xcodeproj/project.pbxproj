@@ -61,6 +61,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		785269BC2BC7A8C000757C02 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
 		788A89662BC514930002F91E = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +151,7 @@
 		788A898F2BC51CF10002F91E /* core */ = {
 			isa = PBXGroup;
 			children = (
+				785269BC2BC7A8C000757C02 /* controllers */,
 				788A89942BC51E4A0002F91E /* entities */,
 			);
 			path = core;
