@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		785269BB2BC799C600757C02 /* BasicAccountCreateFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785269BA2BC799C600757C02 /* BasicAccountCreateFormView.swift */; };
+		785269C12BC7B7FD00757C02 /* TRC20Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785269C02BC7B7FD00757C02 /* TRC20Client.swift */; };
+		78526A092BC7BCBC00757C02 /* WithPriceTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78526A072BC7BCBC00757C02 /* WithPriceTokens.swift */; };
+		78526A0A2BC7BCBC00757C02 /* TRC20AccountResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78526A082BC7BCBC00757C02 /* TRC20AccountResponse.swift */; };
+		78526A0C2BC7BDF300757C02 /* ManagedAccountItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78526A0B2BC7BDF300757C02 /* ManagedAccountItemView.swift */; };
+		78526A0E2BC7BDFE00757C02 /* CryptoAccountItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78526A0D2BC7BDFE00757C02 /* CryptoAccountItemView.swift */; };
+		78526A142BC7CC1100757C02 /* TRC20ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78526A132BC7CC1100757C02 /* TRC20ItemView.swift */; };
 		785366D32BC7970400DB180D /* ManagedBankAccountFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785366D22BC7970400DB180D /* ManagedBankAccountFormView.swift */; };
 		785366D52BC7971300DB180D /* LinkedCryptoAccountFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785366D42BC7971200DB180D /* LinkedCryptoAccountFormView.swift */; };
 		7876ABB72BC52B8A00323F65 /* CreateBankAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7876ABB62BC52B8A00323F65 /* CreateBankAccountView.swift */; };
@@ -29,6 +35,12 @@
 
 /* Begin PBXFileReference section */
 		785269BA2BC799C600757C02 /* BasicAccountCreateFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAccountCreateFormView.swift; sourceTree = "<group>"; };
+		785269C02BC7B7FD00757C02 /* TRC20Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRC20Client.swift; sourceTree = "<group>"; };
+		78526A072BC7BCBC00757C02 /* WithPriceTokens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WithPriceTokens.swift; sourceTree = "<group>"; };
+		78526A082BC7BCBC00757C02 /* TRC20AccountResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRC20AccountResponse.swift; sourceTree = "<group>"; };
+		78526A0B2BC7BDF300757C02 /* ManagedAccountItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedAccountItemView.swift; sourceTree = "<group>"; };
+		78526A0D2BC7BDFE00757C02 /* CryptoAccountItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAccountItemView.swift; sourceTree = "<group>"; };
+		78526A132BC7CC1100757C02 /* TRC20ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRC20ItemView.swift; sourceTree = "<group>"; };
 		785366D22BC7970400DB180D /* ManagedBankAccountFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedBankAccountFormView.swift; sourceTree = "<group>"; };
 		785366D42BC7971200DB180D /* LinkedCryptoAccountFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedCryptoAccountFormView.swift; sourceTree = "<group>"; };
 		7876ABB62BC52B8A00323F65 /* CreateBankAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBankAccountView.swift; sourceTree = "<group>"; };
@@ -66,6 +78,33 @@
 			children = (
 			);
 			path = controllers;
+			sourceTree = "<group>";
+		};
+		785269BF2BC7B7F400757C02 /* http */ = {
+			isa = PBXGroup;
+			children = (
+				785269C22BC7BB4300757C02 /* trc20-entities */,
+				785269C02BC7B7FD00757C02 /* TRC20Client.swift */,
+			);
+			path = http;
+			sourceTree = "<group>";
+		};
+		785269C22BC7BB4300757C02 /* trc20-entities */ = {
+			isa = PBXGroup;
+			children = (
+				78526A082BC7BCBC00757C02 /* TRC20AccountResponse.swift */,
+				78526A072BC7BCBC00757C02 /* WithPriceTokens.swift */,
+			);
+			path = "trc20-entities";
+			sourceTree = "<group>";
+		};
+		78526A122BC7CBFC00757C02 /* CryptoAccountItem */ = {
+			isa = PBXGroup;
+			children = (
+				78526A0D2BC7BDFE00757C02 /* CryptoAccountItemView.swift */,
+				78526A132BC7CC1100757C02 /* TRC20ItemView.swift */,
+			);
+			path = CryptoAccountItem;
 			sourceTree = "<group>";
 		};
 		788A89662BC514930002F91E = {
@@ -138,12 +177,14 @@
 		788A89882BC518F50002F91E /* bank-accounts */ = {
 			isa = PBXGroup;
 			children = (
+				78526A122BC7CBFC00757C02 /* CryptoAccountItem */,
 				788A898D2BC519440002F91E /* BankAccountsView.swift */,
 				7876ABB62BC52B8A00323F65 /* CreateBankAccountView.swift */,
 				78A14B0E2BC7146500CA7B12 /* BankAccountDetailsView.swift */,
 				785366D22BC7970400DB180D /* ManagedBankAccountFormView.swift */,
 				785366D42BC7971200DB180D /* LinkedCryptoAccountFormView.swift */,
 				785269BA2BC799C600757C02 /* BasicAccountCreateFormView.swift */,
+				78526A0B2BC7BDF300757C02 /* ManagedAccountItemView.swift */,
 			);
 			path = "bank-accounts";
 			sourceTree = "<group>";
@@ -151,6 +192,7 @@
 		788A898F2BC51CF10002F91E /* core */ = {
 			isa = PBXGroup;
 			children = (
+				785269BF2BC7B7F400757C02 /* http */,
 				785269BC2BC7A8C000757C02 /* controllers */,
 				788A89942BC51E4A0002F91E /* entities */,
 			);
@@ -251,15 +293,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				788A898C2BC519160002F91E /* SettingsView.swift in Sources */,
+				78526A142BC7CC1100757C02 /* TRC20ItemView.swift in Sources */,
 				785269BB2BC799C600757C02 /* BasicAccountCreateFormView.swift in Sources */,
 				785366D32BC7970400DB180D /* ManagedBankAccountFormView.swift in Sources */,
 				7876ABB72BC52B8A00323F65 /* CreateBankAccountView.swift in Sources */,
 				788A897C2BC514940002F91E /* Persistence.swift in Sources */,
 				78A14B152BC71F4400CA7B12 /* ListIconView.swift in Sources */,
 				788A897F2BC514940002F91E /* another_one_wallet.xcdatamodeld in Sources */,
+				785269C12BC7B7FD00757C02 /* TRC20Client.swift in Sources */,
 				785366D52BC7971300DB180D /* LinkedCryptoAccountFormView.swift in Sources */,
+				78526A0C2BC7BDF300757C02 /* ManagedAccountItemView.swift in Sources */,
+				78526A0E2BC7BDFE00757C02 /* CryptoAccountItemView.swift in Sources */,
 				788A89752BC514930002F91E /* ContentView.swift in Sources */,
 				78A14B0F2BC7146500CA7B12 /* BankAccountDetailsView.swift in Sources */,
+				78526A0A2BC7BCBC00757C02 /* TRC20AccountResponse.swift in Sources */,
+				78526A092BC7BCBC00757C02 /* WithPriceTokens.swift in Sources */,
 				78A14B0D2BC712EC00CA7B12 /* BankAccountExtension.swift in Sources */,
 				788A898E2BC519440002F91E /* BankAccountsView.swift in Sources */,
 				7876ABB92BC52D2400323F65 /* Currencies.swift in Sources */,

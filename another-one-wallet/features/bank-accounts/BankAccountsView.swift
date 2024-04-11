@@ -19,24 +19,10 @@ struct BankAccountsView: View {
                     BankAccountDetailsView(account: .constant(account))
                         .navigationTitle(account.name ?? "")
                 } label: {
-                    HStack(alignment: .center) {
-                        ListIconView(string: account.icon ?? "")
-                            .padding(.trailing, 4)
-                        
-                        HStack {
-                            VStack(alignment: .leading) {
-                                Text(account.name ?? "")
-                                Text(account.getCurrency().currency.identifier)
-                                    .font(.caption)
-                                    .foregroundColor(.gray)
-                            }
-                            
-                            Spacer()
-                    
-                            Text(String(account.balance))
-                                .font(.caption)
-                                .foregroundStyle(Color.blue)
-                        }
+                    if (account.getAccountType() == .Managing) {
+                        ManagedAccountItemView(account: account)
+                    } else if (account.getAccountType() == .LinkedCrypto) {
+                        CryptoAccountItemView(account: account)
                     }
                 }
             }

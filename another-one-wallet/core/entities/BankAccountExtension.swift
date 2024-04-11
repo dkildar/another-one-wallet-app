@@ -23,4 +23,8 @@ extension BankAccount {
             fatalError("Not supporting bank account")
         }
     }
+    
+    func getAccountType() -> BankAccountType {
+        return BankAccountType.init(rawValue: type)!
+    }
 }
