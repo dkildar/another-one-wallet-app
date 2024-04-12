@@ -16,7 +16,13 @@ struct HomeView: View {
         NavigationStack {
             List {
                 
-            }.navigationTitle("Total funds: \(total)")
+            }
+            .navigationTitle("Total funds: \(total)")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    ToolbarPlusMenuView()
+                }
+            }
         }
         .task(id: accounts.count) {
             // todo: convert to single currency

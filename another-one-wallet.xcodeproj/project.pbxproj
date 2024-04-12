@@ -34,6 +34,7 @@
 		78A14B122BC71B0600CA7B12 /* SFSymbolsPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 78A14B112BC71B0600CA7B12 /* SFSymbolsPicker */; };
 		78A14B152BC71F4400CA7B12 /* ListIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A14B142BC71F4400CA7B12 /* ListIconView.swift */; };
 		78D205B42BC91C550083CF53 /* TRC20TokensResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D205B32BC91C550083CF53 /* TRC20TokensResponse.swift */; };
+		78D205B72BC92EF50083CF53 /* ToolbarPlusMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D205B62BC92EF50083CF53 /* ToolbarPlusMenuView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		78A14B0E2BC7146500CA7B12 /* BankAccountDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountDetailsView.swift; sourceTree = "<group>"; };
 		78A14B142BC71F4400CA7B12 /* ListIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListIconView.swift; sourceTree = "<group>"; };
 		78D205B32BC91C550083CF53 /* TRC20TokensResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRC20TokensResponse.swift; sourceTree = "<group>"; };
+		78D205B62BC92EF50083CF53 /* ToolbarPlusMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarPlusMenuView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 		788A89882BC518F50002F91E /* bank-accounts */ = {
 			isa = PBXGroup;
 			children = (
+				78D205B52BC92A5C0083CF53 /* ManagedAccountRecords */,
 				78526A122BC7CBFC00757C02 /* CryptoAccountItem */,
 				788A898D2BC519440002F91E /* BankAccountsView.swift */,
 				7876ABB62BC52B8A00323F65 /* CreateBankAccountView.swift */,
@@ -221,8 +224,16 @@
 			isa = PBXGroup;
 			children = (
 				78A14B142BC71F4400CA7B12 /* ListIconView.swift */,
+				78D205B62BC92EF50083CF53 /* ToolbarPlusMenuView.swift */,
 			);
 			path = shared;
+			sourceTree = "<group>";
+		};
+		78D205B52BC92A5C0083CF53 /* ManagedAccountRecords */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ManagedAccountRecords;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,6 +321,7 @@
 				788A897C2BC514940002F91E /* Persistence.swift in Sources */,
 				78A14B152BC71F4400CA7B12 /* ListIconView.swift in Sources */,
 				788A897F2BC514940002F91E /* another_one_wallet.xcdatamodeld in Sources */,
+				78D205B72BC92EF50083CF53 /* ToolbarPlusMenuView.swift in Sources */,
 				785269C12BC7B7FD00757C02 /* TRC20Client.swift in Sources */,
 				785366D52BC7971300DB180D /* LinkedCryptoAccountFormView.swift in Sources */,
 				78526A0C2BC7BDF300757C02 /* ManagedAccountItemView.swift in Sources */,

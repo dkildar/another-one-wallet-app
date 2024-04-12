@@ -41,7 +41,7 @@ struct CryptoAccountItemView: View {
                             .foregroundStyle(Color.green)
                     }
                 }
-                VStack(alignment: .leading, spacing: 16) {
+                VStack(alignment: .leading, spacing: 12) {
                     ForEach(tokens, id: \.id) { token in
                         TRC20ItemView(token: token)
                         

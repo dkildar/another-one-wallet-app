@@ -30,7 +30,7 @@ struct BankAccountsView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    CreateBankAccountView()
+                    ToolbarPlusMenuView()
                 }
             }
             .navigationTitle("Bank accounts")
