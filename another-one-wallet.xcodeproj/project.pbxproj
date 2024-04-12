@@ -35,6 +35,7 @@
 		78A14B152BC71F4400CA7B12 /* ListIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A14B142BC71F4400CA7B12 /* ListIconView.swift */; };
 		78D205B42BC91C550083CF53 /* TRC20TokensResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D205B32BC91C550083CF53 /* TRC20TokensResponse.swift */; };
 		78D205B72BC92EF50083CF53 /* ToolbarPlusMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D205B62BC92EF50083CF53 /* ToolbarPlusMenuView.swift */; };
+		78E00D302BC98E5100A300D4 /* CreateAccountRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E00D2F2BC98E5100A300D4 /* CreateAccountRecordView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		78A14B142BC71F4400CA7B12 /* ListIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListIconView.swift; sourceTree = "<group>"; };
 		78D205B32BC91C550083CF53 /* TRC20TokensResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRC20TokensResponse.swift; sourceTree = "<group>"; };
 		78D205B62BC92EF50083CF53 /* ToolbarPlusMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarPlusMenuView.swift; sourceTree = "<group>"; };
+		78E00D2F2BC98E5100A300D4 /* CreateAccountRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountRecordView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +227,7 @@
 			children = (
 				78A14B142BC71F4400CA7B12 /* ListIconView.swift */,
 				78D205B62BC92EF50083CF53 /* ToolbarPlusMenuView.swift */,
+				78E00D2F2BC98E5100A300D4 /* CreateAccountRecordView.swift */,
 			);
 			path = shared;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				78526A0C2BC7BDF300757C02 /* ManagedAccountItemView.swift in Sources */,
 				78526A0E2BC7BDFE00757C02 /* CryptoAccountItemView.swift in Sources */,
 				788A89752BC514930002F91E /* ContentView.swift in Sources */,
+				78E00D302BC98E5100A300D4 /* CreateAccountRecordView.swift in Sources */,
 				78A14B0F2BC7146500CA7B12 /* BankAccountDetailsView.swift in Sources */,
 				78526A0A2BC7BCBC00757C02 /* TRC20AccountResponse.swift in Sources */,
 				78526A092BC7BCBC00757C02 /* WithPriceTokens.swift in Sources */,

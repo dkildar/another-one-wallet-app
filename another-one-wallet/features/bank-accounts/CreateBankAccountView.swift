@@ -25,6 +25,8 @@ struct CreateBankAccountView: View {
                     Text("Linked crypto account")
                 }
             }
+            .navigationTitle("Create an account")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }

@@ -9,10 +9,12 @@ import SwiftUI
 
 struct ToolbarPlusMenuView: View {
     @State var showCreateAccountSheet = false
+    @State var showCreateRecordSheet = false
     
     var body: some View {
         Menu {
             Button {
+                showCreateRecordSheet.toggle()
             } label: {
                 Label("Create a record", systemImage: "plus.app")
             }
@@ -27,6 +29,9 @@ struct ToolbarPlusMenuView: View {
         }
         .sheet(isPresented: $showCreateAccountSheet) {
             CreateBankAccountView()
+        }
+        .sheet(isPresented: $showCreateRecordSheet) {
+            CreateAccountRecordView()
         }
     }
 }
