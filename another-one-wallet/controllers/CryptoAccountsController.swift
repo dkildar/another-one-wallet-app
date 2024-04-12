@@ -41,20 +41,24 @@ class CryptoAccountsController : ObservableObject {
     private func populateAccount(account: BankAccount) async {
         switch AppCurrency.CryptoNetwork.init(rawValue: account.cryptoNetwork ?? "") {
         case .TRC20:
-            guard let details = try? await fetchTRC20Account(address: account.address) else { return }
+            guard let details = try? await fetchTRC20AccountTokens(address: account.address) else { return }
             
-            // TODO: CALCULATE WITH PRICE AND WITH ALL TOKENS
-            account.balance = Double(details.balance ?? 0)
-            
+            account.balance = 0.0
             account.tokens = []
-            details.withPriceTokens?.forEach { token in
+            
+            details.data?.forEach { token in
                 let tokenEntity = CryptoToken(context: self.context)
                 tokenEntity.id = UUID()
                 tokenEntity.name = token.tokenName
-                tokenEntity.balance = token.balance
+                tokenEntity.balance = token.quantity
+                tokenEntity.usdBalance = String(token.amountInUsd ?? 0.0)
                 tokenEntity.logo = token.tokenLogo
+                tokenEntity.abbr = token.tokenAbbr
                 account.addToTokens(tokenEntity)
+                
+                account.balance += (token.amountInUsd ?? 0.0)
             }
+            
             try? context.save()
         case .none:
             return
@@ -63,14 +67,18 @@ class CryptoAccountsController : ObservableObject {
         }
     }
     
-    private func fetchTRC20Account(address: String?) async throws -> TRC20AccountResponse? {
+    private func fetchTRC20AccountTokens(address: String?) async throws -> TRC20TokensResponse? {
         guard let address = address else {
             return nil
         }
         
+        return try await wrapApiRequest(request: TRC20Client.shared.fetchTokens(address: address))
+    }
+    
+    private func wrapApiRequest<T>(request: AnyPublisher<T, Error>) async throws -> T? {
         return try await withCheckedThrowingContinuation { continuation in
             Task {
-                await TRC20Client.shared.fetchAccount(address: address)
+                request
                     .sink(
                         receiveCompletion: { completion in
                             if case let .failure(error) = completion {

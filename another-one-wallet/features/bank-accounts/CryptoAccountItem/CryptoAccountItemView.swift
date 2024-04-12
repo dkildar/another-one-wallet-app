@@ -32,9 +32,14 @@ struct CryptoAccountItemView: View {
                     
                     Spacer()
                     
-                    Text(String(account.balance))
-                        .font(.caption)
-                        .foregroundStyle(Color.blue)
+                    VStack(alignment: .trailing) {
+                        Text("Total")
+                            .font(.caption)
+                            .foregroundStyle(Color.gray)
+                        Text(String(format: "%.2f", Double(account.balance)) + "$")
+                            .font(.caption)
+                            .foregroundStyle(Color.green)
+                    }
                 }
                 VStack(alignment: .leading, spacing: 16) {
                     ForEach(tokens, id: \.id) { token in

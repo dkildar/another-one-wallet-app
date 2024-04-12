@@ -33,10 +33,14 @@ struct TRC20ItemView: View {
             
             Spacer()
             
-            Text(String(format: "%.2f", (Double(token.balance ?? "0") ?? 0) / 1000000))
-                .font(.caption)
-                .foregroundStyle(Color.blue)
+            VStack(alignment: .trailing) {
+                Text(String(format: "%.2f", (Double(token.balance ?? "0") ?? 0)))
+                    .font(.caption)
+                    .foregroundStyle(Color.black)
+                Text("≈ " + String(format: "%.2f", (Double(token.usdBalance ?? "0") ?? 0)) + "$")
+                    .font(.caption)
+                    .foregroundStyle(Color.gray)
+            }
         }
-        .clipShape(.rect(cornerRadius: 16))
     }
 }

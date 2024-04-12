@@ -15,9 +15,11 @@
         <relationship name="tokens" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="CryptoToken"/>
     </entity>
     <entity name="CryptoToken" representedClassName="CryptoToken" syncable="YES" codeGenerationType="class">
+        <attribute name="abbr" optional="YES" attributeType="String"/>
         <attribute name="balance" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="logo" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="usdBalance" optional="YES" attributeType="String"/>
     </entity>
 </model>

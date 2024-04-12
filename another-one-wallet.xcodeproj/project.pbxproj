@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		780DF4D52BC7F24800EDADBC /* CryptoAccountsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780DF4D42BC7F24800EDADBC /* CryptoAccountsController.swift */; };
+		780DF4D72BC852F600EDADBC /* TRC20PriceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780DF4D62BC852F600EDADBC /* TRC20PriceResponse.swift */; };
 		785269BB2BC799C600757C02 /* BasicAccountCreateFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785269BA2BC799C600757C02 /* BasicAccountCreateFormView.swift */; };
 		785269C12BC7B7FD00757C02 /* TRC20Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785269C02BC7B7FD00757C02 /* TRC20Client.swift */; };
 		78526A092BC7BCBC00757C02 /* WithPriceTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78526A072BC7BCBC00757C02 /* WithPriceTokens.swift */; };
@@ -32,10 +33,12 @@
 		78A14B0F2BC7146500CA7B12 /* BankAccountDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A14B0E2BC7146500CA7B12 /* BankAccountDetailsView.swift */; };
 		78A14B122BC71B0600CA7B12 /* SFSymbolsPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 78A14B112BC71B0600CA7B12 /* SFSymbolsPicker */; };
 		78A14B152BC71F4400CA7B12 /* ListIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A14B142BC71F4400CA7B12 /* ListIconView.swift */; };
+		78D205B42BC91C550083CF53 /* TRC20TokensResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D205B32BC91C550083CF53 /* TRC20TokensResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		780DF4D42BC7F24800EDADBC /* CryptoAccountsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAccountsController.swift; sourceTree = "<group>"; };
+		780DF4D62BC852F600EDADBC /* TRC20PriceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRC20PriceResponse.swift; sourceTree = "<group>"; };
 		785269BA2BC799C600757C02 /* BasicAccountCreateFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAccountCreateFormView.swift; sourceTree = "<group>"; };
 		785269C02BC7B7FD00757C02 /* TRC20Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRC20Client.swift; sourceTree = "<group>"; };
 		78526A072BC7BCBC00757C02 /* WithPriceTokens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WithPriceTokens.swift; sourceTree = "<group>"; };
@@ -61,6 +64,7 @@
 		78A14B0C2BC712EC00CA7B12 /* BankAccountExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountExtension.swift; sourceTree = "<group>"; };
 		78A14B0E2BC7146500CA7B12 /* BankAccountDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountDetailsView.swift; sourceTree = "<group>"; };
 		78A14B142BC71F4400CA7B12 /* ListIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListIconView.swift; sourceTree = "<group>"; };
+		78D205B32BC91C550083CF53 /* TRC20TokensResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRC20TokensResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,8 @@
 			children = (
 				78526A082BC7BCBC00757C02 /* TRC20AccountResponse.swift */,
 				78526A072BC7BCBC00757C02 /* WithPriceTokens.swift */,
+				780DF4D62BC852F600EDADBC /* TRC20PriceResponse.swift */,
+				78D205B32BC91C550083CF53 /* TRC20TokensResponse.swift */,
 			);
 			path = "trc20-entities";
 			sourceTree = "<group>";
@@ -299,6 +305,7 @@
 				78526A142BC7CC1100757C02 /* TRC20ItemView.swift in Sources */,
 				785269BB2BC799C600757C02 /* BasicAccountCreateFormView.swift in Sources */,
 				785366D32BC7970400DB180D /* ManagedBankAccountFormView.swift in Sources */,
+				780DF4D72BC852F600EDADBC /* TRC20PriceResponse.swift in Sources */,
 				7876ABB72BC52B8A00323F65 /* CreateBankAccountView.swift in Sources */,
 				788A897C2BC514940002F91E /* Persistence.swift in Sources */,
 				78A14B152BC71F4400CA7B12 /* ListIconView.swift in Sources */,
@@ -312,6 +319,7 @@
 				78526A0A2BC7BCBC00757C02 /* TRC20AccountResponse.swift in Sources */,
 				78526A092BC7BCBC00757C02 /* WithPriceTokens.swift in Sources */,
 				780DF4D52BC7F24800EDADBC /* CryptoAccountsController.swift in Sources */,
+				78D205B42BC91C550083CF53 /* TRC20TokensResponse.swift in Sources */,
 				78A14B0D2BC712EC00CA7B12 /* BankAccountExtension.swift in Sources */,
 				788A898E2BC519440002F91E /* BankAccountsView.swift in Sources */,
 				7876ABB92BC52D2400323F65 /* Currencies.swift in Sources */,
