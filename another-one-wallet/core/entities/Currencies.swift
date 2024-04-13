@@ -21,6 +21,7 @@ struct AppCurrency : Hashable {
     enum Currencies: String, CaseIterable {
         case USD = "USD"
         case RUB = "RUB"
+        case EUR = "EUR"
     }
     
     enum CryptoCurrencies: String, CaseIterable {

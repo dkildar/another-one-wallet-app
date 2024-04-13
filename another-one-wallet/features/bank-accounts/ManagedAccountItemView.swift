@@ -25,7 +25,7 @@ struct ManagedAccountItemView: View {
                 
                 Spacer()
         
-                Text(String(format: "%.2f", account.balance) + "$")
+                Text(String(format: "%.2f", account.balance) + account.getCurrencySymbol())
                     .font(.caption)
                     .foregroundStyle(Color.blue)
             }

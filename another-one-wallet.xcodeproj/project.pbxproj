@@ -20,6 +20,7 @@
 		785366D52BC7971300DB180D /* LinkedCryptoAccountFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785366D42BC7971200DB180D /* LinkedCryptoAccountFormView.swift */; };
 		7876ABB72BC52B8A00323F65 /* CreateBankAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7876ABB62BC52B8A00323F65 /* CreateBankAccountView.swift */; };
 		7876ABB92BC52D2400323F65 /* Currencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7876ABB82BC52D2400323F65 /* Currencies.swift */; };
+		788464BB2BCAFD9900911216 /* TopAccountsBalancesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788464BA2BCAFD9900911216 /* TopAccountsBalancesView.swift */; };
 		788A89732BC514930002F91E /* another_one_walletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788A89722BC514930002F91E /* another_one_walletApp.swift */; };
 		788A89752BC514930002F91E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788A89742BC514930002F91E /* ContentView.swift */; };
 		788A89772BC514940002F91E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 788A89762BC514940002F91E /* Assets.xcassets */; };
@@ -56,6 +57,7 @@
 		785366D42BC7971200DB180D /* LinkedCryptoAccountFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedCryptoAccountFormView.swift; sourceTree = "<group>"; };
 		7876ABB62BC52B8A00323F65 /* CreateBankAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBankAccountView.swift; sourceTree = "<group>"; };
 		7876ABB82BC52D2400323F65 /* Currencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currencies.swift; sourceTree = "<group>"; };
+		788464BA2BCAFD9900911216 /* TopAccountsBalancesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAccountsBalancesView.swift; sourceTree = "<group>"; };
 		788A896F2BC514930002F91E /* another-one-wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "another-one-wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		788A89722BC514930002F91E /* another_one_walletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = another_one_walletApp.swift; sourceTree = "<group>"; };
 		788A89742BC514930002F91E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				788A89892BC519050002F91E /* HomeView.swift */,
+				788464BA2BCAFD9900911216 /* TopAccountsBalancesView.swift */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -200,7 +203,6 @@
 			isa = PBXGroup;
 			children = (
 				78E00D312BC9B3FD00A300D4 /* AccountDetails */,
-				78D205B52BC92A5C0083CF53 /* ManagedAccountRecords */,
 				78526A122BC7CBFC00757C02 /* CryptoAccountItem */,
 				788A898D2BC519440002F91E /* BankAccountsView.swift */,
 				7876ABB62BC52B8A00323F65 /* CreateBankAccountView.swift */,
@@ -240,13 +242,6 @@
 				78E00D2F2BC98E5100A300D4 /* CreateAccountRecordView.swift */,
 			);
 			path = shared;
-			sourceTree = "<group>";
-		};
-		78D205B52BC92A5C0083CF53 /* ManagedAccountRecords */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ManagedAccountRecords;
 			sourceTree = "<group>";
 		};
 		78E00D312BC9B3FD00A300D4 /* AccountDetails */ = {
@@ -355,6 +350,7 @@
 				788A897F2BC514940002F91E /* another_one_wallet.xcdatamodeld in Sources */,
 				78D205B72BC92EF50083CF53 /* ToolbarPlusMenuView.swift in Sources */,
 				785269C12BC7B7FD00757C02 /* TRC20Client.swift in Sources */,
+				788464BB2BCAFD9900911216 /* TopAccountsBalancesView.swift in Sources */,
 				785366D52BC7971300DB180D /* LinkedCryptoAccountFormView.swift in Sources */,
 				78526A0C2BC7BDF300757C02 /* ManagedAccountItemView.swift in Sources */,
 				78526A0E2BC7BDFE00757C02 /* CryptoAccountItemView.swift in Sources */,

@@ -17,7 +17,7 @@ struct HistoryRecordItemView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
             HStack {
-                Text((record.type == "incoming" ? "+" : "-") + String(format: "%.2f", record.amount) + "$")
+                Text((record.type == "incoming" ? "+" : "-") + String(format: "%.2f", record.amount) + (record.account?.getCurrencySymbol() ?? "$"))
                     .foregroundStyle(record.type == "incoming" ? .green : .red)
                 
                 Spacer()

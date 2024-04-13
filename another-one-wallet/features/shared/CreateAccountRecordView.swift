@@ -23,6 +23,7 @@ struct CreateAccountRecordView: View {
     @State var type: String = "incoming"
     @State var amount: Double = 0.0
     @State var amountColor: Color = .black
+    @State var accountInstance: BankAccount? = nil
     
     var body: some View {
         NavigationView {
@@ -40,7 +41,7 @@ struct CreateAccountRecordView: View {
                         .padding(.bottom)
                     
                     Spacer()
-                    Text("$")
+                    Text(accountInstance?.getCurrencySymbol() ?? "$")
                         .foregroundStyle(.gray)
                 }
                 TextField("Title", text: $title)
@@ -86,7 +87,9 @@ struct CreateAccountRecordView: View {
             calculateColor()
         }
         .onChange(of: account) {
-            print(account)
+            accountInstance = accounts.first(where: { a in
+                return a.name == account
+            })
         }
     }
     

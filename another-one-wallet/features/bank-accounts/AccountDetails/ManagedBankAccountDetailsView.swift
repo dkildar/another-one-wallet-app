@@ -37,11 +37,12 @@ struct ManagedBankAccountDetailsView: View {
                             
                             Spacer()
                             
-                            Text("$")
+                            Text(account.getCurrencySymbol())
                                 .foregroundStyle(.gray)
                         }
                         Text(account.currency ?? "")
                             .foregroundStyle(.gray)
+                            .padding(.bottom, 16)
                         
                         Chart {
                             ForEach(balanceChartItems, id: \.self) { item in
@@ -88,7 +89,6 @@ struct ManagedBankAccountDetailsView: View {
                     
                     // Calculate chart data
                     balanceChartItems.append(ManagedAccountChartData(amount: tempBalance - record.getSignedAmount(), date: record.created ?? Date()))
-                    print(balanceChartItems)
                 }
                 
                 records = recordsMap
