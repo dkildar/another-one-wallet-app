@@ -65,6 +65,7 @@ struct CreateAccountRecordView: View {
                     })
                     record.type = type
                     record.amount = amount
+                    record.created = Date.now
                     
                     record.account?.balance += type == "incoming" ? amount : amount * -1
                     

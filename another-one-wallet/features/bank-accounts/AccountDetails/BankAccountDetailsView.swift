@@ -17,16 +17,26 @@ struct BankAccountDetailsView: View {
     
     var body: some View {
         VStack {
-            List {
-                Button {
-                    isConfirmationPresented.toggle()
-                } label: {
-                    HStack {
-                        Image(systemName: "trash")
-                        Text("Delete account")
+            VStack {
+                if BankAccountType.init(rawValue: account.type) == .Managing {
+                    ManagedBankAccountDetailsView(account: account)
+                } else {
+                    EmptyView()
+                }
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Menu {
+                        Button {
+                            isConfirmationPresented.toggle()
+                        } label: {
+                            Label("Delete account", image: "trash")
+                                .foregroundStyle(.red)
+                        }
+                    } label: {
+                        Image(systemName: "gear.circle")
                     }
                 }
-                .foregroundColor(.red)
             }
         }
         .confirmationDialog("Are you sure?", isPresented: $isConfirmationPresented) {
