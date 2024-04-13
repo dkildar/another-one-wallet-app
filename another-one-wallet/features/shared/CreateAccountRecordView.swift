@@ -13,6 +13,8 @@ let RECORD_TYPES = [
 ]
 
 struct CreateAccountRecordView: View {
+    var presetAccount: BankAccount? = nil
+    
     @Environment(\.managedObjectContext) var context
     @Environment(\.dismiss) var dismiss
     @FetchRequest(sortDescriptors: []) var accounts: FetchedResults<BankAccount>
@@ -24,6 +26,12 @@ struct CreateAccountRecordView: View {
     @State var amount: Double = 0.0
     @State var amountColor: Color = .black
     @State var accountInstance: BankAccount? = nil
+    
+    init() {}
+    
+    init(bankAccount: BankAccount) {
+        presetAccount = bankAccount
+    }
     
     var body: some View {
         NavigationView {
@@ -90,6 +98,12 @@ struct CreateAccountRecordView: View {
             accountInstance = accounts.first(where: { a in
                 return a.name == account
             })
+        }
+        .onAppear {
+            if let presetAccount = presetAccount {
+                account = presetAccount.name!
+                accountInstance = presetAccount
+            }
         }
     }
     

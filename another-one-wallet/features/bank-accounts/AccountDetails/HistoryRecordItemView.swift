@@ -22,7 +22,7 @@ struct HistoryRecordItemView: View {
                 
                 Spacer()
                 
-                // TODO Сделать группы истории листа по дням
+                // TODO 
                 //      добавить возможность прикрепить фото
                 Text(String(record.created?.formatted(.dateTime.hour().minute()) ?? ""))
                     .font(.caption)

@@ -30,9 +30,9 @@ struct BankAccountDetailsView: View {
                         Button {
                             isConfirmationPresented.toggle()
                         } label: {
-                            Label("Delete account", image: "trash")
-                                .foregroundStyle(.red)
+                            Label("Delete account", systemImage: "trash")
                         }
+                        .foregroundStyle(.red)
                     } label: {
                         Image(systemName: "gear.circle")
                     }

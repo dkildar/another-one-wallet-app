@@ -20,6 +20,7 @@ struct ManagedBankAccountDetailsView: View {
     
     @State var records: [Date: [ManagedAccountRecord]] = [:]
     @State var balanceChartItems: [ManagedAccountChartData] = []
+    @State var isCreateRecordPresented = false
     
     init(account: BankAccount) {
         self.account = account
@@ -56,6 +57,15 @@ struct ManagedBankAccountDetailsView: View {
                     }
                 }
                 .padding(.vertical, 8)
+                
+                Section {
+                    Button {
+                        isCreateRecordPresented.toggle()
+                    } label: {
+                        Label("Create a record", systemImage: "plus.app")
+                    }
+                }
+                
                 ForEach(Array(records.keys), id: \.self) { date in
                     Section(header: Text(date.formatted(.dateTime.day().month().year()))) {
                         ForEach(records[date] ?? [], id: \.self) { record in
@@ -64,6 +74,9 @@ struct ManagedBankAccountDetailsView: View {
                     }
                 }
             }
+        }
+        .sheet(isPresented: $isCreateRecordPresented) {
+            CreateAccountRecordView(bankAccount: account)
         }
         .onAppear {
             let request = ManagedAccountRecord.fetchRequest()
