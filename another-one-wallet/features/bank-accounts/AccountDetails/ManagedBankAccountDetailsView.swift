@@ -6,6 +6,12 @@
 //
 
 import SwiftUI
+import Charts
+
+struct ManagedAccountChartData : Hashable {
+    var amount: Double
+    var date: Date
+}
 
 struct ManagedBankAccountDetailsView: View {
     @Environment(\.managedObjectContext) var context
@@ -13,6 +19,7 @@ struct ManagedBankAccountDetailsView: View {
     var account: BankAccount
     
     @State var records: [Date: [ManagedAccountRecord]] = [:]
+    @State var balanceChartItems: [ManagedAccountChartData] = []
     
     init(account: BankAccount) {
         self.account = account
@@ -35,9 +42,19 @@ struct ManagedBankAccountDetailsView: View {
                         }
                         Text(account.currency ?? "")
                             .foregroundStyle(.gray)
+                        
+                        Chart {
+                            ForEach(balanceChartItems, id: \.self) { item in
+                                LineMark(
+                                    x: .value("Date", item.date),
+                                    y: .value("Value", item.amount)
+                                )
+                                .foregroundStyle(.green)
+                            }
+                        }
                     }
-                    .padding(.vertical, 8)
                 }
+                .padding(.vertical, 8)
                 ForEach(Array(records.keys), id: \.self) { date in
                     Section(header: Text(date.formatted(.dateTime.day().month().year()))) {
                         ForEach(records[date] ?? [], id: \.self) { record in
@@ -51,11 +68,14 @@ struct ManagedBankAccountDetailsView: View {
             let request = ManagedAccountRecord.fetchRequest()
             request.sortDescriptors = [NSSortDescriptor(keyPath: \ManagedAccountRecord.created, ascending: false)]
             request.predicate = NSPredicate(format: "account.id=%@", account.id?.uuidString ?? "")
-
+            
             do {
                 let results = try context.fetch(request)
                 var recordsMap: [Date: [ManagedAccountRecord]] = [:]
+                var balanceChartItems: [ManagedAccountChartData] = [ManagedAccountChartData(amount: Double(account.balance), date: Date.now)]
                 
+                // Uses for calucalting chart data
+                let tempBalance = Double(account.balance)
                 for record in results {
                     guard let recordDate = record.created else {
                         continue
@@ -65,11 +85,14 @@ struct ManagedBankAccountDetailsView: View {
                         recordsMap[date] = []
                     }
                     recordsMap[date]?.append(record)
+                    
+                    // Calculate chart data
+                    balanceChartItems.append(ManagedAccountChartData(amount: tempBalance - record.getSignedAmount(), date: record.created ?? Date()))
+                    print(balanceChartItems)
                 }
                 
                 records = recordsMap
-                
-                print("Direct fetch count: \(results.count)")
+                self.balanceChartItems = balanceChartItems
             } catch {
                 print("Fetch failed")
             }

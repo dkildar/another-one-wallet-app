@@ -39,6 +39,7 @@
 		78E00D332BC9B41500A300D4 /* ManagedBankAccountDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E00D322BC9B41500A300D4 /* ManagedBankAccountDetailsView.swift */; };
 		78E00D352BC9B6E200A300D4 /* HistoryRecordItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E00D342BC9B6E200A300D4 /* HistoryRecordItemView.swift */; };
 		78E00D392BCAEB5500A300D4 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E00D382BCAEB5500A300D4 /* Date.swift */; };
+		78E00D3B2BCAEDE900A300D4 /* ManagedAccountRecordExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E00D3A2BCAEDE900A300D4 /* ManagedAccountRecordExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,7 @@
 		78E00D322BC9B41500A300D4 /* ManagedBankAccountDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedBankAccountDetailsView.swift; sourceTree = "<group>"; };
 		78E00D342BC9B6E200A300D4 /* HistoryRecordItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRecordItemView.swift; sourceTree = "<group>"; };
 		78E00D382BCAEB5500A300D4 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		78E00D3A2BCAEDE900A300D4 /* ManagedAccountRecordExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedAccountRecordExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +227,7 @@
 			children = (
 				7876ABB82BC52D2400323F65 /* Currencies.swift */,
 				78A14B0C2BC712EC00CA7B12 /* BankAccountExtension.swift */,
+				78E00D3A2BCAEDE900A300D4 /* ManagedAccountRecordExtension.swift */,
 			);
 			path = entities;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				788A89752BC514930002F91E /* ContentView.swift in Sources */,
 				78E00D302BC98E5100A300D4 /* CreateAccountRecordView.swift in Sources */,
 				78A14B0F2BC7146500CA7B12 /* BankAccountDetailsView.swift in Sources */,
+				78E00D3B2BCAEDE900A300D4 /* ManagedAccountRecordExtension.swift in Sources */,
 				78526A0A2BC7BCBC00757C02 /* TRC20AccountResponse.swift in Sources */,
 				78526A092BC7BCBC00757C02 /* WithPriceTokens.swift in Sources */,
 				780DF4D52BC7F24800EDADBC /* CryptoAccountsController.swift in Sources */,
