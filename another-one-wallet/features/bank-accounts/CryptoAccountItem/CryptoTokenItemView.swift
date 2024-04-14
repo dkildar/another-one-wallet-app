@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TRC20ItemView: View {
+struct CryptoTokenItemView: View {
     var token: CryptoToken
     
     init(token: CryptoToken) {

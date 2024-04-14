@@ -43,7 +43,7 @@ struct CryptoAccountItemView: View {
                 }
                 VStack(alignment: .leading, spacing: 12) {
                     ForEach(tokens, id: \.id) { token in
-                        TRC20ItemView(token: token)
+                        CryptoTokenItemView(token: token)
                         
                         if tokens.last != token {
                             Divider()

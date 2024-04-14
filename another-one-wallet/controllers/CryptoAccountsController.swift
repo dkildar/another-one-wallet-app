@@ -60,9 +60,31 @@ class CryptoAccountsController : ObservableObject {
             }
             
             try? context.save()
+        case .SOL:
+            guard let balanceDetails = try? await fetchSOLAccountBalance(address: account.address) else {
+                return
+            }
+            
+            account.balance = 0.0
+            account.tokens = []
+            
+            let normalizedBalance = Double(balanceDetails.result.value) / 1000000000.0
+            let tokenEntity = CryptoToken(context: self.context)
+            tokenEntity.balance = String(normalizedBalance)
+            tokenEntity.logo = "https://solana.com/src/img/branding/solanaLogoMark.png"
+            tokenEntity.name = "Solana"
+            tokenEntity.id = UUID()
+            tokenEntity.abbr = "sol"
+            
+            let usdBalance = try? await fetchCoinGeckoPrice(currency: "solana", vsCurrency: "usd")
+            
+            tokenEntity.usdBalance = String(usdBalance?.solana?.usd ?? 0.0 * Double(normalizedBalance))
+            
+            account.balance = (usdBalance?.solana?.usd ?? 0.0) * Double(normalizedBalance)
+            account.addToTokens(tokenEntity)
+            
+            try? context.save()
         case .none:
-            return
-        case .some(.SOL):
             return
         }
     }
@@ -75,6 +97,18 @@ class CryptoAccountsController : ObservableObject {
         return try await wrapApiRequest(request: TRC20Client.shared.fetchTokens(address: address))
     }
     
+    private func fetchSOLAccountBalance(address: String?) async throws -> SolanaBalanceRPCResponse? {
+        guard let address = address else {
+            return nil
+        }
+        
+        return try await wrapApiRequest(request: SolanaClient.shared.fetchBalance(address: address))
+    }
+    
+    private func fetchCoinGeckoPrice(currency: String, vsCurrency: String) async throws -> CoinGeckoPriceResponse? {
+        return try await wrapApiRequest(request: CoinGeckoClient.shared.fetchPrice(currency: currency, opposite: vsCurrency))
+    }
+    
     private func wrapApiRequest<T>(request: AnyPublisher<T, Error>) async throws -> T? {
         return try await withCheckedThrowingContinuation { continuation in
             Task {
@@ -82,7 +116,7 @@ class CryptoAccountsController : ObservableObject {
                     .sink(
                         receiveCompletion: { completion in
                             if case let .failure(error) = completion {
-                                debugPrint("TRC20 account fetching failed with \(error)")
+                                debugPrint("Account fetching failed with \(error)")
                                 continuation.resume(throwing: error)
                             }
                         },
