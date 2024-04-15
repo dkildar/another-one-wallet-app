@@ -30,8 +30,6 @@ struct BankAccountDetailsView: View {
             VStack {
                 if BankAccountType.init(rawValue: account.type) == .Managing {
                     ManagedBankAccountDetailsView(account: account)
-                } else if let token = token {
-                    CryptoAccountDetailsView(account: account, token: token)
                 }
             }
             .toolbar {

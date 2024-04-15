@@ -24,7 +24,8 @@ struct TopAccountsBalancesView: View {
             .padding(.bottom, 4)
             Chart(accounts) { account in
                 BarMark(
-                    x: .value("Account", account.balance)
+                    x: .value("Value", account.balance),
+                    y: .value("Account", account.name ?? "")
                 )
                 .foregroundStyle(by: .value("Account", account.name ?? ""))
                 .annotation(position: .overlay, alignment: .center, spacing: 0) {
@@ -33,12 +34,8 @@ struct TopAccountsBalancesView: View {
                         .foregroundStyle(Color.white)
                 }
             }
-            .chartXScale(domain: 0...total)
-            .chartXAxis {
-                AxisMarks(position: .bottom) { _ in
-                    AxisValueLabel().foregroundStyle(.clear)
-                }
-            }
+            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 300)
+//            .chartXScale(domain: 0...total)
         }
         .padding(.vertical, 8)
         .task(id: accounts.count) {

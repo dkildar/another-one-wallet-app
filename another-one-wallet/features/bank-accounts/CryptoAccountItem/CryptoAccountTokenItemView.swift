@@ -41,7 +41,7 @@ struct CryptoAccountItemView: View {
             }
             ForEach(tokens, id: \.id) { token in
                 NavigationLink {
-                    BankAccountDetailsView(account: account, token: token)
+                    CryptoAccountDetailsView(account: account, token: token)
                         .navigationTitle("\(account.name ?? "") – \(token.name ?? "")")
                 } label: {
                     CryptoTokenItemView(token: token)
