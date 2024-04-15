@@ -14,19 +14,29 @@ struct BankAccountsView: View {
     
     var body: some View {
         NavigationStack {
-            List(accounts, id: \.id) { account in
-                VStack {
-                    NavigationLink {
-                        BankAccountDetailsView(account: .constant(account))
-                            .navigationTitle(account.name ?? "")
-                    } label: {
-                        if (account.getAccountType() == .Managing) {
+            List {
+                ForEach(accounts.filter({ account in
+                    return BankAccountType.init(rawValue: account.type) == .LinkedCrypto
+                })) { account in
+                    Section {
+                        CryptoAccountItemView(account: account)
+                    }
+                    .padding(.vertical, 8)
+                }
+                
+                Section("Managing accounts") {
+                    ForEach(accounts.filter({ account in
+                        return BankAccountType.init(rawValue: account.type) == .Managing
+                    })) {account in
+                        NavigationLink {
+                            BankAccountDetailsView(account: account)
+                                .navigationTitle(account.name ?? "")
+                        } label: {
                             ManagedAccountItemView(account: account)
-                        } else if (account.getAccountType() == .LinkedCrypto) {
-                            CryptoAccountItemView(account: account)
                         }
                     }
-                }.padding(.vertical, 8)
+                }
+                .padding(.vertical, 8)
             }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {

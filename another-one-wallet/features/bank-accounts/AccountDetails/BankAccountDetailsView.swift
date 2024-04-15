@@ -11,17 +11,27 @@ struct BankAccountDetailsView: View {
     @Environment(\.managedObjectContext) var viewContext
     @Environment(\.dismiss) var dismiss
 
-    @Binding var account: BankAccount
+    var account: BankAccount
+    var token: CryptoToken?
     
     @State var isConfirmationPresented = false
+    
+    init(account: BankAccount) {
+        self.account = account
+    }
+    
+    init(account: BankAccount, token: CryptoToken) {
+        self.account = account
+        self.token = token
+    }
     
     var body: some View {
         VStack {
             VStack {
                 if BankAccountType.init(rawValue: account.type) == .Managing {
                     ManagedBankAccountDetailsView(account: account)
-                } else {
-                    EmptyView()
+                } else if let token = token {
+                    CryptoAccountDetailsView(account: account, token: token)
                 }
             }
             .toolbar {
@@ -46,8 +56,4 @@ struct BankAccountDetailsView: View {
             }
         }
     }
-}
-
-#Preview {
-    BankAccountDetailsView(account: .constant(BankAccount()))
 }

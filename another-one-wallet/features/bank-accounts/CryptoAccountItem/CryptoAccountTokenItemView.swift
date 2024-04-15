@@ -17,39 +17,36 @@ struct CryptoAccountItemView: View {
     }
     
     var body: some View {
-        HStack(alignment: .top) {
-            ListIconView(string: account.icon ?? "", bgColor: .green)
-                .padding(.trailing, 4)
-            
-            VStack(alignment: .leading) {
-                HStack {
-                    VStack(alignment: .leading) {
-                        Text(account.name ?? "")
-                        Text(account.cryptoNetwork ?? "")
-                            .font(.caption)
-                            .foregroundColor(.gray)
-                    }
-                    
-                    Spacer()
-                    
-                    VStack(alignment: .trailing) {
-                        Text("Total")
-                            .font(.caption)
-                            .foregroundStyle(Color.gray)
-                        Text(String(format: "%.2f", Double(account.balance)) + "$")
-                            .font(.caption)
-                            .foregroundStyle(Color.green)
-                    }
+        Group {
+            HStack {
+                ListIconView(string: account.icon ?? "", bgColor: .green)
+                    .padding(.trailing, 4)
+                VStack(alignment: .leading) {
+                    Text(account.name ?? "")
+                    Text(account.cryptoNetwork ?? "")
+                        .font(.caption)
+                        .foregroundColor(.gray)
                 }
-                VStack(alignment: .leading, spacing: 12) {
-                    ForEach(tokens, id: \.id) { token in
-                        CryptoTokenItemView(token: token)
-                        
-                        if tokens.last != token {
-                            Divider()
-                        }
-                    }
-                }.padding(.top, 16)
+                
+                Spacer()
+                
+                VStack(alignment: .trailing) {
+                    Text("Total")
+                        .font(.caption)
+                        .foregroundStyle(Color.gray)
+                    Text(String(format: "%.2f", Double(account.balance)) + "$")
+                        .font(.caption)
+                        .foregroundStyle(Color.green)
+                }
+            }
+            ForEach(tokens, id: \.id) { token in
+                NavigationLink {
+                    BankAccountDetailsView(account: account, token: token)
+                        .navigationTitle("\(account.name ?? "") – \(token.name ?? "")")
+                } label: {
+                    CryptoTokenItemView(token: token)
+                }
+                .padding(.leading, 48)
             }
         }
         .onAppear {

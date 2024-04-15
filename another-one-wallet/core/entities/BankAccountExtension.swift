@@ -31,8 +31,8 @@ extension BankAccount {
     func getCurrencySymbol() -> String {
         let locale = NSLocale(localeIdentifier: "en")
         if let currency = currency?.uppercased() {
-            return locale.displayName(forKey: NSLocale.Key.currencySymbol, value: currency) ?? "$$$"
+            return locale.displayName(forKey: NSLocale.Key.currencySymbol, value: currency) ?? "$"
         }
-        return "$$"
+        return currency ?? "USD"
     }
 }
