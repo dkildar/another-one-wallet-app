@@ -76,7 +76,7 @@ class CryptoAccountsController : ObservableObject {
             tokenEntity.id = UUID()
             tokenEntity.abbr = "sol"
             
-            let usdBalance = try? await fetchCoinGeckoPrice(currency: "solana", vsCurrency: "usd")
+            let usdBalance = try? await CoinGeckoClient.shared.fetchPrice(currency: "solana", opposite: "usd")
             
             tokenEntity.usdBalance = String(usdBalance?.solana?.usd ?? 0.0 * Double(normalizedBalance))
             
@@ -94,7 +94,7 @@ class CryptoAccountsController : ObservableObject {
             return nil
         }
         
-        return try await wrapApiRequest(request: TRC20Client.shared.fetchTokens(address: address))
+        return try await TRC20Client.shared.fetchTokens(address: address)
     }
     
     private func fetchSOLAccountBalance(address: String?) async throws -> SolanaBalanceRPCResponse? {
@@ -102,30 +102,6 @@ class CryptoAccountsController : ObservableObject {
             return nil
         }
         
-        return try await wrapApiRequest(request: SolanaClient.shared.fetchBalance(address: address))
-    }
-    
-    private func fetchCoinGeckoPrice(currency: String, vsCurrency: String) async throws -> CoinGeckoPriceResponse? {
-        return try await wrapApiRequest(request: CoinGeckoClient.shared.fetchPrice(currency: currency, opposite: vsCurrency))
-    }
-    
-    private func wrapApiRequest<T>(request: AnyPublisher<T, Error>) async throws -> T? {
-        return try await withCheckedThrowingContinuation { continuation in
-            Task {
-                request
-                    .sink(
-                        receiveCompletion: { completion in
-                            if case let .failure(error) = completion {
-                                debugPrint("Account fetching failed with \(error)")
-                                continuation.resume(throwing: error)
-                            }
-                        },
-                        receiveValue: { response in
-                            continuation.resume(returning: response)
-                        }
-                    )
-                    .store(in: &cancellable)
-            }
-        }
+        return try await SolanaClient.shared.fetchBalance(address: address)
     }
 }
