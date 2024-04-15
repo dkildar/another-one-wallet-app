@@ -33,6 +33,12 @@ struct CryptoAccountDetailsView: View {
                         }
                         Text("≈ " + String(format: "%.2f", (Double(token.usdBalance ?? "0") ?? 0)) + "$")
                             .foregroundStyle(.gray)
+                        
+                        let originalBalance = (Double(token.usdBalance ?? "0.0") ?? 0.0) / (Double(token.balance ?? "0.0") ?? 0.0)
+                        Text("1\(token.abbr?.uppercased() ?? "") = \(String(format: "%.2f", originalBalance))$")
+                            .foregroundStyle(.gray)
+                            .font(.caption)
+                            .padding(.top, 8)
                     }
                 }
                 .padding(.vertical, 8)
