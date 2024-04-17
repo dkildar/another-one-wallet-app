@@ -15,3 +15,7 @@
   <li><b>Cryptocurrency Account Linking</b>. Securely link your cryptocurrency wallets and view your balances, currency rates, and detailed transactions history.</li>
   <li><b>Aggregated Home Screen</b> View all critical financial information at a glance on the home screen which aggregates data from all linked accounts and wallets.</li>
 </ul>
+<h2>Screenshots</h2>
+<div>
+  <img width="496" alt="Untitled" src="https://github.com/dkildar/another-one-wallet-app/assets/22168715/5688feab-420e-464b-8f02-eae5b4f4ccb4">
+</div>
