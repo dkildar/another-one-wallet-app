@@ -8,10 +8,14 @@
 import SwiftUI
 
 struct HistoryRecordItemView: View {
-    var record: ManagedAccountRecord
+    @EnvironmentObject var persistentController: PersistenceController
     
-    init(record: ManagedAccountRecord) {
+    var record: ManagedAccountRecord
+    var onDelete: () -> Void
+    
+    init(record: ManagedAccountRecord, onDelete: @escaping () -> Void) {
         self.record = record
+        self.onDelete = onDelete
     }
     
     var body: some View {
@@ -38,5 +42,22 @@ struct HistoryRecordItemView: View {
             }
         }
         .padding(.vertical, 4)
+        .swipeActions(edge: .leading) {
+            Button {
+                
+            } label: {
+                Label("Edit", systemImage: "pencil")
+            }
+            .tint(.gray)
+        }
+        .swipeActions(edge: .trailing) {
+            Button {
+                onDelete()
+                persistentController.delete(item: record)
+            } label: {
+                Label("Remove", systemImage: "trash")
+            }
+            .tint(.red)
+        }
     }
 }

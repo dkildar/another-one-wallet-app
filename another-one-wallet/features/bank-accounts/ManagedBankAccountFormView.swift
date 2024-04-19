@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ManagedBankAccountFormView: View {
-    @Environment(\.managedObjectContext) var managedObjectContext
+    @EnvironmentObject var persistenceController: PersistenceController
     @Environment(\.dismiss) var dismiss
     
     @State var initialBalance = 0.0
@@ -23,11 +23,8 @@ struct ManagedBankAccountFormView: View {
             account.balance = initialBalance
             account.currency = currency.currency.identifier
             
-            do {
-                try managedObjectContext.save()
-            } catch {
-                print(error)
-            }
+            persistenceController.save(affectedItems: [account])
+            
             dismiss()
         }) {
             Picker(selection: $currency, label: Text("Currency")) {

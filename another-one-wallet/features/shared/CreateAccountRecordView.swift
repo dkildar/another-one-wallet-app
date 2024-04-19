@@ -80,7 +80,7 @@ struct CreateAccountRecordView: View {
                     
                     record.account?.balance += type == "incoming" ? amount : amount * -1
                     
-                    persistenceController.save()
+                    persistenceController.save(affectedItems: [record, record.account!])
                     dismiss()
                 } label: {
                     Text("Create record")

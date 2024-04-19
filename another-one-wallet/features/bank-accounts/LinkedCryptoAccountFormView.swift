@@ -10,7 +10,7 @@ import SFSymbolsPicker
 
 struct LinkedCryptoAccountFormView: View {
     @EnvironmentObject var cryptoAccountController: CryptoAccountsController
-    @Environment(\.managedObjectContext) var managedObjectContext
+    @EnvironmentObject var persistenceController: PersistenceController
     @Environment(\.dismiss) var dismiss
     
     @State var address: String = ""
@@ -22,12 +22,9 @@ struct LinkedCryptoAccountFormView: View {
             account.address = address
             account.cryptoNetwork = network.rawValue
             
-            do {
-                try managedObjectContext.save()
-                cryptoAccountController.loadAccounts()
-            } catch {
-                print(error)
-            }
+            persistenceController.save(affectedItems: [account])
+            cryptoAccountController.loadAccounts()
+            
             dismiss()
         }) {
             TextField("Crypto address", text: $address)

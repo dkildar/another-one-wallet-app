@@ -27,7 +27,7 @@ struct BankAccountsView: View {
                 Section("Managing accounts") {
                     ForEach(accounts.filter({ account in
                         return BankAccountType.init(rawValue: account.type) == .Managing
-                    })) {account in
+                    }), id: \.id) {account in
                         NavigationLink {
                             BankAccountDetailsView(account: account)
                                 .navigationTitle(account.name ?? "")

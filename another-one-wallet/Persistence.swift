@@ -57,14 +57,18 @@ class PersistenceController : ObservableObject {
         container.viewContext.automaticallyMergesChangesFromParent = true
     }
     
-    func save() {
+    func save(affectedItems: [NSManagedObject]) {
         // Verify that the context has uncommitted changes.
         guard container.viewContext.hasChanges else { return }
         
         do {
             // Attempt to save changes.
             try container.viewContext.save()
-            container.viewContext.reset()
+            
+            affectedItems.forEach { item in
+                container.viewContext.refresh(item, mergeChanges: true)
+            }
+            
             sessionID = UUID()
         } catch {
             // Handle the error appropriately.
@@ -72,8 +76,8 @@ class PersistenceController : ObservableObject {
         }
     }
     
-    func delete(item: BankAccount) {
+    func delete(item: NSManagedObject) {
         container.viewContext.delete(item)
-        save()
+        save(affectedItems: [item])
     }
 }

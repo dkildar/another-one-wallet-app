@@ -31,7 +31,7 @@ class CryptoAccountsController : ObservableObject {
                 }
                 
                 // Update cached balance
-                PersistenceController.shared.save()
+                PersistenceController.shared.save(affectedItems: results)
             } catch {
                 print("Crypto accounts fetch failed")
             }
@@ -45,13 +45,9 @@ class CryptoAccountsController : ObservableObject {
         case .TRC20:
             try? await TRC20AccountPopulator(viewContext: context)
                 .populate(account: account, address: address)
-            
-            try? context.save()
         case .SOL:
             try? await SolanaAccountPopulator(viewContext: context)
                 .populate(account: account, address: address)
-            
-            try? context.save()
         case .none:
             return
         }
