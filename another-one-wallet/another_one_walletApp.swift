@@ -16,6 +16,7 @@ struct another_one_walletApp: App {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(persistenceController)
                 .environmentObject(cryptoAccountsController)
                 .onAppear {
                     cryptoAccountsController.loadAccounts()

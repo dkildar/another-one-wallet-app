@@ -10,6 +10,7 @@ import SwiftUI
 struct BankAccountDetailsView: View {
     @Environment(\.managedObjectContext) var viewContext
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var persistenceController: PersistenceController
 
     var account: BankAccount
     var token: CryptoToken?
@@ -49,7 +50,7 @@ struct BankAccountDetailsView: View {
         }
         .confirmationDialog("Are you sure?", isPresented: $isConfirmationPresented) {
             Button("Yes, delete", role: .destructive) {
-                PersistenceController.shared.delete(item: account)
+                persistenceController.delete(item: account)
                 dismiss()
             }
         }

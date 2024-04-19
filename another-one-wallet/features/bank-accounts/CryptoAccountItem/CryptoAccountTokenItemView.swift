@@ -39,7 +39,7 @@ struct CryptoAccountItemView: View {
                         .foregroundStyle(Color.green)
                 }
             }
-            ForEach(tokens, id: \.id) { token in
+            ForEach(tokens, id: \.self) { token in
                 NavigationLink {
                     CryptoAccountDetailsView(account: account, token: token)
                         .navigationTitle("\(account.name ?? "") – \(token.name ?? "")")

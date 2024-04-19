@@ -15,15 +15,63 @@ struct ManagedAccountChartData : Hashable {
 
 struct ManagedBankAccountDetailsView: View {
     @Environment(\.managedObjectContext) var context
+    @EnvironmentObject var persistenceController: PersistenceController
     
     var account: BankAccount
     
-    @State var records: [Date: [ManagedAccountRecord]] = [:]
-    @State var balanceChartItems: [ManagedAccountChartData] = []
+    @FetchRequest var recordsList: FetchedResults<ManagedAccountRecord>
+    
     @State var isCreateRecordPresented = false
+    
+    var balanceChartItems: [ManagedAccountChartData] {
+        get {
+            var balanceChartItems: [ManagedAccountChartData] = [ManagedAccountChartData(amount: Double(account.balance), date: Date.now)]
+            let tempBalance = Double(account.balance)
+            
+            for record in recordsList {
+                guard let recordDate = record.created else {
+                    continue
+                }
+                
+                // Calculate chart data
+                balanceChartItems.append(ManagedAccountChartData(amount: tempBalance - record.getSignedAmount(), date: recordDate))
+            }
+            return balanceChartItems
+        }
+    }
+    var records: Array<(Date, [ManagedAccountRecord])> {
+        get {
+            var recordsMap: [Date: [ManagedAccountRecord]] = [:]
+            for record in recordsList {
+                guard let recordDate = record.created else {
+                    continue
+                }
+                let date = recordDate.clearTime()!
+                if recordsMap[date] == nil {
+                    recordsMap[date] = []
+                }
+                recordsMap[date]?.append(record)
+            }
+            
+            return recordsMap.sorted(by: { $0.0 > $1.0 })
+        }
+    }
     
     init(account: BankAccount) {
         self.account = account
+        
+        let predicate = if let id = account.id?.uuidString {
+            NSPredicate(format: "account.id=%@", id)
+        } else {
+            NSPredicate(format: "account.id=%@", UUID().uuidString)
+        }
+        
+        _recordsList = FetchRequest(
+            sortDescriptors: [
+                NSSortDescriptor(keyPath: \ManagedAccountRecord.created, ascending: false)
+            ],
+            predicate: predicate
+        )
     }
     
     var body: some View {
@@ -46,12 +94,19 @@ struct ManagedBankAccountDetailsView: View {
                             .padding(.bottom, 16)
                         
                         Chart {
-                            ForEach(balanceChartItems, id: \.self) { item in
+                            ForEach(Array(balanceChartItems.enumerated()), id: \.element) { index, item in
                                 LineMark(
-                                    x: .value("Date", item.date),
+                                    x: .value("Date", index),
                                     y: .value("Value", item.amount)
                                 )
                                 .foregroundStyle(.green)
+                            }
+                        }
+                        .chartXAxis {
+                            AxisMarks(preset: .aligned, position: .bottom) { value in
+                                let date = balanceChartItems[value.index].date
+                                AxisGridLine()
+                                AxisValueLabel(DateFormatter().string(from: date), centered: true)
                             }
                         }
                     }
@@ -66,49 +121,18 @@ struct ManagedBankAccountDetailsView: View {
                     }
                 }
                 
-                ForEach(Array(records.keys), id: \.self) { date in
+                ForEach(records, id: \.0) { (date, recordsList) in
                     Section(header: Text(date.formatted(.dateTime.day().month().year()))) {
-                        ForEach(records[date] ?? [], id: \.self) { record in
+                        ForEach(recordsList, id: \.self) { record in
                             HistoryRecordItemView(record: record)
                         }
                     }
                 }
+                .id(persistenceController.sessionID)
             }
         }
         .sheet(isPresented: $isCreateRecordPresented) {
             CreateAccountRecordView(bankAccount: account)
-        }
-        .onAppear {
-            let request = ManagedAccountRecord.fetchRequest()
-            request.sortDescriptors = [NSSortDescriptor(keyPath: \ManagedAccountRecord.created, ascending: false)]
-            request.predicate = NSPredicate(format: "account.id=%@", account.id?.uuidString ?? "")
-            
-            do {
-                let results = try context.fetch(request)
-                var recordsMap: [Date: [ManagedAccountRecord]] = [:]
-                var balanceChartItems: [ManagedAccountChartData] = [ManagedAccountChartData(amount: Double(account.balance), date: Date.now)]
-                
-                // Uses for calucalting chart data
-                let tempBalance = Double(account.balance)
-                for record in results {
-                    guard let recordDate = record.created else {
-                        continue
-                    }
-                    let date = recordDate.clearTime()!
-                    if recordsMap[date] == nil {
-                        recordsMap[date] = []
-                    }
-                    recordsMap[date]?.append(record)
-                    
-                    // Calculate chart data
-                    balanceChartItems.append(ManagedAccountChartData(amount: tempBalance - record.getSignedAmount(), date: record.created ?? Date()))
-                }
-                
-                records = recordsMap
-                self.balanceChartItems = balanceChartItems
-            } catch {
-                print("Fetch failed")
-            }
         }
     }
 }

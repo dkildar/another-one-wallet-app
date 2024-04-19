@@ -17,6 +17,8 @@ struct CreateAccountRecordView: View {
     
     @Environment(\.managedObjectContext) var context
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var persistenceController: PersistenceController
+    
     @FetchRequest(sortDescriptors: []) var accounts: FetchedResults<BankAccount>
     
     @State var title: String = ""
@@ -78,7 +80,7 @@ struct CreateAccountRecordView: View {
                     
                     record.account?.balance += type == "incoming" ? amount : amount * -1
                     
-                    try? context.save()
+                    persistenceController.save()
                     dismiss()
                 } label: {
                     Text("Create record")

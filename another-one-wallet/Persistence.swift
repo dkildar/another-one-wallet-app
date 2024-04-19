@@ -7,7 +7,9 @@
 
 import CoreData
 
-struct PersistenceController {
+class PersistenceController : ObservableObject {
+    @Published var sessionID = UUID()
+    
     static let shared = PersistenceController()
     
     static var preview: PersistenceController = {
@@ -62,6 +64,8 @@ struct PersistenceController {
         do {
             // Attempt to save changes.
             try container.viewContext.save()
+            container.viewContext.reset()
+            sessionID = UUID()
         } catch {
             // Handle the error appropriately.
             print("Failed to save the context:", error.localizedDescription)
