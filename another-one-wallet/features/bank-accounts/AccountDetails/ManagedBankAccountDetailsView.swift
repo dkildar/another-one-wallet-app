@@ -125,7 +125,7 @@ struct ManagedBankAccountDetailsView: View {
                     Section(header: Text(date.formatted(.dateTime.day().month().year()))) {
                         ForEach(recordsList, id: \.self) { record in
                             HistoryRecordItemView(record: record) {
-                                account.balance -= type == "incoming" ? record.amount : record.amount * -1
+                                account.balance -= record.type == "incoming" ? record.amount : record.amount * -1
                             }
                         }
                     }
