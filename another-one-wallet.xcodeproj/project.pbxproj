@@ -10,6 +10,7 @@
 		780DEFA92BD6D76D00352E93 /* ManagedAccountHistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780DEFA82BD6D76D00352E93 /* ManagedAccountHistoryController.swift */; };
 		780DEFAB2BD6E6FD00352E93 /* ManagedAccountHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780DEFAA2BD6E6FD00352E93 /* ManagedAccountHistoryView.swift */; };
 		780DEFAD2BD6E79B00352E93 /* ManagedAccountChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780DEFAC2BD6E79B00352E93 /* ManagedAccountChartView.swift */; };
+		780DEFB02BD6ECB100352E93 /* WhatsNewKit in Frameworks */ = {isa = PBXBuildFile; productRef = 780DEFAF2BD6ECB100352E93 /* WhatsNewKit */; };
 		780DF4D52BC7F24800EDADBC /* CryptoAccountsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780DF4D42BC7F24800EDADBC /* CryptoAccountsController.swift */; };
 		780DF4D72BC852F600EDADBC /* TRC20PriceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780DF4D62BC852F600EDADBC /* TRC20PriceResponse.swift */; };
 		7830CD3B2BD3CA2B00E5535D /* ManagedAccountRecordFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7830CD3A2BD3CA2B00E5535D /* ManagedAccountRecordFormView.swift */; };
@@ -118,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				780DEFB02BD6ECB100352E93 /* WhatsNewKit in Frameworks */,
 				78A14B122BC71B0600CA7B12 /* SFSymbolsPicker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,6 +354,7 @@
 			name = "another-one-wallet";
 			packageProductDependencies = (
 				78A14B112BC71B0600CA7B12 /* SFSymbolsPicker */,
+				780DEFAF2BD6ECB100352E93 /* WhatsNewKit */,
 			);
 			productName = "another-one-wallet";
 			productReference = 788A896F2BC514930002F91E /* another-one-wallet.app */;
@@ -383,6 +386,7 @@
 			mainGroup = 788A89662BC514930002F91E;
 			packageReferences = (
 				78A14B102BC71B0600CA7B12 /* XCRemoteSwiftPackageReference "SFSymbolsPicker" */,
+				780DEFAE2BD6ECB000352E93 /* XCRemoteSwiftPackageReference "WhatsNewKit" */,
 			);
 			productRefGroup = 788A89702BC514930002F91E /* Products */;
 			projectDirPath = "";
@@ -670,6 +674,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		780DEFAE2BD6ECB000352E93 /* XCRemoteSwiftPackageReference "WhatsNewKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SvenTiigi/WhatsNewKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.0;
+			};
+		};
 		78A14B102BC71B0600CA7B12 /* XCRemoteSwiftPackageReference "SFSymbolsPicker" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/alessiorubicini/SFSymbolsPicker";
@@ -681,6 +693,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		780DEFAF2BD6ECB100352E93 /* WhatsNewKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 780DEFAE2BD6ECB000352E93 /* XCRemoteSwiftPackageReference "WhatsNewKit" */;
+			productName = WhatsNewKit;
+		};
 		78A14B112BC71B0600CA7B12 /* SFSymbolsPicker */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 78A14B102BC71B0600CA7B12 /* XCRemoteSwiftPackageReference "SFSymbolsPicker" */;

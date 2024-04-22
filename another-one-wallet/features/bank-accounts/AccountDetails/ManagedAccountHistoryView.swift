@@ -11,8 +11,7 @@ struct ManagedAccountHistoryView: View {
     @Environment(\.managedObjectContext) var context
     @EnvironmentObject var persistenceController: PersistenceController
     
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(key: "created", ascending: false)])
-    var recordsList: FetchedResults<ManagedAccountRecord>
+    @FetchRequest var recordsList: FetchedResults<ManagedAccountRecord>
     
     var account: BankAccount
     
@@ -29,7 +28,8 @@ struct ManagedAccountHistoryView: View {
             sortDescriptors: [
                 NSSortDescriptor(keyPath: \ManagedAccountRecord.created, ascending: false)
             ],
-            predicate: predicate
+            predicate: predicate,
+            animation: .easeInOut
         )
     }
     

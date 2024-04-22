@@ -18,7 +18,7 @@ actor TRC20Client {
                 urlString: "https://apilist.tronscanapi.com/api/account/tokens",
                 method: "GET",
                 queryParams: ["address": address],
-                headers: ["TRON-PRO-API-KEY": ProcessInfo.processInfo.environment["TRONSCAN_API_KEY"]!], responseEntity: TRC20TokensResponse.self
+                headers: ["TRON-PRO-API-KEY": ProcessInfo.processInfo.environment["TRONSCAN_API_KEY"] ?? ""], responseEntity: TRC20TokensResponse.self
             )
         )
     }

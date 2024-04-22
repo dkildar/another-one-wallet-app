@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreData
+import WhatsNewKit
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
@@ -36,6 +37,7 @@ struct ContentView: View {
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
+        .whatsNewSheet()
     }
 }
 

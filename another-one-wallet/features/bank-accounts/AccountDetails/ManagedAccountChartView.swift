@@ -12,8 +12,7 @@ struct ManagedAccountChartView: View {
     @Environment(\.managedObjectContext) var context
     @EnvironmentObject var persistenceController: PersistenceController
     
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(key: "created", ascending: false)])
-    var recordsList: FetchedResults<ManagedAccountRecord>
+    @FetchRequest var recordsList: FetchedResults<ManagedAccountRecord>
     
     var account: BankAccount
     
