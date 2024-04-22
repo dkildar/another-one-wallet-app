@@ -9,6 +9,8 @@ import SwiftUI
 import Charts
 
 struct TopAccountsBalancesView: View {
+    @EnvironmentObject var currenciesWatcherController: CurrenciesWatcherController
+    
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \BankAccount.balance, ascending: false)]) var accounts: FetchedResults<BankAccount>
     
     @State var total = 0
@@ -18,7 +20,7 @@ struct TopAccountsBalancesView: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text("Total funds")
                     .foregroundStyle(Color.gray)
-                Text("\(total)$")
+                Text("\(total)\(Currency.getCurrencySymbol(currency: currenciesWatcherController.currency))")
                     .font(.largeTitle)
             }
             .padding(.bottom, 4)
@@ -39,9 +41,15 @@ struct TopAccountsBalancesView: View {
         }
         .padding(.vertical, 8)
         .task(id: accounts.count) {
-            // todo: convert to single currency
             total = Int(accounts.reduce(0, { partialResult, account in
                 partialResult + (Int(String(format: "%.0f", account.balance)) ?? 0)
+            }))
+        }
+        .task(id: currenciesWatcherController.rateRelatedToUsd) {
+            total = Int(accounts.reduce(0, { partialResult, account in
+                let nextBalance = Double(String(format: "%.0f", account.balance)) ?? 0.0
+                
+                return partialResult + Int(nextBalance * currenciesWatcherController.rateRelatedToUsd)
             }))
         }
     }

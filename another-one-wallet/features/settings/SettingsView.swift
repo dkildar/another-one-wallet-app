@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @EnvironmentObject var currenciesWatcherController: CurrenciesWatcherController
+    
     var body: some View {
         NavigationStack {
             List {
-                NavigationLink {} label: {
-                    Text("Application currency")
+                NavigationLink {
+                    SettingsCurrencySelectionView()
+                        .navigationTitle("Application currency")
+                } label: {
+                    Text("Application currency(\(currenciesWatcherController.currency.rawValue))")
                 }
             }
         }

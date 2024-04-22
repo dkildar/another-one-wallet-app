@@ -11,6 +11,9 @@
 		780DEFAB2BD6E6FD00352E93 /* ManagedAccountHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780DEFAA2BD6E6FD00352E93 /* ManagedAccountHistoryView.swift */; };
 		780DEFAD2BD6E79B00352E93 /* ManagedAccountChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780DEFAC2BD6E79B00352E93 /* ManagedAccountChartView.swift */; };
 		780DEFB02BD6ECB100352E93 /* WhatsNewKit in Frameworks */ = {isa = PBXBuildFile; productRef = 780DEFAF2BD6ECB100352E93 /* WhatsNewKit */; };
+		780DEFB22BD6EFCF00352E93 /* CurrencyConverterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780DEFB12BD6EFCF00352E93 /* CurrencyConverterClient.swift */; };
+		780DEFB42BD6F00E00352E93 /* CurrenciesWatcherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780DEFB32BD6F00E00352E93 /* CurrenciesWatcherController.swift */; };
+		780DEFB62BD6F1C700352E93 /* SettingsCurrencySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780DEFB52BD6F1C700352E93 /* SettingsCurrencySelectionView.swift */; };
 		780DF4D52BC7F24800EDADBC /* CryptoAccountsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780DF4D42BC7F24800EDADBC /* CryptoAccountsController.swift */; };
 		780DF4D72BC852F600EDADBC /* TRC20PriceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780DF4D62BC852F600EDADBC /* TRC20PriceResponse.swift */; };
 		7830CD3B2BD3CA2B00E5535D /* ManagedAccountRecordFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7830CD3A2BD3CA2B00E5535D /* ManagedAccountRecordFormView.swift */; };
@@ -64,6 +67,9 @@
 		780DEFA82BD6D76D00352E93 /* ManagedAccountHistoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedAccountHistoryController.swift; sourceTree = "<group>"; };
 		780DEFAA2BD6E6FD00352E93 /* ManagedAccountHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedAccountHistoryView.swift; sourceTree = "<group>"; };
 		780DEFAC2BD6E79B00352E93 /* ManagedAccountChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedAccountChartView.swift; sourceTree = "<group>"; };
+		780DEFB12BD6EFCF00352E93 /* CurrencyConverterClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterClient.swift; sourceTree = "<group>"; };
+		780DEFB32BD6F00E00352E93 /* CurrenciesWatcherController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesWatcherController.swift; sourceTree = "<group>"; };
+		780DEFB52BD6F1C700352E93 /* SettingsCurrencySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCurrencySelectionView.swift; sourceTree = "<group>"; };
 		780DF4D42BC7F24800EDADBC /* CryptoAccountsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAccountsController.swift; sourceTree = "<group>"; };
 		780DF4D62BC852F600EDADBC /* TRC20PriceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRC20PriceResponse.swift; sourceTree = "<group>"; };
 		7830CD3A2BD3CA2B00E5535D /* ManagedAccountRecordFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedAccountRecordFormView.swift; sourceTree = "<group>"; };
@@ -160,6 +166,7 @@
 				784A65FF2BCCEF4E007D5677 /* populators */,
 				780DF4D42BC7F24800EDADBC /* CryptoAccountsController.swift */,
 				780DEFA82BD6D76D00352E93 /* ManagedAccountHistoryController.swift */,
+				780DEFB32BD6F00E00352E93 /* CurrenciesWatcherController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -175,6 +182,7 @@
 				785269C02BC7B7FD00757C02 /* TRC20Client.swift */,
 				784A65FD2BCCE74E007D5677 /* HttpClient.swift */,
 				784A660A2BCCFE34007D5677 /* ExchangeRateApi.swift */,
+				780DEFB12BD6EFCF00352E93 /* CurrencyConverterClient.swift */,
 			);
 			path = http;
 			sourceTree = "<group>";
@@ -265,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				788A898B2BC519160002F91E /* SettingsView.swift */,
+				780DEFB52BD6F1C700352E93 /* SettingsCurrencySelectionView.swift */,
 			);
 			path = settings;
 			sourceTree = "<group>";
@@ -415,6 +424,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				784A66052BCCF053007D5677 /* SolanaAccountPopulator.swift in Sources */,
+				780DEFB62BD6F1C700352E93 /* SettingsCurrencySelectionView.swift in Sources */,
 				784A65F82BCC6A55007D5677 /* CryptoTokenItemView.swift in Sources */,
 				788A898C2BC519160002F91E /* SettingsView.swift in Sources */,
 				78526A142BC7CC1100757C02 /* CryptoAccountTokenItemView.swift in Sources */,
@@ -424,10 +434,12 @@
 				78E00D392BCAEB5500A300D4 /* Date.swift in Sources */,
 				784A65FE2BCCE74E007D5677 /* HttpClient.swift in Sources */,
 				7876ABB72BC52B8A00323F65 /* CreateBankAccountView.swift in Sources */,
+				780DEFB22BD6EFCF00352E93 /* CurrencyConverterClient.swift in Sources */,
 				788A897C2BC514940002F91E /* Persistence.swift in Sources */,
 				78A14B152BC71F4400CA7B12 /* ListIconView.swift in Sources */,
 				788A897F2BC514940002F91E /* another_one_wallet.xcdatamodeld in Sources */,
 				78D205B72BC92EF50083CF53 /* ToolbarPlusMenuView.swift in Sources */,
+				780DEFB42BD6F00E00352E93 /* CurrenciesWatcherController.swift in Sources */,
 				784A65F62BCC6A03007D5677 /* CoinGeckoPriceResponse.swift in Sources */,
 				784A65FA2BCC6A98007D5677 /* CoinGeckoMarketDataResponse.swift in Sources */,
 				784A65EC2BCC688C007D5677 /* CoinGeckoPriceResponse.swift in Sources */,

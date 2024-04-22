@@ -12,6 +12,7 @@ import WhatsNewKit
 struct another_one_walletApp: App {
     let persistenceController = PersistenceController.shared
     let cryptoAccountsController = CryptoAccountsController()
+    let currenciesWatcherController = CurrenciesWatcherController()
     
     var body: some Scene {
         WindowGroup {
@@ -19,6 +20,7 @@ struct another_one_walletApp: App {
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .environmentObject(persistenceController)
                 .environmentObject(cryptoAccountsController)
+                .environmentObject(currenciesWatcherController)
                 .environment(
                     \.whatsNew,
                      WhatsNewEnvironment(
