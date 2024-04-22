@@ -10,6 +10,8 @@ import SwiftUI
 struct HistoryRecordItemView: View {
     @EnvironmentObject var persistentController: PersistenceController
     
+    @State var isEditPresented = false
+    
     var record: ManagedAccountRecord
     var onDelete: () -> Void
     
@@ -44,7 +46,7 @@ struct HistoryRecordItemView: View {
         .padding(.vertical, 4)
         .swipeActions(edge: .leading) {
             Button {
-                
+                isEditPresented.toggle()
             } label: {
                 Label("Edit", systemImage: "pencil")
             }
@@ -58,6 +60,11 @@ struct HistoryRecordItemView: View {
                 Label("Remove", systemImage: "trash")
             }
             .tint(.red)
+        }
+        .sheet(isPresented: $isEditPresented) {
+            if let account = record.account {
+                ManagedAccountRecordFormView(bankAccount: account, record: record)
+            }
         }
     }
 }

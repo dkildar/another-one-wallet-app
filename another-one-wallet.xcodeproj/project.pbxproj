@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		780DEFA92BD6D76D00352E93 /* ManagedAccountHistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780DEFA82BD6D76D00352E93 /* ManagedAccountHistoryController.swift */; };
+		780DEFAB2BD6E6FD00352E93 /* ManagedAccountHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780DEFAA2BD6E6FD00352E93 /* ManagedAccountHistoryView.swift */; };
+		780DEFAD2BD6E79B00352E93 /* ManagedAccountChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780DEFAC2BD6E79B00352E93 /* ManagedAccountChartView.swift */; };
 		780DF4D52BC7F24800EDADBC /* CryptoAccountsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780DF4D42BC7F24800EDADBC /* CryptoAccountsController.swift */; };
 		780DF4D72BC852F600EDADBC /* TRC20PriceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780DF4D62BC852F600EDADBC /* TRC20PriceResponse.swift */; };
+		7830CD3B2BD3CA2B00E5535D /* ManagedAccountRecordFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7830CD3A2BD3CA2B00E5535D /* ManagedAccountRecordFormView.swift */; };
 		784A65EC2BCC688C007D5677 /* CoinGeckoPriceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784A65EB2BCC688C007D5677 /* CoinGeckoPriceResponse.swift */; };
 		784A65F02BCC6967007D5677 /* SolanaRPCResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784A65EF2BCC6967007D5677 /* SolanaRPCResponse.swift */; };
 		784A65F32BCC69B3007D5677 /* CoinGeckoClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784A65F12BCC69B3007D5677 /* CoinGeckoClient.swift */; };
@@ -49,7 +53,6 @@
 		78A14B152BC71F4400CA7B12 /* ListIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A14B142BC71F4400CA7B12 /* ListIconView.swift */; };
 		78D205B42BC91C550083CF53 /* TRC20TokensResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D205B32BC91C550083CF53 /* TRC20TokensResponse.swift */; };
 		78D205B72BC92EF50083CF53 /* ToolbarPlusMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D205B62BC92EF50083CF53 /* ToolbarPlusMenuView.swift */; };
-		78E00D302BC98E5100A300D4 /* CreateAccountRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E00D2F2BC98E5100A300D4 /* CreateAccountRecordView.swift */; };
 		78E00D332BC9B41500A300D4 /* ManagedBankAccountDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E00D322BC9B41500A300D4 /* ManagedBankAccountDetailsView.swift */; };
 		78E00D352BC9B6E200A300D4 /* HistoryRecordItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E00D342BC9B6E200A300D4 /* HistoryRecordItemView.swift */; };
 		78E00D392BCAEB5500A300D4 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E00D382BCAEB5500A300D4 /* Date.swift */; };
@@ -57,8 +60,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		780DEFA82BD6D76D00352E93 /* ManagedAccountHistoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedAccountHistoryController.swift; sourceTree = "<group>"; };
+		780DEFAA2BD6E6FD00352E93 /* ManagedAccountHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedAccountHistoryView.swift; sourceTree = "<group>"; };
+		780DEFAC2BD6E79B00352E93 /* ManagedAccountChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedAccountChartView.swift; sourceTree = "<group>"; };
 		780DF4D42BC7F24800EDADBC /* CryptoAccountsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAccountsController.swift; sourceTree = "<group>"; };
 		780DF4D62BC852F600EDADBC /* TRC20PriceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRC20PriceResponse.swift; sourceTree = "<group>"; };
+		7830CD3A2BD3CA2B00E5535D /* ManagedAccountRecordFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedAccountRecordFormView.swift; sourceTree = "<group>"; };
 		784A65EB2BCC688C007D5677 /* CoinGeckoPriceResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoinGeckoPriceResponse.swift; path = "another-one-wallet/core/http/coin-gecko-entities/CoinGeckoPriceResponse.swift"; sourceTree = "<group>"; };
 		784A65EF2BCC6967007D5677 /* SolanaRPCResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SolanaRPCResponse.swift; path = "another-one-wallet/core/http/sol-entities/SolanaRPCResponse.swift"; sourceTree = SOURCE_ROOT; };
 		784A65F12BCC69B3007D5677 /* CoinGeckoClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinGeckoClient.swift; sourceTree = "<group>"; };
@@ -100,7 +107,6 @@
 		78A14B142BC71F4400CA7B12 /* ListIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListIconView.swift; sourceTree = "<group>"; };
 		78D205B32BC91C550083CF53 /* TRC20TokensResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRC20TokensResponse.swift; sourceTree = "<group>"; };
 		78D205B62BC92EF50083CF53 /* ToolbarPlusMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarPlusMenuView.swift; sourceTree = "<group>"; };
-		78E00D2F2BC98E5100A300D4 /* CreateAccountRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountRecordView.swift; sourceTree = "<group>"; };
 		78E00D322BC9B41500A300D4 /* ManagedBankAccountDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedBankAccountDetailsView.swift; sourceTree = "<group>"; };
 		78E00D342BC9B6E200A300D4 /* HistoryRecordItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRecordItemView.swift; sourceTree = "<group>"; };
 		78E00D382BCAEB5500A300D4 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
@@ -151,6 +157,7 @@
 			children = (
 				784A65FF2BCCEF4E007D5677 /* populators */,
 				780DF4D42BC7F24800EDADBC /* CryptoAccountsController.swift */,
+				780DEFA82BD6D76D00352E93 /* ManagedAccountHistoryController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -300,7 +307,7 @@
 			children = (
 				78A14B142BC71F4400CA7B12 /* ListIconView.swift */,
 				78D205B62BC92EF50083CF53 /* ToolbarPlusMenuView.swift */,
-				78E00D2F2BC98E5100A300D4 /* CreateAccountRecordView.swift */,
+				7830CD3A2BD3CA2B00E5535D /* ManagedAccountRecordFormView.swift */,
 			);
 			path = shared;
 			sourceTree = "<group>";
@@ -312,6 +319,8 @@
 				78E00D322BC9B41500A300D4 /* ManagedBankAccountDetailsView.swift */,
 				78E00D342BC9B6E200A300D4 /* HistoryRecordItemView.swift */,
 				784A66082BCCF44C007D5677 /* CryptoAccountDetailsView.swift */,
+				780DEFAA2BD6E6FD00352E93 /* ManagedAccountHistoryView.swift */,
+				780DEFAC2BD6E79B00352E93 /* ManagedAccountChartView.swift */,
 			);
 			path = AccountDetails;
 			sourceTree = "<group>";
@@ -425,9 +434,11 @@
 				784A66012BCCEF68007D5677 /* TRC20AccountPopulator.swift in Sources */,
 				78526A0C2BC7BDF300757C02 /* ManagedAccountItemView.swift in Sources */,
 				784A66092BCCF44C007D5677 /* CryptoAccountDetailsView.swift in Sources */,
+				780DEFAD2BD6E79B00352E93 /* ManagedAccountChartView.swift in Sources */,
 				788A89752BC514930002F91E /* ContentView.swift in Sources */,
-				78E00D302BC98E5100A300D4 /* CreateAccountRecordView.swift in Sources */,
 				78A14B0F2BC7146500CA7B12 /* BankAccountDetailsView.swift in Sources */,
+				7830CD3B2BD3CA2B00E5535D /* ManagedAccountRecordFormView.swift in Sources */,
+				780DEFAB2BD6E6FD00352E93 /* ManagedAccountHistoryView.swift in Sources */,
 				784A66072BCCF062007D5677 /* AccountPopulator.swift in Sources */,
 				78E00D3B2BCAEDE900A300D4 /* ManagedAccountRecordExtension.swift in Sources */,
 				784A660B2BCCFE34007D5677 /* ExchangeRateApi.swift in Sources */,
@@ -436,6 +447,7 @@
 				780DF4D52BC7F24800EDADBC /* CryptoAccountsController.swift in Sources */,
 				78E00D332BC9B41500A300D4 /* ManagedBankAccountDetailsView.swift in Sources */,
 				784A65FC2BCC6AC1007D5677 /* Double.swift in Sources */,
+				780DEFA92BD6D76D00352E93 /* ManagedAccountHistoryController.swift in Sources */,
 				784A65F32BCC69B3007D5677 /* CoinGeckoClient.swift in Sources */,
 				78E00D352BC9B6E200A300D4 /* HistoryRecordItemView.swift in Sources */,
 				78D205B42BC91C550083CF53 /* TRC20TokensResponse.swift in Sources */,

@@ -1,8 +1,8 @@
 //
-//  CreateAccountRecordView.swift
+//  ManagedAccountRecordFormView.swift
 //  another-one-wallet
 //
-//  Created by Ildar Timerbaev on 12.04.2024.
+//  Created by Ildar Timerbaev on 20.04.2024.
 //
 
 import SwiftUI
@@ -12,8 +12,9 @@ let RECORD_TYPES = [
     "outgoing": "Outgoing"
 ]
 
-struct CreateAccountRecordView: View {
+struct ManagedAccountRecordFormView: View {
     var presetAccount: BankAccount? = nil
+    var presetRecord: ManagedAccountRecord? = nil
     
     @Environment(\.managedObjectContext) var context
     @Environment(\.dismiss) var dismiss
@@ -33,6 +34,11 @@ struct CreateAccountRecordView: View {
     
     init(bankAccount: BankAccount) {
         presetAccount = bankAccount
+    }
+    
+    init(bankAccount: BankAccount, record: ManagedAccountRecord) {
+        presetAccount = bankAccount
+        presetRecord = record
     }
     
     var body: some View {
@@ -66,28 +72,29 @@ struct CreateAccountRecordView: View {
                         Text(account.name ?? "").tag(account.name ?? "")
                     }
                 }
+                .disabled(presetAccount != nil)
+                
                 TextEditor(text: $text)
                 Button {
-                    let record = ManagedAccountRecord(context: context)
-                    record.title = title
-                    record.text = text
-                    record.account = accounts.first(where: { a in
-                        return a.name == account
-                    })
-                    record.type = type
-                    record.amount = amount
-                    record.created = Date.now
-                    
-                    record.account?.balance += type == "incoming" ? amount : amount * -1
-                    
-                    persistenceController.save(affectedItems: [record, record.account!])
+                    ManagedAccountHistoryController.shared.createOrUpdate(
+                        request: CreateOrUpdateRequest(
+                            title: title,
+                            text: text,
+                            type: type,
+                            amount: amount
+                        ),
+                        existingRecord: presetRecord,
+                        existingAccount: (presetAccount != nil) ? presetAccount : accounts.first(where: { a in
+                            return a.name == account
+                        })
+                    )
                     dismiss()
                 } label: {
-                    Text("Create record")
+                    Text(presetRecord != nil ? "Update" : "Create")
                 }
                 .disabled(title.isEmpty || account == "" || amount == 0.0 || type == "")
             }
-            .navigationTitle("Create a record")
+            .navigationTitle(presetRecord != nil ? "Update the record" : "Create a record")
             .navigationBarTitleDisplayMode(.inline)
         }
         .onChange(of: amount) {
@@ -106,6 +113,13 @@ struct CreateAccountRecordView: View {
                 account = presetAccount.name!
                 accountInstance = presetAccount
             }
+            
+            if let presetRecord = presetRecord {
+                title = presetRecord.title ?? ""
+                text = presetRecord.text ?? ""
+                type = presetRecord.type ?? ""
+                amount = presetRecord.amount
+            }
         }
     }
     
@@ -117,5 +131,5 @@ struct CreateAccountRecordView: View {
 }
 
 #Preview {
-    CreateAccountRecordView()
+    ManagedAccountRecordFormView()
 }
