@@ -8,21 +8,17 @@
 import Foundation
 
 class CurrenciesWatcherController : ObservableObject {
-    private let currencyConverter = CurrencyConverter()
+    private let currenciesClient = RealCurrencyRatesClient()
     
-    @Published var currency: Currency = .USD
+    @Published var currency: RealCurrency = .USD
     @Published var rateRelatedToUsd = 1.0
-    @Published var timerInterval = 30.0
     
     init() {
         loadCurrencyFromDefaults()
         updateRates()
-        _ = Timer(timeInterval: timerInterval, repeats: true) { _ in
-            self.updateRates()
-        }
     }
     
-    func setCurrency(currency: Currency) {
+    func setCurrency(currency: RealCurrency) {
         let defaults = UserDefaults.standard
         defaults.set(currency.rawValue, forKey: "AppCurrency")
         self.currency = currency
@@ -31,15 +27,19 @@ class CurrenciesWatcherController : ObservableObject {
     
     func loadCurrencyFromDefaults() {
         let defaults = UserDefaults.standard
-        self.currency = Currency.init(rawValue: defaults.string(forKey: "AppCurrency") ?? "USD") ?? .USD
+        self.currency = RealCurrency.init(rawValue: defaults.string(forKey: "AppCurrency") ?? "USD") ?? .USD
     }
     
     func updateRates() {
-        currencyConverter.updateExchangeRates(completion: {
-            // The code inside here runs after all the data is fetched.
-            
-            let doubleResult = self.currencyConverter.convert(1, valueCurrency: .USD, outputCurrency: self.currency)
-            self.rateRelatedToUsd = doubleResult ?? 1.0
-        })
+        Task {
+            let response = try? await currenciesClient.getExchangeRates()
+            if let response = response {
+                let convertedResult = response.data[self.currency.rawValue] ?? 1.0
+                
+                DispatchQueue.main.async {
+                    self.rateRelatedToUsd = convertedResult
+                }
+            }
+        }
     }
 }

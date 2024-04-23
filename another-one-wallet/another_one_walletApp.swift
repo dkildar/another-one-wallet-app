@@ -42,7 +42,7 @@ struct another_one_walletApp: App {
                                     WhatsNew.Feature(
                                         image: WhatsNew.Feature.Image(systemName: "circle.dotted.circle", foregroundColor: .gray),
                                         title: "Aggregated Home Screen",
-                                        subtitle: " View all critical financial information at a glance on the home screen"
+                                        subtitle: "View all critical financial information at a glance on the home screen"
                                     ),
                                  ]
                              )

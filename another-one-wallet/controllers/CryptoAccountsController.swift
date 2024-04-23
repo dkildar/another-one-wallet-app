@@ -11,8 +11,6 @@ import SwiftUI
 import Combine
 
 class CryptoAccountsController : ObservableObject {
-    @Published var accounts: [UUID : BankAccount] = [:]
-    
     var context = PersistenceController.shared.container.viewContext
     var cancellable: Set<AnyCancellable> = Set()
     

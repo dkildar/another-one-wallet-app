@@ -11,7 +11,7 @@ struct SettingsCurrencySelectionView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var currenciesWatcherController: CurrenciesWatcherController
     
-    var currencies = Currency.allCases
+    var currencies = RealCurrency.allCases
     
     var body: some View {
         List(currencies, id: \.rawValue) { currency in
@@ -20,7 +20,7 @@ struct SettingsCurrencySelectionView: View {
                 dismiss()
             } label: {
                 HStack {
-                    Text(Currency.flagsByCurrencies[currency] ?? "")
+                    Text(RealCurrency.flagsByCurrencies[currency] ?? "")
                     Text(currency.rawValue)
                     Spacer()
                     

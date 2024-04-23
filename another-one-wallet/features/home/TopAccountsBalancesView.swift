@@ -20,7 +20,7 @@ struct TopAccountsBalancesView: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text("Total funds")
                     .foregroundStyle(Color.gray)
-                Text("\(total)\(Currency.getCurrencySymbol(currency: currenciesWatcherController.currency))")
+                Text("\(total)\(RealCurrency.getCurrencySymbol(currency: currenciesWatcherController.currency))")
                     .font(.largeTitle)
             }
             .padding(.bottom, 4)
