@@ -14,6 +14,7 @@ struct HomeView: View {
         NavigationStack {
             List {
                 TopAccountsBalancesView()
+                ExchangeRatesWidgetView()
             }
             .navigationTitle("Home")
             .toolbar {

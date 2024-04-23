@@ -15,6 +15,8 @@
 		780DEFB42BD6F00E00352E93 /* CurrenciesWatcherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780DEFB32BD6F00E00352E93 /* CurrenciesWatcherController.swift */; };
 		780DEFB62BD6F1C700352E93 /* SettingsCurrencySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780DEFB52BD6F1C700352E93 /* SettingsCurrencySelectionView.swift */; };
 		780DEFB92BD782EB00352E93 /* ExchangeRatesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780DEFB82BD782EB00352E93 /* ExchangeRatesResponse.swift */; };
+		780DEFBB2BD7B12A00352E93 /* ExchangeRatesWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780DEFBA2BD7B12A00352E93 /* ExchangeRatesWidgetView.swift */; };
+		780DEFBD2BD7C87200352E93 /* CurrenciesRateWidgetEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780DEFBC2BD7C87200352E93 /* CurrenciesRateWidgetEditorView.swift */; };
 		780DF4D52BC7F24800EDADBC /* CryptoAccountsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780DF4D42BC7F24800EDADBC /* CryptoAccountsController.swift */; };
 		780DF4D72BC852F600EDADBC /* TRC20PriceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780DF4D62BC852F600EDADBC /* TRC20PriceResponse.swift */; };
 		7830CD3B2BD3CA2B00E5535D /* ManagedAccountRecordFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7830CD3A2BD3CA2B00E5535D /* ManagedAccountRecordFormView.swift */; };
@@ -71,6 +73,8 @@
 		780DEFB32BD6F00E00352E93 /* CurrenciesWatcherController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesWatcherController.swift; sourceTree = "<group>"; };
 		780DEFB52BD6F1C700352E93 /* SettingsCurrencySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCurrencySelectionView.swift; sourceTree = "<group>"; };
 		780DEFB82BD782EB00352E93 /* ExchangeRatesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRatesResponse.swift; sourceTree = "<group>"; };
+		780DEFBA2BD7B12A00352E93 /* ExchangeRatesWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRatesWidgetView.swift; sourceTree = "<group>"; };
+		780DEFBC2BD7C87200352E93 /* CurrenciesRateWidgetEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesRateWidgetEditorView.swift; sourceTree = "<group>"; };
 		780DF4D42BC7F24800EDADBC /* CryptoAccountsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAccountsController.swift; sourceTree = "<group>"; };
 		780DF4D62BC852F600EDADBC /* TRC20PriceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRC20PriceResponse.swift; sourceTree = "<group>"; };
 		7830CD3A2BD3CA2B00E5535D /* ManagedAccountRecordFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedAccountRecordFormView.swift; sourceTree = "<group>"; };
@@ -273,6 +277,8 @@
 			children = (
 				788A89892BC519050002F91E /* HomeView.swift */,
 				788464BA2BCAFD9900911216 /* TopAccountsBalancesView.swift */,
+				780DEFBA2BD7B12A00352E93 /* ExchangeRatesWidgetView.swift */,
+				780DEFBC2BD7C87200352E93 /* CurrenciesRateWidgetEditorView.swift */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -455,8 +461,10 @@
 				785269C12BC7B7FD00757C02 /* TRC20Client.swift in Sources */,
 				788464BB2BCAFD9900911216 /* TopAccountsBalancesView.swift in Sources */,
 				785366D52BC7971300DB180D /* LinkedCryptoAccountFormView.swift in Sources */,
+				780DEFBD2BD7C87200352E93 /* CurrenciesRateWidgetEditorView.swift in Sources */,
 				784A65F42BCC69B3007D5677 /* SolanaClient.swift in Sources */,
 				784A66012BCCEF68007D5677 /* TRC20AccountPopulator.swift in Sources */,
+				780DEFBB2BD7B12A00352E93 /* ExchangeRatesWidgetView.swift in Sources */,
 				78526A0C2BC7BDF300757C02 /* ManagedAccountItemView.swift in Sources */,
 				784A66092BCCF44C007D5677 /* CryptoAccountDetailsView.swift in Sources */,
 				780DEFAD2BD6E79B00352E93 /* ManagedAccountChartView.swift in Sources */,

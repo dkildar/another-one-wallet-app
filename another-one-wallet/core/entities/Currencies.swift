@@ -59,10 +59,42 @@ enum RealCurrency : String, CaseIterable {
         .ILS : "🇮🇱", .THB : "🇹🇭",
     ]
     
+    static let localesByCurrencies: [RealCurrency : String] = [
+        .AUD : "en_AU", .INR : "bn_IN", .TRY : "tr_TR",
+        .BGN : "bg_BG", .ISK : "is_IS", .USD : "en_US",
+        .BRL : "pt_BR", .JPY : "ja_JP", .ZAR : "af_ZA",
+        .CAD : "en_CA", .KRW : "ko_KR",
+        .CHF : "de_CH", .MXN : "es_MX",
+        .CNY : "zh_CN", .MYR : "ms_MY",
+        .CZK : "cs_CZ", .NOK : "se_NO",
+        .DKK : "da_DK", .NZD : "en_NZ",
+        .EUR : "en_US", .PHP : "en_PH",
+        .GBP : "en_UK", .PLN : "pl_PL",
+        .HKD : "zh_HK", .RON : "ro_RO",
+        .HRK : "hr_HR", .RUB : "ru_RU",
+        .HUF : "hu_HU", .SEK : "sv_FI",
+        .IDR : "id_ID", .SGD : "zh_SG",
+        .ILS : "he_IL", .THB : "th_TH",
+    ]
+    
     static func getCurrencySymbol(currency: RealCurrency) -> String {
-        let locale = NSLocale(localeIdentifier: "en")
+        let locale = NSLocale(localeIdentifier: localesByCurrencies[currency] ?? "en_US")
+        
+        if currency == .EUR {
+            return "€"
+        }
         
         return locale.displayName(forKey: NSLocale.Key.currencySymbol, value: currency.rawValue) ?? "$"
+    }
+    
+    static func getCountryNameByCurrency(currency: RealCurrency) -> String {
+        let locale = NSLocale(localeIdentifier: localesByCurrencies[currency] ?? "en_US")
+        
+        if currency == .EUR {
+            return "European Union"
+        }
+        
+        return locale.localizedString(forLocaleIdentifier: localesByCurrencies[currency] ?? "en_US")
     }
 }
 

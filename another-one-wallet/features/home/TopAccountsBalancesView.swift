@@ -14,6 +14,7 @@ struct TopAccountsBalancesView: View {
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \BankAccount.balance, ascending: false)]) var accounts: FetchedResults<BankAccount>
     
     @State var total = 0
+    @State var usdTotal = 0
     
     var body: some View {
         Section {
@@ -22,6 +23,11 @@ struct TopAccountsBalancesView: View {
                     .foregroundStyle(Color.gray)
                 Text("\(total)\(RealCurrency.getCurrencySymbol(currency: currenciesWatcherController.currency))")
                     .font(.largeTitle)
+                if currenciesWatcherController.currency != .USD {
+                    Text("\(usdTotal)\(RealCurrency.getCurrencySymbol(currency: .USD))")
+                        .font(.caption)
+                        .foregroundStyle(.gray)
+                }
             }
             .padding(.bottom, 4)
             Chart(accounts) { account in
@@ -46,11 +52,12 @@ struct TopAccountsBalancesView: View {
             }))
         }
         .task(id: currenciesWatcherController.rateRelatedToUsd) {
-            total = Int(accounts.reduce(0, { partialResult, account in
+            usdTotal = Int(accounts.reduce(0.0, { partialResult, account in
                 let nextBalance = Double(String(format: "%.0f", account.balance)) ?? 0.0
                 
-                return partialResult + Int(nextBalance * currenciesWatcherController.rateRelatedToUsd)
+                return partialResult + nextBalance
             }))
+            total = Int(currenciesWatcherController.rateRelatedToUsd * Double(usdTotal))
         }
     }
 }

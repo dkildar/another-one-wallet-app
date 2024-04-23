@@ -14,21 +14,36 @@ struct SettingsCurrencySelectionView: View {
     var currencies = RealCurrency.allCases
     
     var body: some View {
-        List(currencies, id: \.rawValue) { currency in
-            Button {
-                currenciesWatcherController.setCurrency(currency: currency)
-                dismiss()
-            } label: {
-                HStack {
-                    Text(RealCurrency.flagsByCurrencies[currency] ?? "")
-                    Text(currency.rawValue)
-                    Spacer()
-                    
-                    if currenciesWatcherController.currency.rawValue == currency.rawValue {
-                        Text("Active")
-                            .font(.caption)
-                            .foregroundStyle(.gray)
+        List() {
+            Section("Pick the primary currency of your funds") {
+                ForEach(currencies, id: \.rawValue) { currency in
+                    Button {
+                        currenciesWatcherController.setCurrency(currency: currency)
+                        dismiss()
+                    } label: {
+                        HStack(alignment: .center) {
+                            HStack(alignment: .top) {
+                                Text(RealCurrency.flagsByCurrencies[currency] ?? "")
+                                VStack(alignment: .leading) {
+                                    HStack {
+                                        Text(RealCurrency.getCurrencySymbol(currency: currency))
+                                            .foregroundStyle(.blue)
+                                        Text(currency.rawValue)
+                                    }
+                                    Text(RealCurrency.getCountryNameByCurrency(currency: currency))
+                                        .font(.caption)
+                                }
+                            }
+                            Spacer()
+                            
+                            if currenciesWatcherController.currency.rawValue == currency.rawValue {
+                                Text("Selected")
+                                    .foregroundStyle(.gray)
+                            }
+                        }
                     }
+                    .foregroundStyle(.black)
+                    .padding(.vertical, 2)
                 }
             }
         }

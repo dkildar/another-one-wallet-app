@@ -34,9 +34,11 @@ class CurrenciesWatcherController : ObservableObject {
         Task {
             let response = try? await currenciesClient.getExchangeRates()
             if let response = response {
+                debugPrint("RATES ARE", response)
                 let convertedResult = response.data[self.currency.rawValue] ?? 1.0
                 
                 DispatchQueue.main.async {
+                    UserDefaults.standard.set(response.data, forKey: "ExchangeRates")
                     self.rateRelatedToUsd = convertedResult
                 }
             }
