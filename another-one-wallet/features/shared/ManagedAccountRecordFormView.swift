@@ -16,6 +16,7 @@ struct ManagedAccountRecordFormView: View {
     var presetAccount: BankAccount? = nil
     var presetRecord: ManagedAccountRecord? = nil
     
+    @Environment(\.colorScheme) var coloScheme
     @Environment(\.managedObjectContext) var context
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var persistenceController: PersistenceController
@@ -44,22 +45,19 @@ struct ManagedAccountRecordFormView: View {
     var body: some View {
         NavigationView {
             List {
-                HStack(alignment: .top) {
-                    if amount != 0 {
-                        Text(type == "incoming" ? "+" : "-")
+                Section {
+                    HStack(alignment: .center) {
+                        TextField("Amount", value: $amount, format: .number)
+                            .keyboardType(.numberPad)
                             .font(.largeTitle)
                             .foregroundColor(amountColor)
+                        
+                        Spacer()
+                        Text(accountInstance?.getCurrencySymbol() ?? "$")
+                            .foregroundStyle(.gray)
                     }
-                    TextField("Amount", value: $amount, format: .number)
-                        .keyboardType(.numbersAndPunctuation)
-                        .font(.largeTitle)
-                        .foregroundColor(amountColor)
-                        .padding(.bottom)
-                    
-                    Spacer()
-                    Text(accountInstance?.getCurrencySymbol() ?? "$")
-                        .foregroundStyle(.gray)
                 }
+                
                 TextField("Title", text: $title)
                 Picker("Type", selection: $type) {
                     ForEach(Array(RECORD_TYPES.keys), id: \.self) { type in
@@ -74,33 +72,44 @@ struct ManagedAccountRecordFormView: View {
                 }
                 .disabled(presetAccount != nil)
                 
-                TextEditor(text: $text)
-                Button {
-                    ManagedAccountHistoryController.shared.createOrUpdate(
-                        request: CreateOrUpdateRequest(
-                            title: title,
-                            text: text,
-                            type: type,
-                            amount: amount
-                        ),
-                        existingRecord: presetRecord,
-                        existingAccount: (presetAccount != nil) ? presetAccount : accounts.first(where: { a in
-                            return a.name == account
-                        })
-                    )
-                    dismiss()
-                } label: {
-                    Text(presetRecord != nil ? "Update" : "Create")
+                Section("Note") {
+                    TextEditor(text: $text)
+                        .frame(minHeight: 100)
                 }
-                .disabled(title.isEmpty || account == "" || amount == 0.0 || type == "")
+                
+                Section {
+                    Button {
+                        ManagedAccountHistoryController.shared.createOrUpdate(
+                            request: CreateOrUpdateRequest(
+                                title: title,
+                                text: text,
+                                type: type,
+                                amount: abs(amount)
+                            ),
+                            existingRecord: presetRecord,
+                            existingAccount: (presetAccount != nil) ? presetAccount : accounts.first(where: { a in
+                                return a.name == account
+                            })
+                        )
+                        dismiss()
+                    } label: {
+                        Text(presetRecord != nil ? "Update" : "Create")
+                    }
+                    .disabled(title.isEmpty || account == "" || amount == 0.0 || type == "")
+                }
             }
             .navigationTitle(presetRecord != nil ? "Update the record" : "Create a record")
             .navigationBarTitleDisplayMode(.inline)
         }
         .onChange(of: amount) {
             calculateColor()
+            
+            self.type = amount > 0 ? "incoming" : "outgoing"
         }
         .onChange(of: type) {
+            calculateColor()
+        }
+        .onChange(of: coloScheme) {
             calculateColor()
         }
         .onChange(of: account) {
@@ -109,6 +118,8 @@ struct ManagedAccountRecordFormView: View {
             })
         }
         .onAppear {
+            calculateColor()
+            
             if let presetAccount = presetAccount {
                 account = presetAccount.name!
                 accountInstance = presetAccount
@@ -126,7 +137,7 @@ struct ManagedAccountRecordFormView: View {
     private func calculateColor() {
         amountColor = if amount != 0 {
             if type == "incoming" { .green } else { .red }
-        } else { .black }
+        } else { coloScheme == .dark ? .white : .black }
     }
 }
 
