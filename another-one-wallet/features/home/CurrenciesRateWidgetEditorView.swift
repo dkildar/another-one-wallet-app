@@ -40,7 +40,7 @@ struct CurrencyRateWidgetItemEdit: View {
             .padding(.vertical, 2)
             
             Button {
-                var record = CurrencyRateWidgetRecord(context: persistenceController.container.viewContext)
+                let record = CurrencyRateWidgetRecord(context: persistenceController.container.viewContext)
                 record.id = UUID()
                 record.from = from.rawValue
                 record.to = to.rawValue

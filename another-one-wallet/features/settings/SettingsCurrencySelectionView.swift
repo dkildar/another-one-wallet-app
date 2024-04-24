@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SettingsCurrencySelectionView: View {
+    @Environment(\.colorScheme) var colorScheme
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var currenciesWatcherController: CurrenciesWatcherController
     
@@ -42,7 +43,7 @@ struct SettingsCurrencySelectionView: View {
                             }
                         }
                     }
-                    .foregroundStyle(.black)
+                    .foregroundStyle(colorScheme == .dark ? .white : .black)
                     .padding(.vertical, 2)
                 }
             }
