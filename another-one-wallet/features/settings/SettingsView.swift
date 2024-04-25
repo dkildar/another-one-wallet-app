@@ -17,7 +17,30 @@ struct SettingsView: View {
                     SettingsCurrencySelectionView()
                         .navigationTitle("Application currency")
                 } label: {
-                    Text("Application currency(\(currenciesWatcherController.currency.rawValue))")
+                    HStack(alignment: .center) {
+                        ListIconView(string: "dollarsign.arrow.circlepath" , bgColor: .red)
+                            .padding(.trailing, 4)
+                        Text("Application currency")
+                        Spacer()
+                        Text(currenciesWatcherController.currency.rawValue)
+                            .foregroundStyle(.gray)
+                            .font(.caption)
+                    }
+                    .padding(.vertical, 2)
+                }
+                
+                Section("Extended configuration") {
+                    NavigationLink {
+                        ApisConfigurationView()
+                            .navigationTitle("APIs configuration")
+                    } label: {
+                        HStack(alignment: .center) {
+                            ListIconView(string: "server.rack" , bgColor: .blue)
+                                .padding(.trailing, 4)
+                            Text("APIs")
+                        }
+                        .padding(.vertical, 2)
+                    }
                 }
             }
         }

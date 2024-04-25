@@ -24,7 +24,7 @@ actor RealCurrencyRatesClient {
             request: httpClient.request(
                 urlString: "https://api.freecurrencyapi.com/v1/latest",
                 method: "GET",
-                queryParams: ["apikey": ProcessInfo.processInfo.environment["CURRENCIES_API_KEY"] ?? ""],
+                queryParams: ["apikey": UserDefaults.standard.string(forKey: "FreeCurrApiKey") ?? ProcessInfo.processInfo.environment["CURRENCIES_API_KEY"] ?? ""],
                 headers: [:],
                 responseEntity: ExchangeRatesResponse.self
             )
