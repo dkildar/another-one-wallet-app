@@ -9,27 +9,17 @@ import SwiftUI
 import Pigeon
 import Combine
 
-struct TRC20TokenDetails: View {
+struct TRC20UsdtTokenDetails: View {
     @Environment(\.openURL) var openLink
+    
     @EnvironmentObject var currenciesWatcherController: CurrenciesWatcherController
+    @ObservedObject var stateObject: CryptoAccountDetailsViewModel
     
     @Binding var account: BankAccount
     @Binding var token: CryptoToken
-    @Binding var transfers: TRC20TransfersResponse?
-    
-    var aggregatedRecords: Array<(Date, [TRC20TransferItemResponse])> {
-        var recordsMap: [Date: [TRC20TransferItemResponse]] = [:]
-        for record in transfers?.tokenTransfers ?? [] {
-            guard let recordDate = record.blockTimestamp?.clearTime() else {
-                continue
-            }
-            recordsMap[recordDate, default: []].append(record)
-        }
-        return recordsMap.sorted(by: { $0.0 > $1.0 })
-    }
     
     var body: some View {
-        ForEach(aggregatedRecords, id: \.0) { date, recordsList in
+        ForEach(stateObject.aggregatedTrc20UsdtRecords, id: \.0) { date, recordsList in
             recordsSection(date: date, recordsList: recordsList)
         }
     }

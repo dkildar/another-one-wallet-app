@@ -22,9 +22,10 @@
 		781A39392BD96F6700DC6160 /* ListCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781A39382BD96F6700DC6160 /* ListCardView.swift */; };
 		781A393B2BD9845A00DC6160 /* ApisConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781A393A2BD9845A00DC6160 /* ApisConfigurationView.swift */; };
 		781B9AEC2BDA99F800286C37 /* TRC20TransfersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781B9AEB2BDA99F800286C37 /* TRC20TransfersResponse.swift */; };
-		781B9AEE2BDAA02900286C37 /* TRC20TokenDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781B9AED2BDAA02900286C37 /* TRC20TokenDetails.swift */; };
+		781B9AEE2BDAA02900286C37 /* TRC20UsdtTokenDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781B9AED2BDAA02900286C37 /* TRC20UsdtTokenDetails.swift */; };
 		781B9AF12BDAD9CA00286C37 /* Pigeon in Frameworks */ = {isa = PBXBuildFile; productRef = 781B9AF02BDAD9CA00286C37 /* Pigeon */; };
 		781B9AF32BDADB6F00286C37 /* QueryKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781B9AF22BDADB6F00286C37 /* QueryKey.swift */; };
+		781B9AF62BDBC76300286C37 /* CryptoAccountDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781B9AF52BDBC76300286C37 /* CryptoAccountDetailsViewModel.swift */; };
 		7830CD3B2BD3CA2B00E5535D /* ManagedAccountRecordFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7830CD3A2BD3CA2B00E5535D /* ManagedAccountRecordFormView.swift */; };
 		784A65EC2BCC688C007D5677 /* CoinGeckoPriceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784A65EB2BCC688C007D5677 /* CoinGeckoPriceResponse.swift */; };
 		784A65F02BCC6967007D5677 /* SolanaRPCResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784A65EF2BCC6967007D5677 /* SolanaRPCResponse.swift */; };
@@ -86,8 +87,9 @@
 		781A39382BD96F6700DC6160 /* ListCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCardView.swift; sourceTree = "<group>"; };
 		781A393A2BD9845A00DC6160 /* ApisConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApisConfigurationView.swift; sourceTree = "<group>"; };
 		781B9AEB2BDA99F800286C37 /* TRC20TransfersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRC20TransfersResponse.swift; sourceTree = "<group>"; };
-		781B9AED2BDAA02900286C37 /* TRC20TokenDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRC20TokenDetails.swift; sourceTree = "<group>"; };
+		781B9AED2BDAA02900286C37 /* TRC20UsdtTokenDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRC20UsdtTokenDetails.swift; sourceTree = "<group>"; };
 		781B9AF22BDADB6F00286C37 /* QueryKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryKey.swift; sourceTree = "<group>"; };
+		781B9AF52BDBC76300286C37 /* CryptoAccountDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAccountDetailsViewModel.swift; sourceTree = "<group>"; };
 		7830CD3A2BD3CA2B00E5535D /* ManagedAccountRecordFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedAccountRecordFormView.swift; sourceTree = "<group>"; };
 		784A65EB2BCC688C007D5677 /* CoinGeckoPriceResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoinGeckoPriceResponse.swift; path = "another-one-wallet/core/http/coin-gecko-entities/CoinGeckoPriceResponse.swift"; sourceTree = "<group>"; };
 		784A65EF2BCC6967007D5677 /* SolanaRPCResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SolanaRPCResponse.swift; path = "another-one-wallet/core/http/sol-entities/SolanaRPCResponse.swift"; sourceTree = SOURCE_ROOT; };
@@ -155,6 +157,16 @@
 				780DEFB82BD782EB00352E93 /* ExchangeRatesResponse.swift */,
 			);
 			path = "currencies-entities";
+			sourceTree = "<group>";
+		};
+		781B9AF42BDBC74D00286C37 /* CryptoAccoutnDetails */ = {
+			isa = PBXGroup;
+			children = (
+				784A66082BCCF44C007D5677 /* CryptoAccountDetailsView.swift */,
+				781B9AED2BDAA02900286C37 /* TRC20UsdtTokenDetails.swift */,
+				781B9AF52BDBC76300286C37 /* CryptoAccountDetailsViewModel.swift */,
+			);
+			path = CryptoAccoutnDetails;
 			sourceTree = "<group>";
 		};
 		784A65ED2BCC6942007D5677 /* sol-entites */ = {
@@ -355,13 +367,12 @@
 		78E00D312BC9B3FD00A300D4 /* AccountDetails */ = {
 			isa = PBXGroup;
 			children = (
+				781B9AF42BDBC74D00286C37 /* CryptoAccoutnDetails */,
 				78A14B0E2BC7146500CA7B12 /* BankAccountDetailsView.swift */,
 				78E00D322BC9B41500A300D4 /* ManagedBankAccountDetailsView.swift */,
 				78E00D342BC9B6E200A300D4 /* HistoryRecordItemView.swift */,
-				784A66082BCCF44C007D5677 /* CryptoAccountDetailsView.swift */,
 				780DEFAA2BD6E6FD00352E93 /* ManagedAccountHistoryView.swift */,
 				780DEFAC2BD6E79B00352E93 /* ManagedAccountChartView.swift */,
-				781B9AED2BDAA02900286C37 /* TRC20TokenDetails.swift */,
 			);
 			path = AccountDetails;
 			sourceTree = "<group>";
@@ -464,6 +475,7 @@
 				785269BB2BC799C600757C02 /* BasicAccountCreateFormView.swift in Sources */,
 				785366D32BC7970400DB180D /* ManagedBankAccountFormView.swift in Sources */,
 				780DF4D72BC852F600EDADBC /* TRC20PriceResponse.swift in Sources */,
+				781B9AF62BDBC76300286C37 /* CryptoAccountDetailsViewModel.swift in Sources */,
 				78E00D392BCAEB5500A300D4 /* Date.swift in Sources */,
 				784A65FE2BCCE74E007D5677 /* HttpClient.swift in Sources */,
 				7876ABB72BC52B8A00323F65 /* CreateBankAccountView.swift in Sources */,
@@ -509,7 +521,7 @@
 				781A39392BD96F6700DC6160 /* ListCardView.swift in Sources */,
 				788A898E2BC519440002F91E /* BankAccountsView.swift in Sources */,
 				7876ABB92BC52D2400323F65 /* Currencies.swift in Sources */,
-				781B9AEE2BDAA02900286C37 /* TRC20TokenDetails.swift in Sources */,
+				781B9AEE2BDAA02900286C37 /* TRC20UsdtTokenDetails.swift in Sources */,
 				788A898A2BC519050002F91E /* HomeView.swift in Sources */,
 				788A89732BC514930002F91E /* another_one_walletApp.swift in Sources */,
 				784A65F02BCC6967007D5677 /* SolanaRPCResponse.swift in Sources */,
