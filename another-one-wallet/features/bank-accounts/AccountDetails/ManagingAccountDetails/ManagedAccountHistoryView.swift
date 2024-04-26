@@ -13,10 +13,10 @@ struct ManagedAccountHistoryView: View {
     
     @FetchRequest var recordsList: FetchedResults<ManagedAccountRecord>
     
-    var account: BankAccount
+    @Binding var account: BankAccount
     
-    init(account: BankAccount) {
-        self.account = account
+    init(account: Binding<BankAccount>) {
+        self._account = account
         
         let predicate = if let id = account.id?.uuidString {
             NSPredicate(format: "account.id=%@", id)
@@ -28,8 +28,7 @@ struct ManagedAccountHistoryView: View {
             sortDescriptors: [
                 NSSortDescriptor(keyPath: \ManagedAccountRecord.created, ascending: false)
             ],
-            predicate: predicate,
-            animation: .easeInOut
+            predicate: predicate
         )
     }
     
@@ -55,7 +54,7 @@ struct ManagedAccountHistoryView: View {
         ForEach(records, id: \.0) { (date, recordsList) in
             Section(header: Text(date.formatted(.dateTime.day().month().year()))) {
                 ForEach(recordsList, id: \.self) { record in
-                    HistoryRecordItemView(record: record) {
+                    HistoryRecordItemView(record: .constant(record)) {
                         account.balance -= record.getSignedAmount()
                     }
                 }

@@ -61,7 +61,6 @@
 		788A898C2BC519160002F91E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788A898B2BC519160002F91E /* SettingsView.swift */; };
 		788A898E2BC519440002F91E /* BankAccountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788A898D2BC519440002F91E /* BankAccountsView.swift */; };
 		78A14B0D2BC712EC00CA7B12 /* BankAccountExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A14B0C2BC712EC00CA7B12 /* BankAccountExtension.swift */; };
-		78A14B0F2BC7146500CA7B12 /* BankAccountDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A14B0E2BC7146500CA7B12 /* BankAccountDetailsView.swift */; };
 		78A14B122BC71B0600CA7B12 /* SFSymbolsPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 78A14B112BC71B0600CA7B12 /* SFSymbolsPicker */; };
 		78A14B152BC71F4400CA7B12 /* ListIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A14B142BC71F4400CA7B12 /* ListIconView.swift */; };
 		78D205B42BC91C550083CF53 /* TRC20TokensResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D205B32BC91C550083CF53 /* TRC20TokensResponse.swift */; };
@@ -127,7 +126,6 @@
 		788A898D2BC519440002F91E /* BankAccountsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountsView.swift; sourceTree = "<group>"; };
 		788A89932BC51DBA0002F91E /* another-one-wallet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "another-one-wallet.entitlements"; sourceTree = "<group>"; };
 		78A14B0C2BC712EC00CA7B12 /* BankAccountExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountExtension.swift; sourceTree = "<group>"; };
-		78A14B0E2BC7146500CA7B12 /* BankAccountDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountDetailsView.swift; sourceTree = "<group>"; };
 		78A14B142BC71F4400CA7B12 /* ListIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListIconView.swift; sourceTree = "<group>"; };
 		78D205B32BC91C550083CF53 /* TRC20TokensResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRC20TokensResponse.swift; sourceTree = "<group>"; };
 		78D205B62BC92EF50083CF53 /* ToolbarPlusMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarPlusMenuView.swift; sourceTree = "<group>"; };
@@ -167,6 +165,17 @@
 				781B9AF52BDBC76300286C37 /* CryptoAccountDetailsViewModel.swift */,
 			);
 			path = CryptoAccoutnDetails;
+			sourceTree = "<group>";
+		};
+		781B9AF72BDBCE5600286C37 /* ManagingAccountDetails */ = {
+			isa = PBXGroup;
+			children = (
+				78E00D322BC9B41500A300D4 /* ManagedBankAccountDetailsView.swift */,
+				78E00D342BC9B6E200A300D4 /* HistoryRecordItemView.swift */,
+				780DEFAA2BD6E6FD00352E93 /* ManagedAccountHistoryView.swift */,
+				780DEFAC2BD6E79B00352E93 /* ManagedAccountChartView.swift */,
+			);
+			path = ManagingAccountDetails;
 			sourceTree = "<group>";
 		};
 		784A65ED2BCC6942007D5677 /* sol-entites */ = {
@@ -367,12 +376,8 @@
 		78E00D312BC9B3FD00A300D4 /* AccountDetails */ = {
 			isa = PBXGroup;
 			children = (
+				781B9AF72BDBCE5600286C37 /* ManagingAccountDetails */,
 				781B9AF42BDBC74D00286C37 /* CryptoAccoutnDetails */,
-				78A14B0E2BC7146500CA7B12 /* BankAccountDetailsView.swift */,
-				78E00D322BC9B41500A300D4 /* ManagedBankAccountDetailsView.swift */,
-				78E00D342BC9B6E200A300D4 /* HistoryRecordItemView.swift */,
-				780DEFAA2BD6E6FD00352E93 /* ManagedAccountHistoryView.swift */,
-				780DEFAC2BD6E79B00352E93 /* ManagedAccountChartView.swift */,
 			);
 			path = AccountDetails;
 			sourceTree = "<group>";
@@ -501,7 +506,6 @@
 				784A66092BCCF44C007D5677 /* CryptoAccountDetailsView.swift in Sources */,
 				780DEFAD2BD6E79B00352E93 /* ManagedAccountChartView.swift in Sources */,
 				788A89752BC514930002F91E /* ContentView.swift in Sources */,
-				78A14B0F2BC7146500CA7B12 /* BankAccountDetailsView.swift in Sources */,
 				7830CD3B2BD3CA2B00E5535D /* ManagedAccountRecordFormView.swift in Sources */,
 				780DEFAB2BD6E6FD00352E93 /* ManagedAccountHistoryView.swift in Sources */,
 				784A66072BCCF062007D5677 /* AccountPopulator.swift in Sources */,

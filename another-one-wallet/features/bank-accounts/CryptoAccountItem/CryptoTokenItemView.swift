@@ -8,11 +8,7 @@
 import SwiftUI
 
 struct CryptoTokenItemView: View {
-    var token: CryptoToken
-    
-    init(token: CryptoToken) {
-        self.token = token
-    }
+    @Binding var token: CryptoToken
     
     var body: some View {
         HStack {

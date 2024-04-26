@@ -12,13 +12,8 @@ struct CryptoAccountDetailsView: View {
     @EnvironmentObject var persistenceController: PersistenceController
     @StateObject var stateObject = CryptoAccountDetailsViewModel()
     
-    var account: BankAccount
-    var token: CryptoToken
-    
-    init(account: BankAccount, token: CryptoToken) {
-        self.account = account
-        self.token = token
-    }
+    @Binding var account: BankAccount
+    @Binding var token: CryptoToken
     
     var body: some View {
         VStack {
@@ -52,8 +47,8 @@ struct CryptoAccountDetailsView: View {
                     if token.abbr == AppCurrency.CryptoCurrencies.USDT.rawValue {
                         TRC20UsdtTokenDetails(
                             stateObject: stateObject, 
-                            account: .constant(account),
-                            token: .constant(token)
+                            account: $account,
+                            token: $token
                         )
                     }
                 default: EmptyView()

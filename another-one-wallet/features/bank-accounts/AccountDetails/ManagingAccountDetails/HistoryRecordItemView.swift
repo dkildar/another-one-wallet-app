@@ -12,11 +12,11 @@ struct HistoryRecordItemView: View {
     
     @State var isEditPresented = false
     
-    var record: ManagedAccountRecord
+    @Binding var record: ManagedAccountRecord
     var onDelete: () -> Void
     
-    init(record: ManagedAccountRecord, onDelete: @escaping () -> Void) {
-        self.record = record
+    init(record: Binding<ManagedAccountRecord>, onDelete: @escaping () -> Void) {
+        self._record = record
         self.onDelete = onDelete
     }
     
@@ -63,7 +63,7 @@ struct HistoryRecordItemView: View {
         }
         .sheet(isPresented: $isEditPresented) {
             if let account = record.account {
-                ManagedAccountRecordFormView(bankAccount: account, record: record)
+                ManagedAccountRecordFormView(presetAccount: .constant(account), presetRecord: .constant(record))
             }
         }
     }

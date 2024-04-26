@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ManagedAccountItemView: View {
-    let account: BankAccount
+    @Binding var account: BankAccount
     
     var body: some View {
         HStack(alignment: .center) {
@@ -31,8 +31,4 @@ struct ManagedAccountItemView: View {
             }
         }
     }
-}
-
-#Preview {
-    ManagedAccountItemView(account: BankAccount())
 }

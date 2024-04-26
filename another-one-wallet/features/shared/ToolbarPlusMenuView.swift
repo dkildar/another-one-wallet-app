@@ -31,7 +31,7 @@ struct ToolbarPlusMenuView: View {
             CreateBankAccountView()
         }
         .sheet(isPresented: $showCreateRecordSheet) {
-            ManagedAccountRecordFormView()
+            ManagedAccountRecordFormView(presetAccount: .constant(nil), presetRecord: .constant(nil))
         }
     }
 }

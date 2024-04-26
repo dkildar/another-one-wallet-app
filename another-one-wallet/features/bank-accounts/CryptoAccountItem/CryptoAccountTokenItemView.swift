@@ -9,11 +9,12 @@ import SwiftUI
 import Combine
 
 struct CryptoAccountItemView: View {
-    @ObservedObject var account: BankAccount
-    @State var tokens: [CryptoToken] = []
+    @Binding var account: BankAccount
     
-    init(account: BankAccount) {
-        self.account = account
+    var tokens: [CryptoToken] {
+        get {
+            return (account.tokens?.array as? [CryptoToken]) ?? []
+        }
     }
     
     var body: some View {
@@ -41,16 +42,16 @@ struct CryptoAccountItemView: View {
             }
             ForEach(tokens, id: \.self) { token in
                 NavigationLink {
-                    CryptoAccountDetailsView(account: account, token: token)
+                    CryptoAccountDetailsView(
+                        account: $account,
+                        token: .constant(token)
+                    )
                         .navigationTitle("\(account.name ?? "") – \(token.name ?? "")")
                 } label: {
-                    CryptoTokenItemView(token: token)
+                    CryptoTokenItemView(token: .constant(token))
                 }
                 .padding(.leading, 48)
             }
-        }
-        .onAppear {
-            tokens = account.tokens?.array as! [CryptoToken]
         }
     }
 }

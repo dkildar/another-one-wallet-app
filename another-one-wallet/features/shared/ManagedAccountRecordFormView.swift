@@ -13,8 +13,8 @@ let RECORD_TYPES = [
 ]
 
 struct ManagedAccountRecordFormView: View {
-    var presetAccount: BankAccount? = nil
-    var presetRecord: ManagedAccountRecord? = nil
+    @Binding var presetAccount: BankAccount?
+    @Binding var presetRecord: ManagedAccountRecord?
     
     @Environment(\.colorScheme) var coloScheme
     @Environment(\.managedObjectContext) var context
@@ -30,17 +30,6 @@ struct ManagedAccountRecordFormView: View {
     @State var amount: Double = 0.0
     @State var amountColor: Color = .black
     @State var accountInstance: BankAccount? = nil
-    
-    init() {}
-    
-    init(bankAccount: BankAccount) {
-        presetAccount = bankAccount
-    }
-    
-    init(bankAccount: BankAccount, record: ManagedAccountRecord) {
-        presetAccount = bankAccount
-        presetRecord = record
-    }
     
     var body: some View {
         NavigationView {
@@ -139,8 +128,4 @@ struct ManagedAccountRecordFormView: View {
             if type == "incoming" { .green } else { .red }
         } else { coloScheme == .dark ? .white : .black }
     }
-}
-
-#Preview {
-    ManagedAccountRecordFormView()
 }

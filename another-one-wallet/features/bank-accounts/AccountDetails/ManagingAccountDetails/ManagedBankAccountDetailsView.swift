@@ -15,15 +15,14 @@ struct ManagedAccountChartData : Hashable {
 
 struct ManagedBankAccountDetailsView: View {
     @Environment(\.managedObjectContext) var context
+    @Environment(\.dismiss) var dismiss
+    
     @EnvironmentObject var persistenceController: PersistenceController
+
+    @Binding var account: BankAccount
     
-    var account: BankAccount
-    
+    @State var isConfirmationPresented = false
     @State var isCreateRecordPresented = false
-    
-    init(account: BankAccount) {
-        self.account = account
-    }
     
     var body: some View {
         VStack {
@@ -44,7 +43,7 @@ struct ManagedBankAccountDetailsView: View {
                             .foregroundStyle(.gray)
                             .padding(.bottom, 16)
                         
-                        ManagedAccountChartView(account: account)
+                        ManagedAccountChartView(account: $account)
                     }
                 }
                 .padding(.vertical, 8)
@@ -57,11 +56,31 @@ struct ManagedBankAccountDetailsView: View {
                     }
                 }
                 
-                ManagedAccountHistoryView(account: account)
+                ManagedAccountHistoryView(account: $account)
+            }
+        }
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Menu {
+                    Button {
+                        isConfirmationPresented.toggle()
+                    } label: {
+                        Label("Delete account", systemImage: "trash")
+                    }
+                    .foregroundStyle(.red)
+                } label: {
+                    Image(systemName: "gear.circle")
+                }
+            }
+        }
+        .confirmationDialog("Are you sure?", isPresented: $isConfirmationPresented) {
+            Button("Yes, delete", role: .destructive) {
+                persistenceController.delete(item: account)
+                dismiss()
             }
         }
         .sheet(isPresented: $isCreateRecordPresented) {
-            ManagedAccountRecordFormView(bankAccount: account)
+            ManagedAccountRecordFormView(presetAccount: .constant(account), presetRecord: .constant(nil))
         }
     }
 }

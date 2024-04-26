@@ -14,7 +14,7 @@ struct ManagedAccountChartView: View {
     
     @FetchRequest var recordsList: FetchedResults<ManagedAccountRecord>
     
-    var account: BankAccount
+    @Binding var account: BankAccount
     
     var balanceChartItems: [ManagedAccountChartData] {
         get {
@@ -33,8 +33,8 @@ struct ManagedAccountChartView: View {
         }
     }
     
-    init(account: BankAccount) {
-        self.account = account
+    init(account: Binding<BankAccount>) {
+        self._account = account
         
         let predicate = if let id = account.id?.uuidString {
             NSPredicate(format: "account.id=%@", id)

@@ -10,6 +10,8 @@ import CoreData
 
 struct BankAccountsView: View {
     @Environment(\.managedObjectContext) private var viewContext
+    @EnvironmentObject var persistenceController: PersistenceController
+    
     @FetchRequest(sortDescriptors: [], animation: .easeIn) var accounts: FetchedResults<BankAccount>
     
     var body: some View {
@@ -17,24 +19,26 @@ struct BankAccountsView: View {
             List {
                 ForEach(accounts.filter({ account in
                     return BankAccountType.init(rawValue: account.type) == .LinkedCrypto
-                })) { account in
+                }), id: \.self) { account in
                     Section {
-                        CryptoAccountItemView(account: account)
+                        CryptoAccountItemView(account: .constant(account))
                     }
                     .padding(.vertical, 8)
+                    .id(persistenceController.sessionID)
                 }
                 
                 Section("Managing accounts") {
                     ForEach(accounts.filter({ account in
                         return BankAccountType.init(rawValue: account.type) == .Managing
-                    }), id: \.id) {account in
+                    }), id: \.self) {account in
                         NavigationLink {
-                            BankAccountDetailsView(account: account)
+                            ManagedBankAccountDetailsView(account: .constant(account))
                                 .navigationTitle(account.name ?? "")
                         } label: {
-                            ManagedAccountItemView(account: account)
+                            ManagedAccountItemView(account: .constant(account))
                         }
                     }
+                    .id(persistenceController.sessionID)
                 }
                 .padding(.vertical, 8)
             }
