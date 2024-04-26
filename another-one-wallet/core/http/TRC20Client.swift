@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-actor TRC20Client {
+class TRC20Client {
     static var shared = TRC20Client()
     private let httpClient = HttpClient()
     
@@ -21,5 +21,17 @@ actor TRC20Client {
                 headers: ["TRON-PRO-API-KEY": UserDefaults.standard.string(forKey: "TrcApiKey") ?? ProcessInfo.processInfo.environment["TRONSCAN_API_KEY"] ?? ""], responseEntity: TRC20TokensResponse.self
             )
         )
+    }
+    
+    func fetchTransfers(address: String, limit: Int = 20) -> AnyPublisher<TRC20TransfersResponse, Error> {
+        return httpClient.request(
+                urlString: "https://apilist.tronscanapi.com/api/filter/trc20/transfers",
+                method: "GET",
+                queryParams: [
+                    "relatedAddress": address,
+                    "limit": String(limit)
+                ],
+                headers: ["TRON-PRO-API-KEY": UserDefaults.standard.string(forKey: "TrcApiKey") ?? ProcessInfo.processInfo.environment["TRONSCAN_API_KEY"] ?? ""], responseEntity: TRC20TransfersResponse.self
+            )
     }
 }

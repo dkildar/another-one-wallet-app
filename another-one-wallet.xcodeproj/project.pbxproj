@@ -21,6 +21,10 @@
 		780DF4D72BC852F600EDADBC /* TRC20PriceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780DF4D62BC852F600EDADBC /* TRC20PriceResponse.swift */; };
 		781A39392BD96F6700DC6160 /* ListCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781A39382BD96F6700DC6160 /* ListCardView.swift */; };
 		781A393B2BD9845A00DC6160 /* ApisConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781A393A2BD9845A00DC6160 /* ApisConfigurationView.swift */; };
+		781B9AEC2BDA99F800286C37 /* TRC20TransfersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781B9AEB2BDA99F800286C37 /* TRC20TransfersResponse.swift */; };
+		781B9AEE2BDAA02900286C37 /* TRC20TokenDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781B9AED2BDAA02900286C37 /* TRC20TokenDetails.swift */; };
+		781B9AF12BDAD9CA00286C37 /* Pigeon in Frameworks */ = {isa = PBXBuildFile; productRef = 781B9AF02BDAD9CA00286C37 /* Pigeon */; };
+		781B9AF32BDADB6F00286C37 /* QueryKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781B9AF22BDADB6F00286C37 /* QueryKey.swift */; };
 		7830CD3B2BD3CA2B00E5535D /* ManagedAccountRecordFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7830CD3A2BD3CA2B00E5535D /* ManagedAccountRecordFormView.swift */; };
 		784A65EC2BCC688C007D5677 /* CoinGeckoPriceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784A65EB2BCC688C007D5677 /* CoinGeckoPriceResponse.swift */; };
 		784A65F02BCC6967007D5677 /* SolanaRPCResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784A65EF2BCC6967007D5677 /* SolanaRPCResponse.swift */; };
@@ -81,6 +85,9 @@
 		780DF4D62BC852F600EDADBC /* TRC20PriceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRC20PriceResponse.swift; sourceTree = "<group>"; };
 		781A39382BD96F6700DC6160 /* ListCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCardView.swift; sourceTree = "<group>"; };
 		781A393A2BD9845A00DC6160 /* ApisConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApisConfigurationView.swift; sourceTree = "<group>"; };
+		781B9AEB2BDA99F800286C37 /* TRC20TransfersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRC20TransfersResponse.swift; sourceTree = "<group>"; };
+		781B9AED2BDAA02900286C37 /* TRC20TokenDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRC20TokenDetails.swift; sourceTree = "<group>"; };
+		781B9AF22BDADB6F00286C37 /* QueryKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryKey.swift; sourceTree = "<group>"; };
 		7830CD3A2BD3CA2B00E5535D /* ManagedAccountRecordFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedAccountRecordFormView.swift; sourceTree = "<group>"; };
 		784A65EB2BCC688C007D5677 /* CoinGeckoPriceResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoinGeckoPriceResponse.swift; path = "another-one-wallet/core/http/coin-gecko-entities/CoinGeckoPriceResponse.swift"; sourceTree = "<group>"; };
 		784A65EF2BCC6967007D5677 /* SolanaRPCResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SolanaRPCResponse.swift; path = "another-one-wallet/core/http/sol-entities/SolanaRPCResponse.swift"; sourceTree = SOURCE_ROOT; };
@@ -135,6 +142,7 @@
 			files = (
 				780DEFB02BD6ECB100352E93 /* WhatsNewKit in Frameworks */,
 				78A14B122BC71B0600CA7B12 /* SFSymbolsPicker in Frameworks */,
+				781B9AF12BDAD9CA00286C37 /* Pigeon in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +218,7 @@
 				78526A072BC7BCBC00757C02 /* WithPriceTokens.swift */,
 				780DF4D62BC852F600EDADBC /* TRC20PriceResponse.swift */,
 				78D205B32BC91C550083CF53 /* TRC20TokensResponse.swift */,
+				781B9AEB2BDA99F800286C37 /* TRC20TransfersResponse.swift */,
 			);
 			path = "trc20-entities";
 			sourceTree = "<group>";
@@ -352,6 +361,7 @@
 				784A66082BCCF44C007D5677 /* CryptoAccountDetailsView.swift */,
 				780DEFAA2BD6E6FD00352E93 /* ManagedAccountHistoryView.swift */,
 				780DEFAC2BD6E79B00352E93 /* ManagedAccountChartView.swift */,
+				781B9AED2BDAA02900286C37 /* TRC20TokenDetails.swift */,
 			);
 			path = AccountDetails;
 			sourceTree = "<group>";
@@ -361,6 +371,7 @@
 			children = (
 				78E00D382BCAEB5500A300D4 /* Date.swift */,
 				784A65FB2BCC6AC1007D5677 /* Double.swift */,
+				781B9AF22BDADB6F00286C37 /* QueryKey.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -384,6 +395,7 @@
 			packageProductDependencies = (
 				78A14B112BC71B0600CA7B12 /* SFSymbolsPicker */,
 				780DEFAF2BD6ECB100352E93 /* WhatsNewKit */,
+				781B9AF02BDAD9CA00286C37 /* Pigeon */,
 			);
 			productName = "another-one-wallet";
 			productReference = 788A896F2BC514930002F91E /* another-one-wallet.app */;
@@ -416,6 +428,7 @@
 			packageReferences = (
 				78A14B102BC71B0600CA7B12 /* XCRemoteSwiftPackageReference "SFSymbolsPicker" */,
 				780DEFAE2BD6ECB000352E93 /* XCRemoteSwiftPackageReference "WhatsNewKit" */,
+				781B9AEF2BDAD9CA00286C37 /* XCRemoteSwiftPackageReference "Pigeon" */,
 			);
 			productRefGroup = 788A89702BC514930002F91E /* Products */;
 			projectDirPath = "";
@@ -482,6 +495,7 @@
 				784A66072BCCF062007D5677 /* AccountPopulator.swift in Sources */,
 				78E00D3B2BCAEDE900A300D4 /* ManagedAccountRecordExtension.swift in Sources */,
 				78526A0A2BC7BCBC00757C02 /* TRC20AccountResponse.swift in Sources */,
+				781B9AEC2BDA99F800286C37 /* TRC20TransfersResponse.swift in Sources */,
 				78526A092BC7BCBC00757C02 /* WithPriceTokens.swift in Sources */,
 				780DF4D52BC7F24800EDADBC /* CryptoAccountsController.swift in Sources */,
 				78E00D332BC9B41500A300D4 /* ManagedBankAccountDetailsView.swift in Sources */,
@@ -489,11 +503,13 @@
 				780DEFA92BD6D76D00352E93 /* ManagedAccountHistoryController.swift in Sources */,
 				784A65F32BCC69B3007D5677 /* CoinGeckoClient.swift in Sources */,
 				78E00D352BC9B6E200A300D4 /* HistoryRecordItemView.swift in Sources */,
+				781B9AF32BDADB6F00286C37 /* QueryKey.swift in Sources */,
 				78D205B42BC91C550083CF53 /* TRC20TokensResponse.swift in Sources */,
 				78A14B0D2BC712EC00CA7B12 /* BankAccountExtension.swift in Sources */,
 				781A39392BD96F6700DC6160 /* ListCardView.swift in Sources */,
 				788A898E2BC519440002F91E /* BankAccountsView.swift in Sources */,
 				7876ABB92BC52D2400323F65 /* Currencies.swift in Sources */,
+				781B9AEE2BDAA02900286C37 /* TRC20TokenDetails.swift in Sources */,
 				788A898A2BC519050002F91E /* HomeView.swift in Sources */,
 				788A89732BC514930002F91E /* another_one_walletApp.swift in Sources */,
 				784A65F02BCC6967007D5677 /* SolanaRPCResponse.swift in Sources */,
@@ -718,6 +734,14 @@
 				minimumVersion = 2.2.0;
 			};
 		};
+		781B9AEF2BDAD9CA00286C37 /* XCRemoteSwiftPackageReference "Pigeon" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/fmo91/Pigeon";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.17;
+			};
+		};
 		78A14B102BC71B0600CA7B12 /* XCRemoteSwiftPackageReference "SFSymbolsPicker" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/alessiorubicini/SFSymbolsPicker";
@@ -733,6 +757,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 780DEFAE2BD6ECB000352E93 /* XCRemoteSwiftPackageReference "WhatsNewKit" */;
 			productName = WhatsNewKit;
+		};
+		781B9AF02BDAD9CA00286C37 /* Pigeon */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 781B9AEF2BDAD9CA00286C37 /* XCRemoteSwiftPackageReference "Pigeon" */;
+			productName = Pigeon;
 		};
 		78A14B112BC71B0600CA7B12 /* SFSymbolsPicker */ = {
 			isa = XCSwiftPackageProductDependency;

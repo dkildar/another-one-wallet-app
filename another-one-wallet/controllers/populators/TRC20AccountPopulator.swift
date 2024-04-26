@@ -29,7 +29,6 @@ class TRC20AccountPopulator : AccountPopulator {
         }
     }
     
-    
     private func fetchTRC20AccountTokens(address: String?) async throws -> TRC20TokensResponse? {
         guard let address = address else {
             return nil

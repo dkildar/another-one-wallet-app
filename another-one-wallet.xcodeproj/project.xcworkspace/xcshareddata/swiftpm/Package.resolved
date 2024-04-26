@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "pigeon",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/fmo91/Pigeon",
+      "state" : {
+        "revision" : "18c29b2cf1735afd5ef33bb1e983cbed9932c313",
+        "version" : "0.1.17"
+      }
+    },
+    {
       "identity" : "sfsymbolspicker",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/alessiorubicini/SFSymbolsPicker",

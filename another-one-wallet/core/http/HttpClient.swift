@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-actor HttpClient {
+class HttpClient {
     private var configuration = URLSessionConfiguration.default
     private var session: URLSession
     private var cancellable = Set<AnyCancellable>()

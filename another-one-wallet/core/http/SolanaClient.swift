@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-actor SolanaClient {
+class SolanaClient {
     static var shared = SolanaClient()
     private let httpClient = HttpClient()
     

@@ -7,7 +7,7 @@
 
 import Foundation
 
-actor RealCurrencyRatesClient {
+class RealCurrencyRatesClient {
     static let shared = RealCurrencyRatesClient()
     private let httpClient = HttpClient()
     
