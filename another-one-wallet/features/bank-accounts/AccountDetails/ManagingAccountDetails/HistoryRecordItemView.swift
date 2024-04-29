@@ -30,6 +30,11 @@ struct HistoryRecordItemView: View {
                 Text(String(record.created?.formatted(.dateTime.hour().minute()) ?? ""))
                     .font(.caption)
                     .foregroundStyle(.gray)
+                Image(systemName: "chevron.right")
+                    .resizable()
+                    .scaledToFit()
+                    .foregroundStyle(.gray)
+                    .frame(width: 10, height: 10)
             }
             
             HStack(alignment: .top) {
@@ -43,12 +48,14 @@ struct HistoryRecordItemView: View {
                 
                 VStack(alignment: .leading) {
                     Text(record.title ?? "")
+                        .lineLimit(2)
                     
                     if let text = record.text {
                         if !text.isEmpty {
                             Text(text)
                                 .font(.caption)
                                 .foregroundStyle(.gray)
+                                .lineLimit(2)
                         }
                     }
                 }

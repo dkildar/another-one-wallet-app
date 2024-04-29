@@ -13,6 +13,7 @@ struct another_one_walletApp: App {
     let persistenceController = PersistenceController.shared
     let cryptoAccountsController = CryptoAccountsController()
     let currenciesWatcherController = CurrenciesWatcherController()
+    @StateObject var imageViewerController = ImageViewerController()
     
     var body: some Scene {
         WindowGroup {
@@ -21,6 +22,7 @@ struct another_one_walletApp: App {
                 .environmentObject(persistenceController)
                 .environmentObject(cryptoAccountsController)
                 .environmentObject(currenciesWatcherController)
+                .environmentObject(imageViewerController)
                 .environment(
                     \.whatsNew,
                      WhatsNewEnvironment(

@@ -8,9 +8,12 @@
 import SwiftUI
 import CoreData
 import WhatsNewKit
+import ImageViewer
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
+    @EnvironmentObject var imageViewerController: ImageViewerController
+    
     @State var currentTab = 1
     
     var body: some View {
@@ -38,6 +41,13 @@ struct ContentView: View {
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .whatsNewSheet()
+        .overlay(
+            Group {
+                if let image = imageViewerController.image {
+                    ImageViewer(image: .constant(image), viewerShown: $imageViewerController.isViewerPresented)
+                }
+            }
+        )
     }
 }
 

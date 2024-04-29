@@ -31,7 +31,7 @@ struct HistoryRecordImageFormView: View {
                             Image(uiImage: uiImage)
                                 .resizable()
                                 .scaledToFit()
-                                .clipShape(.rect(cornerRadius: 16))
+                                .clipShape(.rect(cornerRadius: 8))
                         }
                     } else {
                         PhotosPicker(

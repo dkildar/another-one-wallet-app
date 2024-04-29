@@ -57,6 +57,13 @@ struct ManagedAccountHistoryView: View {
                     HistoryRecordItemView(record: .constant(record)) {
                         account.balance -= record.getSignedAmount()
                     }
+                    .background {
+                        NavigationLink(
+                            "",
+                            destination: ManagedAccountHistoryDetailsView(record: .constant(record))
+                                .navigationTitle(record.title ?? "Record"))
+                        .opacity(0)
+                    }
                 }
             }
         }

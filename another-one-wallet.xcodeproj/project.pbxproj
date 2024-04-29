@@ -70,6 +70,10 @@
 		78E00D392BCAEB5500A300D4 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E00D382BCAEB5500A300D4 /* Date.swift */; };
 		78E00D3B2BCAEDE900A300D4 /* ManagedAccountRecordExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E00D3A2BCAEDE900A300D4 /* ManagedAccountRecordExtension.swift */; };
 		78E83D772BDF9BD400B1EEE4 /* HistoryRecordImageFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E83D762BDF9BD400B1EEE4 /* HistoryRecordImageFormView.swift */; };
+		78E83D792BDFA7BA00B1EEE4 /* ManagedAccountHistoryDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E83D782BDFA7BA00B1EEE4 /* ManagedAccountHistoryDetailsView.swift */; };
+		78E83D7C2BDFADA400B1EEE4 /* ImageViewer in Frameworks */ = {isa = PBXBuildFile; productRef = 78E83D7B2BDFADA400B1EEE4 /* ImageViewer */; };
+		78E83D7E2BDFADA400B1EEE4 /* ImageViewerRemote in Frameworks */ = {isa = PBXBuildFile; productRef = 78E83D7D2BDFADA400B1EEE4 /* ImageViewerRemote */; };
+		78E83D802BDFB4DB00B1EEE4 /* ImageViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E83D7F2BDFB4DB00B1EEE4 /* ImageViewerController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -135,6 +139,8 @@
 		78E00D382BCAEB5500A300D4 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		78E00D3A2BCAEDE900A300D4 /* ManagedAccountRecordExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedAccountRecordExtension.swift; sourceTree = "<group>"; };
 		78E83D762BDF9BD400B1EEE4 /* HistoryRecordImageFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRecordImageFormView.swift; sourceTree = "<group>"; };
+		78E83D782BDFA7BA00B1EEE4 /* ManagedAccountHistoryDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedAccountHistoryDetailsView.swift; sourceTree = "<group>"; };
+		78E83D7F2BDFB4DB00B1EEE4 /* ImageViewerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewerController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +148,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78E83D7C2BDFADA400B1EEE4 /* ImageViewer in Frameworks */,
+				78E83D7E2BDFADA400B1EEE4 /* ImageViewerRemote in Frameworks */,
 				780DEFB02BD6ECB100352E93 /* WhatsNewKit in Frameworks */,
 				78A14B122BC71B0600CA7B12 /* SFSymbolsPicker in Frameworks */,
 				781B9AF12BDAD9CA00286C37 /* Pigeon in Frameworks */,
@@ -176,6 +184,7 @@
 				78E00D342BC9B6E200A300D4 /* HistoryRecordItemView.swift */,
 				780DEFAA2BD6E6FD00352E93 /* ManagedAccountHistoryView.swift */,
 				780DEFAC2BD6E79B00352E93 /* ManagedAccountChartView.swift */,
+				78E83D782BDFA7BA00B1EEE4 /* ManagedAccountHistoryDetailsView.swift */,
 			);
 			path = ManagingAccountDetails;
 			sourceTree = "<group>";
@@ -214,6 +223,7 @@
 				780DF4D42BC7F24800EDADBC /* CryptoAccountsController.swift */,
 				780DEFA82BD6D76D00352E93 /* ManagedAccountHistoryController.swift */,
 				780DEFB32BD6F00E00352E93 /* CurrenciesWatcherController.swift */,
+				78E83D7F2BDFB4DB00B1EEE4 /* ImageViewerController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -415,6 +425,8 @@
 				78A14B112BC71B0600CA7B12 /* SFSymbolsPicker */,
 				780DEFAF2BD6ECB100352E93 /* WhatsNewKit */,
 				781B9AF02BDAD9CA00286C37 /* Pigeon */,
+				78E83D7B2BDFADA400B1EEE4 /* ImageViewer */,
+				78E83D7D2BDFADA400B1EEE4 /* ImageViewerRemote */,
 			);
 			productName = "another-one-wallet";
 			productReference = 788A896F2BC514930002F91E /* another-one-wallet.app */;
@@ -448,6 +460,7 @@
 				78A14B102BC71B0600CA7B12 /* XCRemoteSwiftPackageReference "SFSymbolsPicker" */,
 				780DEFAE2BD6ECB000352E93 /* XCRemoteSwiftPackageReference "WhatsNewKit" */,
 				781B9AEF2BDAD9CA00286C37 /* XCRemoteSwiftPackageReference "Pigeon" */,
+				78E83D7A2BDFADA400B1EEE4 /* XCRemoteSwiftPackageReference "swiftui-image-viewer" */,
 			);
 			productRefGroup = 788A89702BC514930002F91E /* Products */;
 			projectDirPath = "";
@@ -475,6 +488,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78E83D792BDFA7BA00B1EEE4 /* ManagedAccountHistoryDetailsView.swift in Sources */,
 				784A66052BCCF053007D5677 /* SolanaAccountPopulator.swift in Sources */,
 				780DEFB62BD6F1C700352E93 /* SettingsCurrencySelectionView.swift in Sources */,
 				784A65F82BCC6A55007D5677 /* CryptoTokenItemView.swift in Sources */,
@@ -521,6 +535,7 @@
 				78E00D332BC9B41500A300D4 /* ManagedBankAccountDetailsView.swift in Sources */,
 				784A65FC2BCC6AC1007D5677 /* Double.swift in Sources */,
 				780DEFA92BD6D76D00352E93 /* ManagedAccountHistoryController.swift in Sources */,
+				78E83D802BDFB4DB00B1EEE4 /* ImageViewerController.swift in Sources */,
 				784A65F32BCC69B3007D5677 /* CoinGeckoClient.swift in Sources */,
 				78E00D352BC9B6E200A300D4 /* HistoryRecordItemView.swift in Sources */,
 				781B9AF32BDADB6F00286C37 /* QueryKey.swift in Sources */,
@@ -770,6 +785,14 @@
 				minimumVersion = 1.0.6;
 			};
 		};
+		78E83D7A2BDFADA400B1EEE4 /* XCRemoteSwiftPackageReference "swiftui-image-viewer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Jake-Short/swiftui-image-viewer.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -787,6 +810,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 78A14B102BC71B0600CA7B12 /* XCRemoteSwiftPackageReference "SFSymbolsPicker" */;
 			productName = SFSymbolsPicker;
+		};
+		78E83D7B2BDFADA400B1EEE4 /* ImageViewer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 78E83D7A2BDFADA400B1EEE4 /* XCRemoteSwiftPackageReference "swiftui-image-viewer" */;
+			productName = ImageViewer;
+		};
+		78E83D7D2BDFADA400B1EEE4 /* ImageViewerRemote */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 78E83D7A2BDFADA400B1EEE4 /* XCRemoteSwiftPackageReference "swiftui-image-viewer" */;
+			productName = ImageViewerRemote;
 		};
 /* End XCSwiftPackageProductDependency section */
 
