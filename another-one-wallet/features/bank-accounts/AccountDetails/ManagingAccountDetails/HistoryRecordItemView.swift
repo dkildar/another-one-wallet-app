@@ -21,25 +21,36 @@ struct HistoryRecordItemView: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 4) {
+        VStack(alignment: .leading, spacing: record.image != nil ? 8 : 4) {
             HStack {
                 Text((record.type == "incoming" ? "+" : "-") + String(format: "%.2f", record.amount) + (record.account?.getCurrencySymbol() ?? "$"))
                     .foregroundStyle(record.type == "incoming" ? .green : .red)
                 
                 Spacer()
-                
-                // TODO 
-                //      добавить возможность прикрепить фото
                 Text(String(record.created?.formatted(.dateTime.hour().minute()) ?? ""))
                     .font(.caption)
                     .foregroundStyle(.gray)
             }
-            Text(record.title ?? "")
-            if let text = record.text {
-                if !text.isEmpty {
-                    Text(text)
-                        .font(.caption)
-                        .foregroundStyle(.gray)
+            
+            HStack(alignment: .top) {
+                if let image = record.image, let uiImage = UIImage(data: image) {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 48, height: 48)
+                        .clipShape(.rect(cornerRadius: 8))
+                }
+                
+                VStack(alignment: .leading) {
+                    Text(record.title ?? "")
+                    
+                    if let text = record.text {
+                        if !text.isEmpty {
+                            Text(text)
+                                .font(.caption)
+                                .foregroundStyle(.gray)
+                        }
+                    }
                 }
             }
         }

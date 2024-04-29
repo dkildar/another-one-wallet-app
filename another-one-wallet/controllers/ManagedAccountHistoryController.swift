@@ -12,6 +12,7 @@ struct CreateOrUpdateRequest {
     let text: String
     let type: String
     let amount: Double
+    let image: Data?
 }
 
 struct ManagedAccountHistoryController {
@@ -26,6 +27,7 @@ struct ManagedAccountHistoryController {
         record.amount = request.amount
         record.created = existingRecord?.created ?? Date.now
         record.id = existingRecord?.id ?? UUID()
+        record.image = request.image
         
         record.account?.balance += request.type == "incoming" ? request.amount : request.amount * -1
         

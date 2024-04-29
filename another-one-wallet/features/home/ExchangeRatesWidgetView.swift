@@ -29,7 +29,9 @@ struct ExchangeRatesListView : View {
                         .foregroundStyle(.green)
                 }
             }
-        }.frame(maxWidth: .infinity, alignment: .topLeading)
+        }
+        .padding(.top, 12)
+        .frame(maxWidth: .infinity, alignment: .topLeading)
     }
     
     private func computeAmount(rate: CurrencyRateWidgetRecord) -> String {

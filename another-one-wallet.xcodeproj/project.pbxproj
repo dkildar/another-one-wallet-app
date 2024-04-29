@@ -69,6 +69,7 @@
 		78E00D352BC9B6E200A300D4 /* HistoryRecordItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E00D342BC9B6E200A300D4 /* HistoryRecordItemView.swift */; };
 		78E00D392BCAEB5500A300D4 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E00D382BCAEB5500A300D4 /* Date.swift */; };
 		78E00D3B2BCAEDE900A300D4 /* ManagedAccountRecordExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E00D3A2BCAEDE900A300D4 /* ManagedAccountRecordExtension.swift */; };
+		78E83D772BDF9BD400B1EEE4 /* HistoryRecordImageFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E83D762BDF9BD400B1EEE4 /* HistoryRecordImageFormView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -133,6 +134,7 @@
 		78E00D342BC9B6E200A300D4 /* HistoryRecordItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRecordItemView.swift; sourceTree = "<group>"; };
 		78E00D382BCAEB5500A300D4 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		78E00D3A2BCAEDE900A300D4 /* ManagedAccountRecordExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedAccountRecordExtension.swift; sourceTree = "<group>"; };
+		78E83D762BDF9BD400B1EEE4 /* HistoryRecordImageFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRecordImageFormView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -369,6 +371,7 @@
 				78D205B62BC92EF50083CF53 /* ToolbarPlusMenuView.swift */,
 				7830CD3A2BD3CA2B00E5535D /* ManagedAccountRecordFormView.swift */,
 				781A39382BD96F6700DC6160 /* ListCardView.swift */,
+				78E83D762BDF9BD400B1EEE4 /* HistoryRecordImageFormView.swift */,
 			);
 			path = shared;
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 				780DEFAB2BD6E6FD00352E93 /* ManagedAccountHistoryView.swift in Sources */,
 				784A66072BCCF062007D5677 /* AccountPopulator.swift in Sources */,
 				78E00D3B2BCAEDE900A300D4 /* ManagedAccountRecordExtension.swift in Sources */,
+				78E83D772BDF9BD400B1EEE4 /* HistoryRecordImageFormView.swift in Sources */,
 				78526A0A2BC7BCBC00757C02 /* TRC20AccountResponse.swift in Sources */,
 				781B9AEC2BDA99F800286C37 /* TRC20TransfersResponse.swift in Sources */,
 				78526A092BC7BCBC00757C02 /* WithPriceTokens.swift in Sources */,

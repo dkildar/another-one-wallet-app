@@ -30,7 +30,6 @@ struct ListCardView<Content: View, Action: View>: View {
                         .foregroundStyle(.gray)
                 }
                 .padding(.vertical, 4)
-                .padding(.bottom, 16)
                 
                 content
                     .frame(maxWidth: .infinity)

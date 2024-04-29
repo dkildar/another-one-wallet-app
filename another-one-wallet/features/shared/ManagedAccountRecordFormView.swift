@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 let RECORD_TYPES = [
     "incoming": "Incoming",
@@ -30,6 +31,8 @@ struct ManagedAccountRecordFormView: View {
     @State var amount: Double = 0.0
     @State var amountColor: Color = .black
     @State var accountInstance: BankAccount? = nil
+    
+    @State var selectedImageData: Data? = nil
     
     var body: some View {
         NavigationView {
@@ -61,10 +64,22 @@ struct ManagedAccountRecordFormView: View {
                 }
                 .disabled(presetAccount != nil)
                 
-                Section("Note") {
-                    TextEditor(text: $text)
-                        .frame(minHeight: 100)
-                }
+                ListCardView(
+                    title: .constant("Note"),
+                    systemIconName: .constant("note.text"),
+                    accentColor: .constant(.green),
+                    content: {
+                        TextField("Write some note..", text: $text, axis: .vertical)
+                            .lineLimit(1...10)
+                            .padding(.top, 8)
+                    },
+                    action: {
+                        EmptyView()
+                    })
+                
+                HistoryRecordImageFormView(selectedImageData: $selectedImageData, onSelect: { data in
+                        selectedImageData = data
+                    })
                 
                 Section {
                     Button {
@@ -73,7 +88,8 @@ struct ManagedAccountRecordFormView: View {
                                 title: title,
                                 text: text,
                                 type: type,
-                                amount: abs(amount)
+                                amount: abs(amount),
+                                image: selectedImageData
                             ),
                             existingRecord: presetRecord,
                             existingAccount: (presetAccount != nil) ? presetAccount : accounts.first(where: { a in
@@ -119,6 +135,7 @@ struct ManagedAccountRecordFormView: View {
                 text = presetRecord.text ?? ""
                 type = presetRecord.type ?? ""
                 amount = presetRecord.amount
+                selectedImageData = presetRecord.image
             }
         }
     }
