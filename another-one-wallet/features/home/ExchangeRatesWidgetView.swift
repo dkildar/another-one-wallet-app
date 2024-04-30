@@ -13,7 +13,7 @@ struct ExchangeRatesListView : View {
     var body: some View {
         LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 24) {
             ForEach(rates, id: \.id) { exchangeRate in
-                VStack {
+                VStack(spacing: 4) {
                     HStack(spacing: 2) {
                         Text(RealCurrency.getCurrencySymbol(currency: RealCurrency.init(rawValue: exchangeRate.from!)!) + "(\(exchangeRate.from ?? ""))")
                             .font(.system(size: 14))

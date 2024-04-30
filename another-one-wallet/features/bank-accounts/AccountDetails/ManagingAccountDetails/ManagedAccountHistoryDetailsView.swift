@@ -17,36 +17,62 @@ struct ManagedAccountHistoryDetailsView: View {
     @State var isEditPresented = false
     
     var body: some View {
-        VStack {
-            Text((record.type == "incoming" ? "+" : "-") + String(format: "%.2f", record.amount) + (record.account?.getCurrencySymbol() ?? "$"))
-                .foregroundStyle(record.type == "incoming" ? .green : .red)
+        List {
+            VStack(alignment: .center) {
+                Image(systemName: record.account?.icon ?? "")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 24, height: 24)
+                    .foregroundColor(.blue)
+                    .padding()
+                    .background(
+                        Circle().fill(Color.white)
+                    )
+                Text((record.type == "incoming" ? "+" : "-") + String(format: "%.2f", record.amount) + (record.account?.getCurrencySymbol() ?? "$"))
+                    .foregroundStyle(record.type == "incoming" ? .green : .red)
+                    .font(.largeTitle)
+                
+                Text(String(record.created?.formatted(.dateTime.hour().minute().day().month().year()) ?? ""))
+                    .foregroundStyle(.gray)
+            }
+            .frame(maxWidth: .infinity, alignment: .center)
+            .listRowBackground(Color.clear)
+            .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
             
-            //            Spacer()
-            //            Text(String(record.created?.formatted(.dateTime.hour().minute()) ?? ""))
-            //                .font(.caption)
-            //                .foregroundStyle(.gray)
-            
-            List {
-                if let image = record.image, let uiImage = UIImage(data: image) {
+            if let text = record.text {
+                if !text.isEmpty {
                     ListCardView(
-                        title: .constant("Image"),
-                        systemIconName: .constant("photo"),
-                        accentColor: .constant(.blue),
+                        title: .constant("Note"),
+                        systemIconName: .constant("note.text"),
+                        accentColor: .constant(.gray),
                         content: {
-                            Image(uiImage: uiImage)
-                                .resizable()
-                                .scaledToFit()
-                                .clipShape(.rect(cornerRadius: 8))
-                                .onTapGesture {
-                                    imageViewerController.show(imageData: image)
-                                }
+                            Text(text)
+                                .frame(maxWidth: .infinity, alignment: .topLeading)
                         }, action: {
                             
                         })
                 }
             }
+            
+            if let image = record.image, let uiImage = UIImage(data: image) {
+                ListCardView(
+                    title: .constant("Image"),
+                    systemIconName: .constant("photo"),
+                    accentColor: .constant(.blue),
+                    content: {
+                        Image(uiImage: uiImage)
+                            .resizable()
+                            .scaledToFit()
+                            .clipShape(.rect(cornerRadius: 8))
+                            .onTapGesture {
+                                imageViewerController.show(imageData: image)
+                            }
+                    }, action: {
+                        
+                    })
+            }
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Menu {
