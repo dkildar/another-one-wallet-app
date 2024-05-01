@@ -169,14 +169,14 @@
 			path = "currencies-entities";
 			sourceTree = "<group>";
 		};
-		781B9AF42BDBC74D00286C37 /* CryptoAccoutnDetails */ = {
+		781B9AF42BDBC74D00286C37 /* CryptoAccountDetails */ = {
 			isa = PBXGroup;
 			children = (
 				784A66082BCCF44C007D5677 /* CryptoAccountDetailsView.swift */,
 				781B9AED2BDAA02900286C37 /* TRC20UsdtTokenDetails.swift */,
 				781B9AF52BDBC76300286C37 /* CryptoAccountDetailsViewModel.swift */,
 			);
-			path = CryptoAccoutnDetails;
+			path = CryptoAccountDetails;
 			sourceTree = "<group>";
 		};
 		781B9AF72BDBCE5600286C37 /* ManagingAccountDetails */ = {
@@ -393,7 +393,7 @@
 			isa = PBXGroup;
 			children = (
 				781B9AF72BDBCE5600286C37 /* ManagingAccountDetails */,
-				781B9AF42BDBC74D00286C37 /* CryptoAccoutnDetails */,
+				781B9AF42BDBC74D00286C37 /* CryptoAccountDetails */,
 			);
 			path = AccountDetails;
 			sourceTree = "<group>";
