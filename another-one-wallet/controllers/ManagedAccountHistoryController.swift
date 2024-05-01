@@ -24,11 +24,14 @@ struct ManagedAccountHistoryController {
         record.text = request.text
         record.account = existingRecord?.account ?? existingAccount
         record.type = request.type
-        record.amount = request.amount
         record.created = existingRecord?.created ?? Date.now
-        record.id = existingRecord?.id ?? UUID()
         record.image = request.image
         
+        if let existingRecord = existingRecord {
+            record.account?.balance -= existingRecord.type == "incoming" ? existingRecord.amount : existingRecord.amount * -1
+        }
+        
+        record.amount = request.amount
         record.account?.balance += request.type == "incoming" ? request.amount : request.amount * -1
         
         PersistenceController.shared.save(affectedItems: [record, record.account!])

@@ -21,6 +21,7 @@ struct ManagedBankAccountDetailsView: View {
 
     @Binding var account: BankAccount
     
+    @StateObject var model = ManagedAccountHistoryModel(context: PersistenceController.shared.container.viewContext)
     @State var isConfirmationPresented = false
     @State var isCreateRecordPresented = false
     
@@ -81,6 +82,10 @@ struct ManagedBankAccountDetailsView: View {
         }
         .sheet(isPresented: $isCreateRecordPresented) {
             ManagedAccountRecordFormView(presetAccount: .constant(account), presetRecord: .constant(nil))
+        }
+        .environmentObject(model)
+        .onAppear {
+            model.fetchRecords(account: account)
         }
     }
 }

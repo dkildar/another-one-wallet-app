@@ -41,6 +41,7 @@
 		784A66072BCCF062007D5677 /* AccountPopulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784A66062BCCF062007D5677 /* AccountPopulator.swift */; };
 		784A66092BCCF44C007D5677 /* CryptoAccountDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784A66082BCCF44C007D5677 /* CryptoAccountDetailsView.swift */; };
 		785261B32BE22EFF000D6945 /* CameraAccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785261B22BE22EFF000D6945 /* CameraAccessView.swift */; };
+		785261B52BE2399B000D6945 /* ManagedAccountHistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785261B42BE2399B000D6945 /* ManagedAccountHistoryModel.swift */; };
 		785269BB2BC799C600757C02 /* BasicAccountCreateFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785269BA2BC799C600757C02 /* BasicAccountCreateFormView.swift */; };
 		785269C12BC7B7FD00757C02 /* TRC20Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785269C02BC7B7FD00757C02 /* TRC20Client.swift */; };
 		78526A092BC7BCBC00757C02 /* WithPriceTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78526A072BC7BCBC00757C02 /* WithPriceTokens.swift */; };
@@ -110,6 +111,7 @@
 		784A66062BCCF062007D5677 /* AccountPopulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPopulator.swift; sourceTree = "<group>"; };
 		784A66082BCCF44C007D5677 /* CryptoAccountDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAccountDetailsView.swift; sourceTree = "<group>"; };
 		785261B22BE22EFF000D6945 /* CameraAccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraAccessView.swift; sourceTree = "<group>"; };
+		785261B42BE2399B000D6945 /* ManagedAccountHistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedAccountHistoryModel.swift; sourceTree = "<group>"; };
 		785269BA2BC799C600757C02 /* BasicAccountCreateFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAccountCreateFormView.swift; sourceTree = "<group>"; };
 		785269C02BC7B7FD00757C02 /* TRC20Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRC20Client.swift; sourceTree = "<group>"; };
 		78526A072BC7BCBC00757C02 /* WithPriceTokens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WithPriceTokens.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				780DEFAA2BD6E6FD00352E93 /* ManagedAccountHistoryView.swift */,
 				780DEFAC2BD6E79B00352E93 /* ManagedAccountChartView.swift */,
 				78E83D782BDFA7BA00B1EEE4 /* ManagedAccountHistoryDetailsView.swift */,
+				785261B42BE2399B000D6945 /* ManagedAccountHistoryModel.swift */,
 			);
 			path = ManagingAccountDetails;
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 				788464BB2BCAFD9900911216 /* TopAccountsBalancesView.swift in Sources */,
 				785366D52BC7971300DB180D /* LinkedCryptoAccountFormView.swift in Sources */,
 				781A393B2BD9845A00DC6160 /* ApisConfigurationView.swift in Sources */,
+				785261B52BE2399B000D6945 /* ManagedAccountHistoryModel.swift in Sources */,
 				780DEFBD2BD7C87200352E93 /* CurrenciesRateWidgetEditorView.swift in Sources */,
 				784A65F42BCC69B3007D5677 /* SolanaClient.swift in Sources */,
 				784A66012BCCEF68007D5677 /* TRC20AccountPopulator.swift in Sources */,
