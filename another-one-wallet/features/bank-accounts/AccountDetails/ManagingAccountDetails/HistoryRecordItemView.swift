@@ -46,7 +46,7 @@ struct HistoryRecordItemView: View {
                         .clipShape(.rect(cornerRadius: 8))
                 }
                 
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 4) {
                     Text(record.title ?? "")
                         .lineLimit(2)
                     

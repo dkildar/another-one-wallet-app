@@ -40,6 +40,7 @@
 		784A66052BCCF053007D5677 /* SolanaAccountPopulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784A66042BCCF053007D5677 /* SolanaAccountPopulator.swift */; };
 		784A66072BCCF062007D5677 /* AccountPopulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784A66062BCCF062007D5677 /* AccountPopulator.swift */; };
 		784A66092BCCF44C007D5677 /* CryptoAccountDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784A66082BCCF44C007D5677 /* CryptoAccountDetailsView.swift */; };
+		785261B32BE22EFF000D6945 /* CameraAccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785261B22BE22EFF000D6945 /* CameraAccessView.swift */; };
 		785269BB2BC799C600757C02 /* BasicAccountCreateFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785269BA2BC799C600757C02 /* BasicAccountCreateFormView.swift */; };
 		785269C12BC7B7FD00757C02 /* TRC20Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785269C02BC7B7FD00757C02 /* TRC20Client.swift */; };
 		78526A092BC7BCBC00757C02 /* WithPriceTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78526A072BC7BCBC00757C02 /* WithPriceTokens.swift */; };
@@ -108,6 +109,7 @@
 		784A66042BCCF053007D5677 /* SolanaAccountPopulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolanaAccountPopulator.swift; sourceTree = "<group>"; };
 		784A66062BCCF062007D5677 /* AccountPopulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPopulator.swift; sourceTree = "<group>"; };
 		784A66082BCCF44C007D5677 /* CryptoAccountDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAccountDetailsView.swift; sourceTree = "<group>"; };
+		785261B22BE22EFF000D6945 /* CameraAccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraAccessView.swift; sourceTree = "<group>"; };
 		785269BA2BC799C600757C02 /* BasicAccountCreateFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAccountCreateFormView.swift; sourceTree = "<group>"; };
 		785269C02BC7B7FD00757C02 /* TRC20Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRC20Client.swift; sourceTree = "<group>"; };
 		78526A072BC7BCBC00757C02 /* WithPriceTokens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WithPriceTokens.swift; sourceTree = "<group>"; };
@@ -382,6 +384,7 @@
 				7830CD3A2BD3CA2B00E5535D /* ManagedAccountRecordFormView.swift */,
 				781A39382BD96F6700DC6160 /* ListCardView.swift */,
 				78E83D762BDF9BD400B1EEE4 /* HistoryRecordImageFormView.swift */,
+				785261B22BE22EFF000D6945 /* CameraAccessView.swift */,
 			);
 			path = shared;
 			sourceTree = "<group>";
@@ -503,6 +506,7 @@
 				7876ABB72BC52B8A00323F65 /* CreateBankAccountView.swift in Sources */,
 				780DEFB22BD6EFCF00352E93 /* RealCurrencyRatesClient.swift in Sources */,
 				788A897C2BC514940002F91E /* Persistence.swift in Sources */,
+				785261B32BE22EFF000D6945 /* CameraAccessView.swift in Sources */,
 				78A14B152BC71F4400CA7B12 /* ListIconView.swift in Sources */,
 				788A897F2BC514940002F91E /* another_one_wallet.xcdatamodeld in Sources */,
 				780DEFB92BD782EB00352E93 /* ExchangeRatesResponse.swift in Sources */,
@@ -606,6 +610,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs to capture image to show in records";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -663,6 +668,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs to capture image to show in records";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;

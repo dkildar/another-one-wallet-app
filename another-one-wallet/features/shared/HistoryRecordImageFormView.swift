@@ -8,11 +8,27 @@
 import SwiftUI
 import PhotosUI
 
+private struct PickButton: View {
+    @Binding var icon: String
+    @Binding var text: String
+    
+    var body: some View {
+        VStack(spacing: 4) {
+            Image(systemName: icon)
+                .foregroundColor(.gray)
+            Text(text)
+                .foregroundColor(.gray)
+        }
+    }
+}
+
 struct HistoryRecordImageFormView: View {
     @Binding var selectedImageData: Data?
     var onSelect: (_ data: Data?) -> Void
     
     @State var selectedImage: PhotosPickerItem? = nil
+    @State var cameraImage: UIImage? = nil
+    @State var isCameraPresented = false
     
     init(selectedImageData: Binding<Data?>, onSelect: @escaping (_: Data?) -> Void) {
         self._selectedImageData = selectedImageData
@@ -34,18 +50,32 @@ struct HistoryRecordImageFormView: View {
                                 .clipShape(.rect(cornerRadius: 8))
                         }
                     } else {
-                        PhotosPicker(
-                            selection: $selectedImage,
-                            matching: .images,
-                            photoLibrary: .shared()
-                        ) {
-                            VStack(spacing: 4) {
-                                Image(systemName: "photo.on.rectangle.angled")
-                                    .foregroundColor(.gray)
-                                Text("Gallery")
-                                    .foregroundColor(.gray)
+                        HStack {
+                            Spacer()
+                            
+                            PickButton(icon: .constant("camera.fill"), text: .constant("Camera"))
+                            .onTapGesture {
+                                isCameraPresented.toggle()
                             }
+                            .fullScreenCover(isPresented: $isCameraPresented) {
+                                CameraAccessView(selectedImage: $cameraImage)
+                                    .ignoresSafeArea()
+                            }
+                            
+                            Spacer()
+                            Divider()
+                            Spacer()
+                            
+                            PhotosPicker(
+                                selection: $selectedImage,
+                                matching: .images,
+                                photoLibrary: .shared()
+                            ) {
+                                PickButton(icon: .constant("photo.on.rectangle.angled"), text: .constant("Gallery"))
+                            }
+                            Spacer()
                         }
+                        .padding(.bottom, 8)
                     }
                 }
                 .buttonStyle(PlainButtonStyle())
@@ -69,6 +99,9 @@ struct HistoryRecordImageFormView: View {
                     onSelect(data)
                 }
             }
+        }
+        .onChange(of: cameraImage) { newValue in
+            onSelect(newValue?.heicData())
         }
     }
 }
