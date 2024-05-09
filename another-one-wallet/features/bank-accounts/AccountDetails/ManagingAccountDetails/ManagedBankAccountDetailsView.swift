@@ -87,5 +87,8 @@ struct ManagedBankAccountDetailsView: View {
         .onAppear {
             model.fetchRecords(account: account)
         }
+        .onChange(of: persistenceController.sessionID) {
+            model.fetchRecords(account: account)
+        }
     }
 }
