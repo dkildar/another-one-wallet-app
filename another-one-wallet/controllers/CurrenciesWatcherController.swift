@@ -12,6 +12,7 @@ class CurrenciesWatcherController : ObservableObject {
     
     @Published var currency: RealCurrency = .USD
     @Published var rateRelatedToUsd = 1.0
+    @Published var allRates: [String : Double] = [:]
     
     init() {
         loadCurrencyFromDefaults()
@@ -36,10 +37,11 @@ class CurrenciesWatcherController : ObservableObject {
             if let response = response {
                 debugPrint("RATES ARE", response)
                 let convertedResult = response.data[self.currency.rawValue] ?? 1.0
-                
+ 
                 DispatchQueue.main.async {
                     UserDefaults.standard.set(response.data, forKey: "ExchangeRates")
                     self.rateRelatedToUsd = convertedResult
+                    self.allRates = response.data
                 }
             }
         }

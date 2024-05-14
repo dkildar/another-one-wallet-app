@@ -50,7 +50,3 @@ struct TopAccountsBalancesView: View {
             }
     }
 }
-
-#Preview {
-    TopAccountsBalancesView()
-}

@@ -31,12 +31,14 @@ struct BankAccountsView: View {
                     ForEach(accounts.filter({ account in
                         return BankAccountType.init(rawValue: account.type) == .Managing
                     }), id: \.self) {account in
-                        NavigationLink {
-                            ManagedBankAccountDetailsView(account: .constant(account))
-                                .navigationTitle(account.name ?? "")
-                        } label: {
-                            ManagedAccountItemView(account: .constant(account))
-                        }
+                        ManagedAccountItemView(account: .constant(account))
+                            .background {
+                                NavigationLink("", destination: ManagedBankAccountDetailsView(account: .constant(account))
+                                    .navigationTitle(account.name ?? "")
+                                )
+                                .opacity(0)
+                            }
+                        
                     }
                     .id(persistenceController.sessionID)
                 }
