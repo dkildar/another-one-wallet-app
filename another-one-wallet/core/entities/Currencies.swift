@@ -101,18 +101,12 @@ enum RealCurrency : String, CaseIterable {
 struct AppCurrency : Hashable {
     var currency: Locale.Currency
     
-    init(currency: Currencies) {
+    init(currency: RealCurrency) {
         self.currency = Locale.Currency(currency.rawValue)
     }
     
     init(currency: CryptoCurrencies) {
         self.currency = Locale.Currency(currency.rawValue)
-    }
-    
-    enum Currencies: String, CaseIterable {
-        case USD = "USD"
-        case RUB = "RUB"
-        case EUR = "EUR"
     }
     
     enum CryptoCurrencies: String, CaseIterable {

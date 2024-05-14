@@ -17,7 +17,7 @@ extension BankAccount {
         let accountType = BankAccountType.init(rawValue: type)
         
         return switch accountType {
-        case .Managing: AppCurrency(currency: AppCurrency.Currencies.init(rawValue: currency ?? "USD") ?? .USD)
+        case .Managing: AppCurrency(currency: RealCurrency.init(rawValue: currency ?? "USD") ?? .USD)
         case.LinkedCrypto: AppCurrency(currency: AppCurrency.CryptoCurrencies.init(rawValue: currency ?? "USDT") ?? .USDT)
         case .none:
             fatalError("Not supporting bank account")
@@ -29,10 +29,6 @@ extension BankAccount {
     }
     
     func getCurrencySymbol() -> String {
-        let locale = NSLocale(localeIdentifier: "en")
-        if let currency = currency?.uppercased() {
-            return locale.displayName(forKey: NSLocale.Key.currencySymbol, value: currency) ?? "$"
-        }
-        return currency ?? "USD"
+        return RealCurrency.getCurrencySymbol(currency: RealCurrency(rawValue: currency ?? "USD") ?? .USD)
     }
 }
