@@ -14,6 +14,7 @@ struct BankAccountsView: View {
     
     @FetchRequest(sortDescriptors: [], animation: .easeIn) var accounts: FetchedResults<BankAccount>
     @State var isAccountCreatingPresented = false
+    @State var selectedSection = 0
     
     var managingAccounts: [BankAccount] {
         get {
@@ -23,20 +24,46 @@ struct BankAccountsView: View {
         }
     }
     
+    var cryptoAccounts: [BankAccount] {
+        get {
+            return accounts.filter({ account in
+                return BankAccountType.init(rawValue: account.type) == .LinkedCrypto
+            })
+        }
+    }
+    
+    @ViewBuilder
+    var managingAccountsView: some View {
+        ForEach(managingAccounts, id: \.self) {account in
+            ManagedAccountItemView(account: .constant(account))
+                .background {
+                    NavigationLink("", destination: ManagedBankAccountDetailsView(account: .constant(account))
+                        .navigationTitle(account.name ?? "")
+                    )
+                    .opacity(0)
+                }
+        }
+    }
+    
+    @ViewBuilder
+    var cryptoAccountsView: some View {
+        ForEach(cryptoAccounts, id: \.self) { account in
+            CryptoAccountItemView(account: .constant(account))
+        }
+    }
+    
     var body: some View {
         NavigationStack {
             List {
-                ForEach(accounts.filter({ account in
-                    return BankAccountType.init(rawValue: account.type) == .LinkedCrypto
-                }), id: \.self) { account in
-                    Section {
-                        CryptoAccountItemView(account: .constant(account))
+                if selectedSection == 0 && !cryptoAccounts.isEmpty {
+                    Section("Crypto accounts") {
+                        cryptoAccountsView
                     }
-                    .padding(.vertical, 8)
-                    .id(persistenceController.sessionID)
+                } else if selectedSection == 2 {
+                    cryptoAccountsView
                 }
                 
-                if managingAccounts.isEmpty {
+                if accounts.isEmpty {
                     VStack(alignment: .center) {
                         Text("You don't have any account yet")
                             .foregroundStyle(.gray)
@@ -53,32 +80,31 @@ struct BankAccountsView: View {
                     .padding(.vertical, 32)
                     .listRowBackground(Color.clear)
                     .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
-                } else {
+                } else if selectedSection == 0 && !managingAccounts.isEmpty {
                     Section("Managing accounts") {
-                        ForEach(managingAccounts, id: \.self) {account in
-                            ManagedAccountItemView(account: .constant(account))
-                                .background {
-                                    NavigationLink("", destination: ManagedBankAccountDetailsView(account: .constant(account))
-                                        .navigationTitle(account.name ?? "")
-                                    )
-                                    .opacity(0)
-                                }
-                            
-                        }
-                        .id(persistenceController.sessionID)
+                        managingAccountsView
                     }
                     .padding(.vertical, 8)
+                } else if selectedSection == 1 {
+                        managingAccountsView
                 }
             }
             .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Picker(selection: $selectedSection.animation(), label: Text(""), content: {
+                        Text("All").tag(0)
+                        Text("Managing").tag(1)
+                        Text("Crypto").tag(2)
+                    }).pickerStyle(SegmentedPickerStyle())
+                }
                 ToolbarItem(placement: .topBarTrailing) {
                     ToolbarPlusMenuView()
                 }
             }
+            .navigationBarTitleDisplayMode(.inline)
             .sheet(isPresented: $isAccountCreatingPresented) {
                 CreateBankAccountView()
             }
-            .navigationTitle("Bank accounts")
         }
     }
 }

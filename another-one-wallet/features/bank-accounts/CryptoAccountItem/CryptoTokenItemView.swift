@@ -32,8 +32,8 @@ struct CryptoTokenItemView: View {
                 AsyncImage(url: URL(string: logo)!) { image in
                     image.image?.resizable()
                 }
-                    .scaledToFill()
-                    .frame(width: 24, height: 24, alignment: .center)
+                .scaledToFill()
+                .frame(width: 24, height: 24, alignment: .center)
             }
             VStack(alignment: .leading) {
                 Text(token.name ?? "")
@@ -43,8 +43,17 @@ struct CryptoTokenItemView: View {
             Spacer()
             
             VStack(alignment: .trailing) {
-                Text(String(format: "%.2f", (Double(token.balance ?? "0") ?? 0)))
-                    .font(.caption)
+                HStack(alignment: .center) {
+                    Text(String(format: "%.2f", (Double(token.balance ?? "0") ?? 0)))
+                        .font(.caption)
+                    
+                    Image(systemName: "chevron.right")
+                        .resizable()
+                        .scaledToFit()
+                        .foregroundStyle(.gray)
+                        .frame(width: 10, height: 10)
+                }
+                
                 Text("≈ " + totalInCurrency)
                     .font(.caption)
                     .foregroundStyle(Color.gray)

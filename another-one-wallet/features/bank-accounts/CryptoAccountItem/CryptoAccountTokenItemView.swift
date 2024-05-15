@@ -61,18 +61,24 @@ struct CryptoAccountItemView: View {
                             .foregroundStyle(Color.gray)
                     }
                 }
-            }
+            }            
+            .padding(.vertical, 6)
+
             ForEach(tokens, id: \.self) { token in
-                NavigationLink {
-                    CryptoAccountDetailsView(
-                        account: $account,
-                        token: .constant(token)
-                    )
-                        .navigationTitle("\(account.name ?? "") – \(token.name ?? "")")
-                } label: {
-                    CryptoTokenItemView(account: $account, token: .constant(token))
-                }
-                .padding(.leading, 48)
+                CryptoTokenItemView(account: $account, token: .constant(token))
+                    .background {
+                        NavigationLink(
+                            "",
+                            destination:CryptoAccountDetailsView(
+                                account: $account,
+                                token: .constant(token)
+                            )
+                            .navigationTitle("\(account.name ?? "") – \(token.name ?? "")")
+                        )
+                        .opacity(0)
+                    }
+                    .padding(.leading, 48)
+                    .padding(.vertical, 6)
             }
         }
     }
