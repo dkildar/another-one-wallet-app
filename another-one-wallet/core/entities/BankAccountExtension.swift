@@ -31,4 +31,17 @@ extension BankAccount {
     func getCurrencySymbol() -> String {
         return RealCurrency.getCurrencySymbol(currency: RealCurrency(rawValue: currency ?? "USD") ?? .USD)
     }
+    
+    func getUsdBalance() -> Double {
+        let conversionRateFromAccountToUsd = CurrenciesWatcherController.shared.allRates[currency ?? "USD"] ?? 1
+        
+        return balance * 1/conversionRateFromAccountToUsd
+    }
+    
+    static func getNumberFormatter(currency: RealCurrency = CurrenciesWatcherController.shared.currency) -> NumberFormatter {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.currencySymbol = RealCurrency.getCurrencySymbol(currency: currency)
+        return formatter
+    }
 }

@@ -8,8 +8,10 @@
 import Foundation
 
 class CurrenciesWatcherController : ObservableObject {
+    static let shared = CurrenciesWatcherController()
     private let currenciesClient = RealCurrencyRatesClient()
     
+    @Published var fetchedRates = false
     @Published var currency: RealCurrency = .USD
     @Published var rateRelatedToUsd = 1.0
     @Published var allRates: [String : Double] = [:]
@@ -42,6 +44,7 @@ class CurrenciesWatcherController : ObservableObject {
                     UserDefaults.standard.set(response.data, forKey: "ExchangeRates")
                     self.rateRelatedToUsd = convertedResult
                     self.allRates = response.data
+                    self.fetchedRates = true
                 }
             }
         }

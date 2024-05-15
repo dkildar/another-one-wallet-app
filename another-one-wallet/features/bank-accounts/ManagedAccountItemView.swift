@@ -12,25 +12,28 @@ struct ManagedAccountItemView: View {
     
     @Binding var account: BankAccount
     
-    var totalInAccountCurrency: String {
+    var isSameCurrency: Bool {
         get {
-            return String(format: "%.2f", account.balance) + account.getCurrencySymbol()
+            return account.currency == currenciesWatcherController.currency.rawValue
         }
     }
-    var total: String {
+    
+    var totalText: String {
         get {
-            let totalInAccountCurrency = account.balance
-            let accountCurrency = RealCurrency.init(rawValue: account.currency ?? "USD")
-            let conversionRateFromAppCurrencyToUsd = currenciesWatcherController.rateRelatedToUsd
-            let conversionRateFromAccountToUsd = currenciesWatcherController.allRates[account.currency ?? "USD"] ?? 1
+            let nextCurrency = (isSameCurrency ? RealCurrency(rawValue: account.currency ?? "USD") : currenciesWatcherController.currency) ?? .USD
+            let balance = isSameCurrency ? account.balance : account.getUsdBalance() * currenciesWatcherController.rateRelatedToUsd
             
-            return String(format: "%.2f", totalInAccountCurrency * conversionRateFromAppCurrencyToUsd * 1/conversionRateFromAccountToUsd)
+            return "\(BankAccount.getNumberFormatter(currency: nextCurrency).string(from: balance as NSNumber)!)"
+        }
+    }
+    
+    var totalInAccountText: String {
+        get {
+            return "\(BankAccount.getNumberFormatter(currency: RealCurrency(rawValue: account.currency ?? "USD") ?? .USD).string(from: account.balance as NSNumber)!)"
         }
     }
     
     var body: some View {
-        let isSameCurrency = account.currency == currenciesWatcherController.currency.rawValue
-        
         HStack(alignment: .center) {
             ListIconView(string: account.icon ?? "")
                 .padding(.trailing, 4)
@@ -47,7 +50,7 @@ struct ManagedAccountItemView: View {
         
                 VStack(alignment: .trailing) {
                     HStack(alignment: .center) {
-                        Text(isSameCurrency ? totalInAccountCurrency : (total + RealCurrency.getCurrencySymbol(currency: currenciesWatcherController.currency)))
+                        Text(totalText)
                             .font(.caption)
                             .foregroundStyle(Color.blue)
                         
@@ -58,7 +61,7 @@ struct ManagedAccountItemView: View {
                             .frame(width: 10, height: 10)
                     }
                     if !isSameCurrency {
-                        Text(totalInAccountCurrency)
+                        Text(totalInAccountText)
                             .font(.caption)
                             .foregroundColor(.gray)
                     }

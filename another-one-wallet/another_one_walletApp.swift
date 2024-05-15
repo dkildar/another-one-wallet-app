@@ -12,7 +12,7 @@ import WhatsNewKit
 struct another_one_walletApp: App {
     let persistenceController = PersistenceController.shared
     let cryptoAccountsController = CryptoAccountsController()
-    let currenciesWatcherController = CurrenciesWatcherController()
+    @StateObject var currenciesWatcherController = CurrenciesWatcherController.shared
     @StateObject var imageViewerController = ImageViewerController()
     
     var body: some Scene {

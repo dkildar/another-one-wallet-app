@@ -13,8 +13,22 @@ struct TopAccountsBalancesView: View {
     
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \BankAccount.balance, ascending: false)]) var accounts: FetchedResults<BankAccount>
     
-    @State var total = 0
-    @State var usdTotal = 0
+    var usdTotal: Double {
+        get {
+            return Double(accounts.reduce(0.0, { partialResult, account in
+                return partialResult + account.getUsdBalance()
+            }))
+        }
+    }
+    
+    var total: Double {
+        get {
+            if (currenciesWatcherController.fetchedRates) {
+                return currenciesWatcherController.rateRelatedToUsd * Double(usdTotal)
+            }
+            return 0
+        }
+    }
     
     var body: some View {
         ListCardView(
@@ -23,10 +37,15 @@ struct TopAccountsBalancesView: View {
             accentColor: .constant(.blue)) {
                 VStack (alignment: .leading){
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("\(total)\(RealCurrency.getCurrencySymbol(currency: currenciesWatcherController.currency))")
+                        Text("\(BankAccount.getNumberFormatter().string(from: total as NSNumber)!)")
                             .font(.system(size: 32))
+                            .contentTransition(.numericText())
+                            .monospacedDigit()
+                            .transaction { t in
+                                t.animation = .default
+                            }
                         if currenciesWatcherController.currency != .USD {
-                            Text("\(usdTotal)\(RealCurrency.getCurrencySymbol(currency: .USD))")
+                            Text("\(BankAccount.getNumberFormatter(currency: .USD).string(from: usdTotal as NSNumber)!)")
                                 .font(.caption)
                                 .foregroundStyle(.gray)
                         }
@@ -34,19 +53,6 @@ struct TopAccountsBalancesView: View {
                     .frame(maxWidth: .infinity, alignment: .topLeading)
                 }
             } action: {
-            }
-            .task(id: accounts.count) {
-                total = Int(accounts.reduce(0, { partialResult, account in
-                    partialResult + (Int(String(format: "%.0f", account.balance)) ?? 0)
-                }))
-            }
-            .task(id: currenciesWatcherController.rateRelatedToUsd) {
-                usdTotal = Int(accounts.reduce(0.0, { partialResult, account in
-                    let nextBalance = Double(String(format: "%.0f", account.balance)) ?? 0.0
-                    
-                    return partialResult + nextBalance
-                }))
-                total = Int(currenciesWatcherController.rateRelatedToUsd * Double(usdTotal))
             }
     }
 }
