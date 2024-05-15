@@ -19,6 +19,9 @@
 		780DEFBD2BD7C87200352E93 /* CurrenciesRateWidgetEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780DEFBC2BD7C87200352E93 /* CurrenciesRateWidgetEditorView.swift */; };
 		780DF4D52BC7F24800EDADBC /* CryptoAccountsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780DF4D42BC7F24800EDADBC /* CryptoAccountsController.swift */; };
 		780DF4D72BC852F600EDADBC /* TRC20PriceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780DF4D62BC852F600EDADBC /* TRC20PriceResponse.swift */; };
+		780F3CFF2BF5066B0095BE48 /* LatestOperationsWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780F3CFE2BF5066B0095BE48 /* LatestOperationsWidgetView.swift */; };
+		780F3D022BF507F30095BE48 /* CurrenciesRatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780F3D012BF507F30095BE48 /* CurrenciesRatesView.swift */; };
+		780F3D042BF513A10095BE48 /* FastCurrenciesCalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780F3D032BF513A10095BE48 /* FastCurrenciesCalculatorView.swift */; };
 		781A39392BD96F6700DC6160 /* ListCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781A39382BD96F6700DC6160 /* ListCardView.swift */; };
 		781A393B2BD9845A00DC6160 /* ApisConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781A393A2BD9845A00DC6160 /* ApisConfigurationView.swift */; };
 		781B9AEC2BDA99F800286C37 /* TRC20TransfersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781B9AEB2BDA99F800286C37 /* TRC20TransfersResponse.swift */; };
@@ -89,6 +92,9 @@
 		780DEFBC2BD7C87200352E93 /* CurrenciesRateWidgetEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesRateWidgetEditorView.swift; sourceTree = "<group>"; };
 		780DF4D42BC7F24800EDADBC /* CryptoAccountsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAccountsController.swift; sourceTree = "<group>"; };
 		780DF4D62BC852F600EDADBC /* TRC20PriceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRC20PriceResponse.swift; sourceTree = "<group>"; };
+		780F3CFE2BF5066B0095BE48 /* LatestOperationsWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestOperationsWidgetView.swift; sourceTree = "<group>"; };
+		780F3D012BF507F30095BE48 /* CurrenciesRatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesRatesView.swift; sourceTree = "<group>"; };
+		780F3D032BF513A10095BE48 /* FastCurrenciesCalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastCurrenciesCalculatorView.swift; sourceTree = "<group>"; };
 		781A39382BD96F6700DC6160 /* ListCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCardView.swift; sourceTree = "<group>"; };
 		781A393A2BD9845A00DC6160 /* ApisConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApisConfigurationView.swift; sourceTree = "<group>"; };
 		781B9AEB2BDA99F800286C37 /* TRC20TransfersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRC20TransfersResponse.swift; sourceTree = "<group>"; };
@@ -167,6 +173,16 @@
 				780DEFB82BD782EB00352E93 /* ExchangeRatesResponse.swift */,
 			);
 			path = "currencies-entities";
+			sourceTree = "<group>";
+		};
+		780F3D002BF507E50095BE48 /* currencies-rates */ = {
+			isa = PBXGroup;
+			children = (
+				780DEFBC2BD7C87200352E93 /* CurrenciesRateWidgetEditorView.swift */,
+				780F3D012BF507F30095BE48 /* CurrenciesRatesView.swift */,
+				780F3D032BF513A10095BE48 /* FastCurrenciesCalculatorView.swift */,
+			);
+			path = "currencies-rates";
 			sourceTree = "<group>";
 		};
 		781B9AF42BDBC74D00286C37 /* CryptoAccountDetails */ = {
@@ -312,6 +328,7 @@
 		788A89852BC518C80002F91E /* features */ = {
 			isa = PBXGroup;
 			children = (
+				780F3D002BF507E50095BE48 /* currencies-rates */,
 				78A14B132BC71F3500CA7B12 /* shared */,
 				788A89882BC518F50002F91E /* bank-accounts */,
 				788A89872BC518D10002F91E /* settings */,
@@ -326,7 +343,7 @@
 				788A89892BC519050002F91E /* HomeView.swift */,
 				788464BA2BCAFD9900911216 /* TopAccountsBalancesView.swift */,
 				780DEFBA2BD7B12A00352E93 /* ExchangeRatesWidgetView.swift */,
-				780DEFBC2BD7C87200352E93 /* CurrenciesRateWidgetEditorView.swift */,
+				780F3CFE2BF5066B0095BE48 /* LatestOperationsWidgetView.swift */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -506,6 +523,7 @@
 				7876ABB72BC52B8A00323F65 /* CreateBankAccountView.swift in Sources */,
 				780DEFB22BD6EFCF00352E93 /* RealCurrencyRatesClient.swift in Sources */,
 				788A897C2BC514940002F91E /* Persistence.swift in Sources */,
+				780F3D042BF513A10095BE48 /* FastCurrenciesCalculatorView.swift in Sources */,
 				785261B32BE22EFF000D6945 /* CameraAccessView.swift in Sources */,
 				78A14B152BC71F4400CA7B12 /* ListIconView.swift in Sources */,
 				788A897F2BC514940002F91E /* another_one_wallet.xcdatamodeld in Sources */,
@@ -520,6 +538,7 @@
 				781A393B2BD9845A00DC6160 /* ApisConfigurationView.swift in Sources */,
 				785261B52BE2399B000D6945 /* ManagedAccountHistoryModel.swift in Sources */,
 				780DEFBD2BD7C87200352E93 /* CurrenciesRateWidgetEditorView.swift in Sources */,
+				780F3D022BF507F30095BE48 /* CurrenciesRatesView.swift in Sources */,
 				784A65F42BCC69B3007D5677 /* SolanaClient.swift in Sources */,
 				784A66012BCCEF68007D5677 /* TRC20AccountPopulator.swift in Sources */,
 				780DEFBB2BD7B12A00352E93 /* ExchangeRatesWidgetView.swift in Sources */,
@@ -547,6 +566,7 @@
 				78A14B0D2BC712EC00CA7B12 /* BankAccountExtension.swift in Sources */,
 				781A39392BD96F6700DC6160 /* ListCardView.swift in Sources */,
 				788A898E2BC519440002F91E /* BankAccountsView.swift in Sources */,
+				780F3CFF2BF5066B0095BE48 /* LatestOperationsWidgetView.swift in Sources */,
 				7876ABB92BC52D2400323F65 /* Currencies.swift in Sources */,
 				781B9AEE2BDAA02900286C37 /* TRC20UsdtTokenDetails.swift in Sources */,
 				788A898A2BC519050002F91E /* HomeView.swift in Sources */,

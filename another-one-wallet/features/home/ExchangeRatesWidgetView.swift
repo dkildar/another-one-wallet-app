@@ -60,22 +60,31 @@ struct ExchangeRatesWidgetView: View {
                 HStack {
                     Text("Not configured yet")
                         .foregroundStyle(.gray)
+                        .padding(.vertical, 8)
                 }
             } else {
                 ExchangeRatesListView()
             }
             
         } action: {
-            Button {
-                isEditPresented = true
-            } label: {
-                Image(systemName: "gearshape")
+            HStack(alignment: .center) {
+                Text("View more")
+                    .font(.caption)
+                    .foregroundStyle(.gray)
+                
+                Image(systemName: "chevron.right")
+                    .resizable()
+                    .scaledToFit()
+                    .foregroundStyle(.gray)
+                    .frame(width: 10, height: 10)
             }
         }
-        .sheet(isPresented: $isEditPresented) {
-            NavigationView {
-                CurrenciesRateWidgetEditorView()
+        .background {
+            NavigationLink("") {
+                CurrenciesRatesView()
+                    .navigationTitle("Currencies rates")
             }
+            .opacity(0)
         }
     }
 }

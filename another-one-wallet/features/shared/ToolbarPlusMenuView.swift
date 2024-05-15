@@ -25,7 +25,7 @@ struct ToolbarPlusMenuView: View {
                 Label("Create an account", systemImage: "plus.square.on.square")
             }
         } label: {
-            Image(systemName: "plus.circle")
+            Image(systemName: "plus.circle.fill")
         }
         .sheet(isPresented: $showCreateAccountSheet) {
             CreateBankAccountView()
@@ -34,8 +34,4 @@ struct ToolbarPlusMenuView: View {
             ManagedAccountRecordFormView(presetAccount: .constant(nil), presetRecord: .constant(nil))
         }
     }
-}
-
-#Preview {
-    ToolbarPlusMenuView()
 }

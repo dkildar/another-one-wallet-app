@@ -33,19 +33,6 @@ struct BankAccountsView: View {
     }
     
     @ViewBuilder
-    var managingAccountsView: some View {
-        ForEach(managingAccounts, id: \.self) {account in
-            ManagedAccountItemView(account: .constant(account))
-                .background {
-                    NavigationLink("", destination: ManagedBankAccountDetailsView(account: .constant(account))
-                        .navigationTitle(account.name ?? "")
-                    )
-                    .opacity(0)
-                }
-        }
-    }
-    
-    @ViewBuilder
     var cryptoAccountsView: some View {
         ForEach(cryptoAccounts, id: \.self) { account in
             CryptoAccountItemView(account: .constant(account))
@@ -82,11 +69,28 @@ struct BankAccountsView: View {
                     .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
                 } else if selectedSection == 0 && !managingAccounts.isEmpty {
                     Section("Managing accounts") {
-                        managingAccountsView
+                        ForEach(managingAccounts, id: \.self) {account in
+                            ManagedAccountItemView(account: .constant(account))
+                                .background {
+                                    NavigationLink("", destination: ManagedBankAccountDetailsView(account: .constant(account))
+                                        .navigationTitle(account.name ?? "")
+                                    )
+                                    .opacity(0)
+                                }
+                        }
                     }
                     .padding(.vertical, 8)
                 } else if selectedSection == 1 {
-                        managingAccountsView
+                    ForEach(managingAccounts, id: \.self) {account in
+                        ManagedAccountItemView(account: .constant(account))
+                            .background {
+                                NavigationLink("", destination: ManagedBankAccountDetailsView(account: .constant(account))
+                                    .navigationTitle(account.name ?? "")
+                                )
+                                .opacity(0)
+                            }
+                            .padding(.vertical, 6)
+                    }
                 }
             }
             .toolbar {
