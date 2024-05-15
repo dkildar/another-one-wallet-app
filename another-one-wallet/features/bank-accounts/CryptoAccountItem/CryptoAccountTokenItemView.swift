@@ -9,11 +9,31 @@ import SwiftUI
 import Combine
 
 struct CryptoAccountItemView: View {
+    @EnvironmentObject var currenciesWatcherController: CurrenciesWatcherController
     @Binding var account: BankAccount
     
     var tokens: [CryptoToken] {
         get {
             return (account.tokens?.array as? [CryptoToken]) ?? []
+        }
+    }
+    
+    var isSameCurrency: Bool {
+        get {
+            return account.currency == currenciesWatcherController.currency.rawValue
+        }
+    }
+    
+    var total: String {
+        get {
+            let nextBalance = isSameCurrency ? account.balance : account.getUsdBalance() * currenciesWatcherController.rateRelatedToUsd
+            return "\(BankAccount.getNumberFormatter().string(from: nextBalance as NSNumber)!)"
+        }
+    }
+    
+    var totalInUsd: String {
+        get {
+            return "\(BankAccount.getNumberFormatter(currency: RealCurrency(rawValue: account.currency ?? "USD") ?? .USD).string(from: account.getUsdBalance() as NSNumber)!)"
         }
     }
     
@@ -32,12 +52,14 @@ struct CryptoAccountItemView: View {
                 Spacer()
                 
                 VStack(alignment: .trailing) {
-                    Text("Total")
-                        .font(.caption)
-                        .foregroundStyle(Color.gray)
-                    Text(String(format: "%.2f", Double(account.balance)) + "$")
+                    Text(total)
                         .font(.caption)
                         .foregroundStyle(Color.green)
+                    if !isSameCurrency {
+                        Text(totalInUsd)
+                            .font(.caption)
+                            .foregroundStyle(Color.gray)
+                    }
                 }
             }
             ForEach(tokens, id: \.self) { token in
@@ -48,7 +70,7 @@ struct CryptoAccountItemView: View {
                     )
                         .navigationTitle("\(account.name ?? "") – \(token.name ?? "")")
                 } label: {
-                    CryptoTokenItemView(token: .constant(token))
+                    CryptoTokenItemView(account: $account, token: .constant(token))
                 }
                 .padding(.leading, 48)
             }

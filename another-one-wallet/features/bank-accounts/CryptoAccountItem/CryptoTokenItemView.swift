@@ -8,7 +8,23 @@
 import SwiftUI
 
 struct CryptoTokenItemView: View {
+    @EnvironmentObject var currenciesWatcherController: CurrenciesWatcherController
+    
+    @Binding var account: BankAccount
     @Binding var token: CryptoToken
+    
+    var isSameCurrency: Bool {
+        get {
+            return account.currency == currenciesWatcherController.currency.rawValue
+        }
+    }
+    
+    var totalInCurrency: String {
+        get {
+            let nextBalance = isSameCurrency ? Double(token.usdBalance ?? "0.0") : (Double(token.usdBalance ?? "0.0") ?? 0.0) * currenciesWatcherController.rateRelatedToUsd
+            return "\(BankAccount.getNumberFormatter().string(from: nextBalance as! NSNumber)!)"
+        }
+    }
     
     var body: some View {
         HStack {
@@ -22,9 +38,6 @@ struct CryptoTokenItemView: View {
             VStack(alignment: .leading) {
                 Text(token.name ?? "")
                     .font(.callout)
-                //                Text(account.cryptoNetwork ?? "")
-                //                    .font(.caption)
-                //                    .foregroundColor(.gray)
             }
             
             Spacer()
@@ -32,7 +45,7 @@ struct CryptoTokenItemView: View {
             VStack(alignment: .trailing) {
                 Text(String(format: "%.2f", (Double(token.balance ?? "0") ?? 0)))
                     .font(.caption)
-                Text("≈ " + String(format: "%.2f", (Double(token.usdBalance ?? "0") ?? 0)) + "$")
+                Text("≈ " + totalInCurrency)
                     .font(.caption)
                     .foregroundStyle(Color.gray)
             }
