@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct FastCurrenciesCalculatorView: View {
+    @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var currenciesWatcherController: CurrenciesWatcherController
     @FetchRequest(sortDescriptors: []) var rates: FetchedResults<CurrencyRateWidgetRecord>
     
@@ -51,6 +52,7 @@ struct FastCurrenciesCalculatorView: View {
                     } label: {
                         Image(systemName: "arrow.swap")
                             .rotationEffect(.degrees(90))
+                            .foregroundColor(colorScheme == .dark ? .black : .white)
                     }
                     .buttonStyle(BorderedProminentButtonStyle())
                 }

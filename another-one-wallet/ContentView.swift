@@ -11,6 +11,7 @@ import WhatsNewKit
 import ImageViewer
 
 struct ContentView: View {
+    @Environment(\.colorScheme) var colorScheme
     @Environment(\.managedObjectContext) private var viewContext
     @EnvironmentObject var imageViewerController: ImageViewerController
     
@@ -48,6 +49,7 @@ struct ContentView: View {
                 }
             }
         )
+        .tint(colorScheme == .dark ? .white : .black)
     }
 }
 

@@ -54,7 +54,6 @@ struct another_one_walletApp: App {
                 .onAppear {
                     cryptoAccountsController.loadAccounts()
                 }
-                .tint(.black)
         }
     }
 }
