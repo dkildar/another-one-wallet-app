@@ -22,6 +22,9 @@
 		780F3CFF2BF5066B0095BE48 /* LatestOperationsWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780F3CFE2BF5066B0095BE48 /* LatestOperationsWidgetView.swift */; };
 		780F3D022BF507F30095BE48 /* CurrenciesRatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780F3D012BF507F30095BE48 /* CurrenciesRatesView.swift */; };
 		780F3D042BF513A10095BE48 /* FastCurrenciesCalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780F3D032BF513A10095BE48 /* FastCurrenciesCalculatorView.swift */; };
+		780F3D062BF545CB0095BE48 /* TONClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780F3D052BF545CB0095BE48 /* TONClient.swift */; };
+		780F3D092BF546470095BE48 /* TONAccountResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780F3D082BF546470095BE48 /* TONAccountResponse.swift */; };
+		780F3D0B2BF547F40095BE48 /* TONAccountPopulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780F3D0A2BF547F40095BE48 /* TONAccountPopulator.swift */; };
 		781A39392BD96F6700DC6160 /* ListCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781A39382BD96F6700DC6160 /* ListCardView.swift */; };
 		781A393B2BD9845A00DC6160 /* ApisConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781A393A2BD9845A00DC6160 /* ApisConfigurationView.swift */; };
 		781B9AEC2BDA99F800286C37 /* TRC20TransfersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781B9AEB2BDA99F800286C37 /* TRC20TransfersResponse.swift */; };
@@ -95,6 +98,9 @@
 		780F3CFE2BF5066B0095BE48 /* LatestOperationsWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestOperationsWidgetView.swift; sourceTree = "<group>"; };
 		780F3D012BF507F30095BE48 /* CurrenciesRatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesRatesView.swift; sourceTree = "<group>"; };
 		780F3D032BF513A10095BE48 /* FastCurrenciesCalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastCurrenciesCalculatorView.swift; sourceTree = "<group>"; };
+		780F3D052BF545CB0095BE48 /* TONClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TONClient.swift; sourceTree = "<group>"; };
+		780F3D082BF546470095BE48 /* TONAccountResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TONAccountResponse.swift; sourceTree = "<group>"; };
+		780F3D0A2BF547F40095BE48 /* TONAccountPopulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TONAccountPopulator.swift; sourceTree = "<group>"; };
 		781A39382BD96F6700DC6160 /* ListCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCardView.swift; sourceTree = "<group>"; };
 		781A393A2BD9845A00DC6160 /* ApisConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApisConfigurationView.swift; sourceTree = "<group>"; };
 		781B9AEB2BDA99F800286C37 /* TRC20TransfersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRC20TransfersResponse.swift; sourceTree = "<group>"; };
@@ -185,6 +191,14 @@
 			path = "currencies-rates";
 			sourceTree = "<group>";
 		};
+		780F3D072BF5463A0095BE48 /* ton-entities */ = {
+			isa = PBXGroup;
+			children = (
+				780F3D082BF546470095BE48 /* TONAccountResponse.swift */,
+			);
+			path = "ton-entities";
+			sourceTree = "<group>";
+		};
 		781B9AF42BDBC74D00286C37 /* CryptoAccountDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +245,7 @@
 				784A66002BCCEF68007D5677 /* TRC20AccountPopulator.swift */,
 				784A66042BCCF053007D5677 /* SolanaAccountPopulator.swift */,
 				784A66062BCCF062007D5677 /* AccountPopulator.swift */,
+				780F3D0A2BF547F40095BE48 /* TONAccountPopulator.swift */,
 			);
 			path = populators;
 			sourceTree = "<group>";
@@ -250,6 +265,7 @@
 		785269BF2BC7B7F400757C02 /* http */ = {
 			isa = PBXGroup;
 			children = (
+				780F3D072BF5463A0095BE48 /* ton-entities */,
 				780DEFB72BD782C500352E93 /* currencies-entities */,
 				784A65F12BCC69B3007D5677 /* CoinGeckoClient.swift */,
 				784A65F22BCC69B3007D5677 /* SolanaClient.swift */,
@@ -259,6 +275,7 @@
 				785269C02BC7B7FD00757C02 /* TRC20Client.swift */,
 				784A65FD2BCCE74E007D5677 /* HttpClient.swift */,
 				780DEFB12BD6EFCF00352E93 /* RealCurrencyRatesClient.swift */,
+				780F3D052BF545CB0095BE48 /* TONClient.swift */,
 			);
 			path = http;
 			sourceTree = "<group>";
@@ -510,6 +527,7 @@
 			files = (
 				78E83D792BDFA7BA00B1EEE4 /* ManagedAccountHistoryDetailsView.swift in Sources */,
 				784A66052BCCF053007D5677 /* SolanaAccountPopulator.swift in Sources */,
+				780F3D092BF546470095BE48 /* TONAccountResponse.swift in Sources */,
 				780DEFB62BD6F1C700352E93 /* SettingsCurrencySelectionView.swift in Sources */,
 				784A65F82BCC6A55007D5677 /* CryptoTokenItemView.swift in Sources */,
 				788A898C2BC519160002F91E /* SettingsView.swift in Sources */,
@@ -519,6 +537,7 @@
 				780DF4D72BC852F600EDADBC /* TRC20PriceResponse.swift in Sources */,
 				781B9AF62BDBC76300286C37 /* CryptoAccountDetailsViewModel.swift in Sources */,
 				78E00D392BCAEB5500A300D4 /* Date.swift in Sources */,
+				780F3D062BF545CB0095BE48 /* TONClient.swift in Sources */,
 				784A65FE2BCCE74E007D5677 /* HttpClient.swift in Sources */,
 				7876ABB72BC52B8A00323F65 /* CreateBankAccountView.swift in Sources */,
 				780DEFB22BD6EFCF00352E93 /* RealCurrencyRatesClient.swift in Sources */,
@@ -533,6 +552,7 @@
 				784A65FA2BCC6A98007D5677 /* CoinGeckoMarketDataResponse.swift in Sources */,
 				784A65EC2BCC688C007D5677 /* CoinGeckoPriceResponse.swift in Sources */,
 				785269C12BC7B7FD00757C02 /* TRC20Client.swift in Sources */,
+				780F3D0B2BF547F40095BE48 /* TONAccountPopulator.swift in Sources */,
 				788464BB2BCAFD9900911216 /* TopAccountsBalancesView.swift in Sources */,
 				785366D52BC7971300DB180D /* LinkedCryptoAccountFormView.swift in Sources */,
 				781A393B2BD9845A00DC6160 /* ApisConfigurationView.swift in Sources */,
@@ -711,7 +731,7 @@
 				DEVELOPMENT_TEAM = GBZN3Y39TH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "One more wallet";
+				INFOPLIST_KEY_CFBundleDisplayName = Fundly;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs to capture image to show in records";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -745,7 +765,7 @@
 				DEVELOPMENT_TEAM = GBZN3Y39TH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "One more wallet";
+				INFOPLIST_KEY_CFBundleDisplayName = Fundly;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs to capture image to show in records";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

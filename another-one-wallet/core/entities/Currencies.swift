@@ -118,5 +118,6 @@ struct AppCurrency : Hashable {
     enum CryptoNetwork: String, CaseIterable {
         case TRC20 = "TRC20"
         case SOL = "SOL"
+        case TON = "TON"
     }
 }

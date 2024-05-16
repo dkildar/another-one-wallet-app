@@ -46,6 +46,9 @@ class CryptoAccountsController : ObservableObject {
         case .SOL:
             try? await SolanaAccountPopulator(viewContext: context)
                 .populate(account: account, address: address)
+        case .TON:
+            try? await TONAccountPopulator(viewContext: context)
+                .populate(account: account, address: address)
         case .none:
             return
         }
