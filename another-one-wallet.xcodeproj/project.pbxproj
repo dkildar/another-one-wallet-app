@@ -25,6 +25,7 @@
 		780F3D062BF545CB0095BE48 /* TONClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780F3D052BF545CB0095BE48 /* TONClient.swift */; };
 		780F3D092BF546470095BE48 /* TONAccountResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780F3D082BF546470095BE48 /* TONAccountResponse.swift */; };
 		780F3D0B2BF547F40095BE48 /* TONAccountPopulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780F3D0A2BF547F40095BE48 /* TONAccountPopulator.swift */; };
+		780F3D0D2BF5F4550095BE48 /* SecureAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780F3D0C2BF5F4550095BE48 /* SecureAddressView.swift */; };
 		781A39392BD96F6700DC6160 /* ListCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781A39382BD96F6700DC6160 /* ListCardView.swift */; };
 		781A393B2BD9845A00DC6160 /* ApisConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781A393A2BD9845A00DC6160 /* ApisConfigurationView.swift */; };
 		781B9AEC2BDA99F800286C37 /* TRC20TransfersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781B9AEB2BDA99F800286C37 /* TRC20TransfersResponse.swift */; };
@@ -101,6 +102,7 @@
 		780F3D052BF545CB0095BE48 /* TONClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TONClient.swift; sourceTree = "<group>"; };
 		780F3D082BF546470095BE48 /* TONAccountResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TONAccountResponse.swift; sourceTree = "<group>"; };
 		780F3D0A2BF547F40095BE48 /* TONAccountPopulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TONAccountPopulator.swift; sourceTree = "<group>"; };
+		780F3D0C2BF5F4550095BE48 /* SecureAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureAddressView.swift; sourceTree = "<group>"; };
 		781A39382BD96F6700DC6160 /* ListCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCardView.swift; sourceTree = "<group>"; };
 		781A393A2BD9845A00DC6160 /* ApisConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApisConfigurationView.swift; sourceTree = "<group>"; };
 		781B9AEB2BDA99F800286C37 /* TRC20TransfersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRC20TransfersResponse.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				784A66082BCCF44C007D5677 /* CryptoAccountDetailsView.swift */,
 				781B9AED2BDAA02900286C37 /* TRC20UsdtTokenDetails.swift */,
 				781B9AF52BDBC76300286C37 /* CryptoAccountDetailsViewModel.swift */,
+				780F3D0C2BF5F4550095BE48 /* SecureAddressView.swift */,
 			);
 			path = CryptoAccountDetails;
 			sourceTree = "<group>";
@@ -539,6 +542,7 @@
 				78E00D392BCAEB5500A300D4 /* Date.swift in Sources */,
 				780F3D062BF545CB0095BE48 /* TONClient.swift in Sources */,
 				784A65FE2BCCE74E007D5677 /* HttpClient.swift in Sources */,
+				780F3D0D2BF5F4550095BE48 /* SecureAddressView.swift in Sources */,
 				7876ABB72BC52B8A00323F65 /* CreateBankAccountView.swift in Sources */,
 				780DEFB22BD6EFCF00352E93 /* RealCurrencyRatesClient.swift in Sources */,
 				788A897C2BC514940002F91E /* Persistence.swift in Sources */,

@@ -45,6 +45,9 @@ struct CryptoAccountDetailsView: View {
                 }
                 Text("≈ " + BankAccount.getNumberFormatter().string(from: Double(token.usdBalance ?? "0.0") as! NSNumber)!)
                     .foregroundStyle(.gray)
+                
+                SecureAddressView(account: $account)
+                    .padding(.top, 16)
             }
         }
         .padding(.vertical, 8)
