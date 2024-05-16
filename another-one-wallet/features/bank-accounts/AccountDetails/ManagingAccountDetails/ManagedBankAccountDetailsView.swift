@@ -18,7 +18,7 @@ struct ManagedBankAccountDetailsView: View {
     @Environment(\.dismiss) var dismiss
     
     @EnvironmentObject var persistenceController: PersistenceController
-
+    
     @Binding var account: BankAccount
     
     @StateObject var model = ManagedAccountHistoryModel(context: PersistenceController.shared.container.viewContext)
@@ -26,39 +26,35 @@ struct ManagedBankAccountDetailsView: View {
     @State var isCreateRecordPresented = false
     
     var body: some View {
-        VStack {
-            List {
-                Section {
-                    VStack(alignment: .leading, spacing: 4) {
-                        HStack {
-                            Text(String(format: "%.2f", account.balance))
-                                .foregroundStyle(.blue)
-                                .font(.system(size: 28, weight: .semibold))
-                            
-                            Spacer()
-                            
-                            Text(account.getCurrencySymbol())
-                                .foregroundStyle(.gray)
-                        }
-                        Text(account.currency ?? "")
-                            .foregroundStyle(.gray)
-                            .padding(.bottom, 16)
-                        
-                        ManagedAccountChartView(account: $account)
-                    }
+        List {
+            VStack(alignment: .leading, spacing: 4) {
+                HStack {
+                    Text(String(format: "%.2f", account.balance))
+                        .foregroundStyle(.blue)
+                        .font(.system(size: 28, weight: .semibold))
+                    
+                    Spacer()
+                    
+                    Text(account.getCurrencySymbol())
+                        .foregroundStyle(.gray)
                 }
-                .padding(.vertical, 8)
+                Text(account.currency ?? "")
+                    .foregroundStyle(.gray)
+                    .padding(.bottom, 16)
                 
-                Section {
-                    Button {
-                        isCreateRecordPresented.toggle()
-                    } label: {
-                        Label("Create a record", systemImage: "plus.app")
-                    }
-                }
-                
-                ManagedAccountHistoryView(account: $account)
+                ManagedAccountChartView(account: $account)
             }
+            .padding(.vertical, 8)
+            
+            Section {
+                Button {
+                    isCreateRecordPresented.toggle()
+                } label: {
+                    Label("Create a record", systemImage: "plus.app")
+                }
+            }
+            
+            ManagedAccountHistoryView(account: $account)
         }
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
