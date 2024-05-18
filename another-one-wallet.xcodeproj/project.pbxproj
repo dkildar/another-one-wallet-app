@@ -26,13 +26,18 @@
 		780F3D092BF546470095BE48 /* TONAccountResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780F3D082BF546470095BE48 /* TONAccountResponse.swift */; };
 		780F3D0B2BF547F40095BE48 /* TONAccountPopulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780F3D0A2BF547F40095BE48 /* TONAccountPopulator.swift */; };
 		780F3D0D2BF5F4550095BE48 /* SecureAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780F3D0C2BF5F4550095BE48 /* SecureAddressView.swift */; };
+		780F3D0F2BF5FB7B0095BE48 /* TONTransactionsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780F3D0E2BF5FB7B0095BE48 /* TONTransactionsResponse.swift */; };
+		7813D85E2BF8DEB30060D97D /* TONDetailsStateObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7813D85D2BF8DEB30060D97D /* TONDetailsStateObject.swift */; };
+		7813D8602BF8E04B0060D97D /* TONTokenDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7813D85F2BF8E04B0060D97D /* TONTokenDetailsView.swift */; };
+		7813D8632BF8E6FB0060D97D /* CryptoTokenTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7813D8622BF8E6FB0060D97D /* CryptoTokenTransactionView.swift */; };
+		7813D8652BF8E9FF0060D97D /* CryptoTokenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7813D8642BF8E9FF0060D97D /* CryptoTokenExtension.swift */; };
 		781A39392BD96F6700DC6160 /* ListCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781A39382BD96F6700DC6160 /* ListCardView.swift */; };
 		781A393B2BD9845A00DC6160 /* ApisConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781A393A2BD9845A00DC6160 /* ApisConfigurationView.swift */; };
 		781B9AEC2BDA99F800286C37 /* TRC20TransfersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781B9AEB2BDA99F800286C37 /* TRC20TransfersResponse.swift */; };
-		781B9AEE2BDAA02900286C37 /* TRC20UsdtTokenDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781B9AED2BDAA02900286C37 /* TRC20UsdtTokenDetails.swift */; };
+		781B9AEE2BDAA02900286C37 /* TRC20UsdtTokenDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781B9AED2BDAA02900286C37 /* TRC20UsdtTokenDetailsView.swift */; };
 		781B9AF12BDAD9CA00286C37 /* Pigeon in Frameworks */ = {isa = PBXBuildFile; productRef = 781B9AF02BDAD9CA00286C37 /* Pigeon */; };
 		781B9AF32BDADB6F00286C37 /* QueryKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781B9AF22BDADB6F00286C37 /* QueryKey.swift */; };
-		781B9AF62BDBC76300286C37 /* CryptoAccountDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781B9AF52BDBC76300286C37 /* CryptoAccountDetailsViewModel.swift */; };
+		781B9AF62BDBC76300286C37 /* TRC20DetailsStateObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781B9AF52BDBC76300286C37 /* TRC20DetailsStateObject.swift */; };
 		7830CD3B2BD3CA2B00E5535D /* ManagedAccountRecordFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7830CD3A2BD3CA2B00E5535D /* ManagedAccountRecordFormView.swift */; };
 		784A65EC2BCC688C007D5677 /* CoinGeckoPriceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784A65EB2BCC688C007D5677 /* CoinGeckoPriceResponse.swift */; };
 		784A65F02BCC6967007D5677 /* SolanaRPCResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784A65EF2BCC6967007D5677 /* SolanaRPCResponse.swift */; };
@@ -103,12 +108,17 @@
 		780F3D082BF546470095BE48 /* TONAccountResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TONAccountResponse.swift; sourceTree = "<group>"; };
 		780F3D0A2BF547F40095BE48 /* TONAccountPopulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TONAccountPopulator.swift; sourceTree = "<group>"; };
 		780F3D0C2BF5F4550095BE48 /* SecureAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureAddressView.swift; sourceTree = "<group>"; };
+		780F3D0E2BF5FB7B0095BE48 /* TONTransactionsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TONTransactionsResponse.swift; sourceTree = "<group>"; };
+		7813D85D2BF8DEB30060D97D /* TONDetailsStateObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TONDetailsStateObject.swift; sourceTree = "<group>"; };
+		7813D85F2BF8E04B0060D97D /* TONTokenDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TONTokenDetailsView.swift; sourceTree = "<group>"; };
+		7813D8622BF8E6FB0060D97D /* CryptoTokenTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoTokenTransactionView.swift; sourceTree = "<group>"; };
+		7813D8642BF8E9FF0060D97D /* CryptoTokenExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoTokenExtension.swift; sourceTree = "<group>"; };
 		781A39382BD96F6700DC6160 /* ListCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCardView.swift; sourceTree = "<group>"; };
 		781A393A2BD9845A00DC6160 /* ApisConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApisConfigurationView.swift; sourceTree = "<group>"; };
 		781B9AEB2BDA99F800286C37 /* TRC20TransfersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRC20TransfersResponse.swift; sourceTree = "<group>"; };
-		781B9AED2BDAA02900286C37 /* TRC20UsdtTokenDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRC20UsdtTokenDetails.swift; sourceTree = "<group>"; };
+		781B9AED2BDAA02900286C37 /* TRC20UsdtTokenDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRC20UsdtTokenDetailsView.swift; sourceTree = "<group>"; };
 		781B9AF22BDADB6F00286C37 /* QueryKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryKey.swift; sourceTree = "<group>"; };
-		781B9AF52BDBC76300286C37 /* CryptoAccountDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAccountDetailsViewModel.swift; sourceTree = "<group>"; };
+		781B9AF52BDBC76300286C37 /* TRC20DetailsStateObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRC20DetailsStateObject.swift; sourceTree = "<group>"; };
 		7830CD3A2BD3CA2B00E5535D /* ManagedAccountRecordFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedAccountRecordFormView.swift; sourceTree = "<group>"; };
 		784A65EB2BCC688C007D5677 /* CoinGeckoPriceResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinGeckoPriceResponse.swift; sourceTree = "<group>"; };
 		784A65EF2BCC6967007D5677 /* SolanaRPCResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SolanaRPCResponse.swift; path = "another-one-wallet/core/http/sol-entities/SolanaRPCResponse.swift"; sourceTree = SOURCE_ROOT; };
@@ -197,16 +207,44 @@
 			isa = PBXGroup;
 			children = (
 				780F3D082BF546470095BE48 /* TONAccountResponse.swift */,
+				780F3D0E2BF5FB7B0095BE48 /* TONTransactionsResponse.swift */,
 			);
 			path = "ton-entities";
+			sourceTree = "<group>";
+		};
+		7813D85B2BF8DE960060D97D /* TRC20 */ = {
+			isa = PBXGroup;
+			children = (
+				781B9AED2BDAA02900286C37 /* TRC20UsdtTokenDetailsView.swift */,
+				781B9AF52BDBC76300286C37 /* TRC20DetailsStateObject.swift */,
+			);
+			path = TRC20;
+			sourceTree = "<group>";
+		};
+		7813D85C2BF8DEA00060D97D /* TON */ = {
+			isa = PBXGroup;
+			children = (
+				7813D85D2BF8DEB30060D97D /* TONDetailsStateObject.swift */,
+				7813D85F2BF8E04B0060D97D /* TONTokenDetailsView.swift */,
+			);
+			path = TON;
+			sourceTree = "<group>";
+		};
+		7813D8612BF8E6F00060D97D /* shared */ = {
+			isa = PBXGroup;
+			children = (
+				7813D8622BF8E6FB0060D97D /* CryptoTokenTransactionView.swift */,
+			);
+			path = shared;
 			sourceTree = "<group>";
 		};
 		781B9AF42BDBC74D00286C37 /* CryptoAccountDetails */ = {
 			isa = PBXGroup;
 			children = (
+				7813D8612BF8E6F00060D97D /* shared */,
+				7813D85C2BF8DEA00060D97D /* TON */,
+				7813D85B2BF8DE960060D97D /* TRC20 */,
 				784A66082BCCF44C007D5677 /* CryptoAccountDetailsView.swift */,
-				781B9AED2BDAA02900286C37 /* TRC20UsdtTokenDetails.swift */,
-				781B9AF52BDBC76300286C37 /* CryptoAccountDetailsViewModel.swift */,
 				780F3D0C2BF5F4550095BE48 /* SecureAddressView.swift */,
 			);
 			path = CryptoAccountDetails;
@@ -409,6 +447,7 @@
 				7876ABB82BC52D2400323F65 /* Currencies.swift */,
 				78A14B0C2BC712EC00CA7B12 /* BankAccountExtension.swift */,
 				78E00D3A2BCAEDE900A300D4 /* ManagedAccountRecordExtension.swift */,
+				7813D8642BF8E9FF0060D97D /* CryptoTokenExtension.swift */,
 			);
 			path = entities;
 			sourceTree = "<group>";
@@ -532,21 +571,25 @@
 				784A66052BCCF053007D5677 /* SolanaAccountPopulator.swift in Sources */,
 				780F3D092BF546470095BE48 /* TONAccountResponse.swift in Sources */,
 				780DEFB62BD6F1C700352E93 /* SettingsCurrencySelectionView.swift in Sources */,
+				7813D8632BF8E6FB0060D97D /* CryptoTokenTransactionView.swift in Sources */,
 				784A65F82BCC6A55007D5677 /* CryptoTokenItemView.swift in Sources */,
 				788A898C2BC519160002F91E /* SettingsView.swift in Sources */,
 				78526A142BC7CC1100757C02 /* CryptoAccountTokenItemView.swift in Sources */,
 				785269BB2BC799C600757C02 /* BasicAccountCreateFormView.swift in Sources */,
 				785366D32BC7970400DB180D /* ManagedBankAccountFormView.swift in Sources */,
 				780DF4D72BC852F600EDADBC /* TRC20PriceResponse.swift in Sources */,
-				781B9AF62BDBC76300286C37 /* CryptoAccountDetailsViewModel.swift in Sources */,
+				781B9AF62BDBC76300286C37 /* TRC20DetailsStateObject.swift in Sources */,
 				78E00D392BCAEB5500A300D4 /* Date.swift in Sources */,
 				780F3D062BF545CB0095BE48 /* TONClient.swift in Sources */,
+				7813D8652BF8E9FF0060D97D /* CryptoTokenExtension.swift in Sources */,
 				784A65FE2BCCE74E007D5677 /* HttpClient.swift in Sources */,
 				780F3D0D2BF5F4550095BE48 /* SecureAddressView.swift in Sources */,
 				7876ABB72BC52B8A00323F65 /* CreateBankAccountView.swift in Sources */,
 				780DEFB22BD6EFCF00352E93 /* RealCurrencyRatesClient.swift in Sources */,
 				788A897C2BC514940002F91E /* Persistence.swift in Sources */,
 				780F3D042BF513A10095BE48 /* FastCurrenciesCalculatorView.swift in Sources */,
+				7813D85E2BF8DEB30060D97D /* TONDetailsStateObject.swift in Sources */,
+				7813D8602BF8E04B0060D97D /* TONTokenDetailsView.swift in Sources */,
 				785261B32BE22EFF000D6945 /* CameraAccessView.swift in Sources */,
 				78A14B152BC71F4400CA7B12 /* ListIconView.swift in Sources */,
 				788A897F2BC514940002F91E /* another_one_wallet.xcdatamodeld in Sources */,
@@ -555,6 +598,7 @@
 				780DEFB42BD6F00E00352E93 /* CurrenciesWatcherController.swift in Sources */,
 				784A65FA2BCC6A98007D5677 /* CoinGeckoMarketDataResponse.swift in Sources */,
 				784A65EC2BCC688C007D5677 /* CoinGeckoPriceResponse.swift in Sources */,
+				780F3D0F2BF5FB7B0095BE48 /* TONTransactionsResponse.swift in Sources */,
 				785269C12BC7B7FD00757C02 /* TRC20Client.swift in Sources */,
 				780F3D0B2BF547F40095BE48 /* TONAccountPopulator.swift in Sources */,
 				788464BB2BCAFD9900911216 /* TopAccountsBalancesView.swift in Sources */,
@@ -592,7 +636,7 @@
 				788A898E2BC519440002F91E /* BankAccountsView.swift in Sources */,
 				780F3CFF2BF5066B0095BE48 /* LatestOperationsWidgetView.swift in Sources */,
 				7876ABB92BC52D2400323F65 /* Currencies.swift in Sources */,
-				781B9AEE2BDAA02900286C37 /* TRC20UsdtTokenDetails.swift in Sources */,
+				781B9AEE2BDAA02900286C37 /* TRC20UsdtTokenDetailsView.swift in Sources */,
 				788A898A2BC519050002F91E /* HomeView.swift in Sources */,
 				788A89732BC514930002F91E /* another_one_walletApp.swift in Sources */,
 				784A65F02BCC6967007D5677 /* SolanaRPCResponse.swift in Sources */,

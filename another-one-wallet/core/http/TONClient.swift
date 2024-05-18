@@ -31,4 +31,22 @@ class TONClient {
             )
         )
     }
+    
+    func fetchTransactions(address: String) -> AnyPublisher<TONTransactionsResponse, Error> {
+        return httpClient.request(
+            urlString: "https://toncenter.com/api/v2/jsonRPC",
+            method: "POST",
+            queryParams: [:],
+            headers: [:],
+            responseEntity: TONTransactionsResponse.self,
+            body: try? JSONSerialization.data(withJSONObject: [
+                "jsonrpc": "2.0",
+                "id": 1,
+                "method": "getTransactions",
+                "params": [
+                    "address": address
+                ]
+            ])
+        )
+    }
 }

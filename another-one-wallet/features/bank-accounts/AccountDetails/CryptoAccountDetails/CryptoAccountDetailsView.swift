@@ -11,16 +11,15 @@ import Pigeon
 struct CryptoAccountDetailsView: View {
     @EnvironmentObject var persistenceController: PersistenceController
     @EnvironmentObject var currenciesWatcherController: CurrenciesWatcherController
-    @StateObject var stateObject = CryptoAccountDetailsViewModel()
+    @StateObject var trc20StateObject = TRC20DetailsStateObject()
+    @StateObject var tonStateObject = TONDetailsStateObject()
     
     @Binding var account: BankAccount
     @Binding var token: CryptoToken
     
     @ViewBuilder
     var exchangeRate: some View {
-        let oneUsdPrice = (Double(token.usdBalance ?? "0.0") ?? 0.0) / (Double(token.balance ?? "0.0") ?? 0.0)
-        
-        let text = BankAccount.getNumberFormatter().string(from: oneUsdPrice * currenciesWatcherController.rateRelatedToUsd as NSNumber)!
+        let text = BankAccount.getNumberFormatter().string(from: token.getUsdRate() * currenciesWatcherController.rateRelatedToUsd as NSNumber)!
         
         Text("1\(token.abbr?.uppercased() ?? "") = \(text)")
             .foregroundStyle(.gray)
@@ -43,7 +42,7 @@ struct CryptoAccountDetailsView: View {
                     Text(token.abbr?.uppercased() ?? "")
                         .foregroundStyle(.gray)
                 }
-                Text("≈ " + BankAccount.getNumberFormatter().string(from: Double(token.usdBalance ?? "0.0") as! NSNumber)!)
+                Text(BankAccount.getNumberFormatter().string(from: ((Double(token.usdBalance ?? "0.0") ?? 0.0) * currenciesWatcherController.rateRelatedToUsd) as NSNumber)!)
                     .foregroundStyle(.gray)
                 
                 SecureAddressView(account: $account)
@@ -60,12 +59,14 @@ struct CryptoAccountDetailsView: View {
                 switch AppCurrency.CryptoNetwork.init(rawValue: account.cryptoNetwork!) {
                 case .TRC20:
                     if token.abbr == AppCurrency.CryptoCurrencies.USDT.rawValue {
-                        TRC20UsdtTokenDetails(
-                            stateObject: stateObject, 
+                        TRC20UsdtTokenDetailsView(
+                            stateObject: trc20StateObject, 
                             account: $account,
                             token: $token
                         )
                     }
+                case .TON:
+                    TONTokenDetailsView(stateObject: tonStateObject, account: $account, token: $token)
                 default: EmptyView()
                 }
             }
@@ -74,8 +75,10 @@ struct CryptoAccountDetailsView: View {
             switch AppCurrency.CryptoNetwork.init(rawValue: account.cryptoNetwork!) {
             case .TRC20: 
                 if token.abbr == AppCurrency.CryptoCurrencies.USDT.rawValue {
-                    stateObject.trc20UsdtTransfersQuery.refetch(request: account.address ?? "")
+                    trc20StateObject.trc20UsdtTransfersQuery.refetch(request: account.address ?? "")
                 }
+            case .TON:
+                tonStateObject.tonTransfersQuery.refetch(request: account.address ?? "")
             default: return
             }
         }

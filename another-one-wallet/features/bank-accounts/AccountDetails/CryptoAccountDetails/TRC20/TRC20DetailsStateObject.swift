@@ -8,8 +8,9 @@
 import Foundation
 import Pigeon
 import Combine
+import SwiftUI
 
-class CryptoAccountDetailsViewModel : ObservableObject {
+class TRC20DetailsStateObject : ObservableObject {
     private var cancellable: Set<AnyCancellable> = Set()
     
     @Published var trc20UsdtTransfersQuery = Query<String, TRC20TransfersResponse>(
@@ -31,7 +32,11 @@ class CryptoAccountDetailsViewModel : ObservableObject {
         trc20UsdtTransfersQuery.valuePublisher
             .receive(on: DispatchQueue.main)
             .sink { response in
-                self.aggregatedTrc20UsdtRecords = self.buildAggregatedTrc20UsdtRecords(response: response)
+                DispatchQueue.main.async {
+                    withAnimation {
+                        self.aggregatedTrc20UsdtRecords = self.buildAggregatedTrc20UsdtRecords(response: response)
+                    }
+                }
             }
             .store(in: &cancellable)
     }

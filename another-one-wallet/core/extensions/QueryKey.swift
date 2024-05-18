@@ -10,4 +10,5 @@ import Pigeon
 
 extension QueryKey {
     static let trc20Transfers: QueryKey = QueryKey(value: "trc20Transfers")
+    static let tonTransfers: QueryKey = QueryKey(value: "tonTransfers")
 }
