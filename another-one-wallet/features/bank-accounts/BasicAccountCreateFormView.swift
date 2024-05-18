@@ -11,6 +11,8 @@ import SFSymbolsPicker
 struct BasicAccountCreateFormView<Content: View>: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     
+    @Binding var presetAccount: BankAccount?
+    
     @State var name = ""
     @State var icon = "plus"
     @State var isSymbolPickerShow = false
@@ -21,8 +23,9 @@ struct BasicAccountCreateFormView<Content: View>: View {
     
     var type: BankAccountType
     
-    init(type: BankAccountType, submit: @escaping (_ account: BankAccount) -> Void, @ViewBuilder content: () -> Content) {
+    init(type: BankAccountType, presetAccount: Binding<BankAccount?>, submit: @escaping (_ account: BankAccount) -> Void, @ViewBuilder content: () -> Content) {
         self.type = type
+        self._presetAccount = presetAccount
         self.submit = submit
         self.content = content()
     }
@@ -46,8 +49,8 @@ struct BasicAccountCreateFormView<Content: View>: View {
             }
             
             Section {
-                Button("Create") {
-                    let account = BankAccount(context: managedObjectContext)
+                Button(presetAccount != nil ? "Edit" : "Create") {
+                    let account = presetAccount ?? BankAccount(context: managedObjectContext)
                     account.id = UUID.init()
                     account.name = name
                     account.icon = icon
@@ -58,7 +61,12 @@ struct BasicAccountCreateFormView<Content: View>: View {
                 .disabled(name.isEmpty)
             }
         }
-        
+        .onAppear {
+            if let presetAccount = presetAccount {
+                name = presetAccount.name ?? ""
+                icon = presetAccount.icon ?? "plus"
+            }
+        }
         .sheet(isPresented: $isSymbolPickerShow, content: {
             SymbolsPicker(selection: $icon, title: "Pick a symbol", autoDismiss: true)
         })

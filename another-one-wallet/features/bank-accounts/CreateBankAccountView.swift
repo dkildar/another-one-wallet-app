@@ -12,7 +12,7 @@ struct CreateBankAccountView: View {
         NavigationStack {
             List {
                 NavigationLink {
-                    ManagedBankAccountFormView()
+                    ManagedBankAccountFormView(presetAccount: .constant(nil))
                         .navigationTitle("Managing bank account")
                 } label: {
                     Label("Managing bank account", systemImage: "list.bullet.rectangle")
@@ -21,7 +21,7 @@ struct CreateBankAccountView: View {
                 }
                 
                 NavigationLink {
-                    LinkedCryptoAccountFormView()
+                    LinkedCryptoAccountFormView(presetAccount: .constant(nil))
                         .navigationTitle("Linked crypto account")
                 } label: {
                     Label("Linked crypto account", systemImage: "safari")

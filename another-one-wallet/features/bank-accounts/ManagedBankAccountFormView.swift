@@ -11,13 +11,15 @@ struct ManagedBankAccountFormView: View {
     @EnvironmentObject var persistenceController: PersistenceController
     @Environment(\.dismiss) var dismiss
     
+    @Binding var presetAccount: BankAccount?
+    
     @State var initialBalance = 0.0
     @State var currency = RealCurrency.USD
     
     var currencies: [RealCurrency] = RealCurrency.allCases
     
     var body: some View {
-        BasicAccountCreateFormView(type: .Managing, submit: { account in
+        BasicAccountCreateFormView(type: .Managing, presetAccount: $presetAccount, submit: { account in
             account.balance = initialBalance
             account.currency = currency.rawValue
             
@@ -30,8 +32,16 @@ struct ManagedBankAccountFormView: View {
                     Text(currency.rawValue).tag(currency)
                 }
             }
+            .disabled(presetAccount != nil)
             TextField("Initial balance", value: $initialBalance, format: .number)
                 .keyboardType(.numbersAndPunctuation)
+                .disabled(presetAccount != nil)
+        }
+        .onAppear {
+            if let presetAccount = presetAccount {
+                initialBalance = presetAccount.balance
+                currency = RealCurrency(rawValue: presetAccount.currency ?? "USD") ?? .USD
+            }
         }
     }
 }

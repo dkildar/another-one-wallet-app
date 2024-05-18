@@ -9,8 +9,13 @@ import SwiftUI
 import Combine
 
 struct CryptoAccountItemView: View {
+    @EnvironmentObject var persistenceController: PersistenceController
     @EnvironmentObject var currenciesWatcherController: CurrenciesWatcherController
+    
     @Binding var account: BankAccount
+    
+    @State var isConfirmationPresented = false
+    @State var isEditPresented = false
     
     var tokens: [CryptoToken] {
         get {
@@ -80,6 +85,32 @@ struct CryptoAccountItemView: View {
                     .padding(.leading, 48)
                     .padding(.vertical, 6)
             }
+        }
+        .swipeActions {
+            Button {
+                isConfirmationPresented.toggle()
+            } label: {
+                Image(systemName: "trash.circle")
+            }
+            .tint(.red)
+            
+            Button {
+                isEditPresented.toggle()
+            } label: {
+                Image(systemName: "pencil.circle")
+            }
+            .tint(.gray)
+        }
+        .confirmationDialog("Are you sure?", isPresented: $isConfirmationPresented) {
+            Button("Yes, delete", role: .destructive) {
+                withAnimation {
+                    persistenceController.delete(item: account)
+                }
+            }
+        }
+        .sheet(isPresented: $isEditPresented) {
+            LinkedCryptoAccountFormView(presetAccount: .constant(account))
+                .navigationTitle("Edit an account")
         }
     }
 }

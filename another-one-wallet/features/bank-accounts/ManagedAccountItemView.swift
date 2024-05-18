@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct ManagedAccountItemView: View {
+    @EnvironmentObject var persistenceController: PersistenceController
     @EnvironmentObject var currenciesWatcherController: CurrenciesWatcherController
     
     @Binding var account: BankAccount
+    
+    @State var isConfirmationPresented = false
+    @State var isEditPresented = false
     
     var isSameCurrency: Bool {
         get {
@@ -47,7 +51,7 @@ struct ManagedAccountItemView: View {
                 }
                 
                 Spacer()
-        
+                
                 VStack(alignment: .trailing) {
                     HStack(alignment: .center) {
                         Text(totalText)
@@ -67,6 +71,32 @@ struct ManagedAccountItemView: View {
                     }
                 }
             }
+        }
+        .swipeActions {
+            Button {
+                isConfirmationPresented.toggle()
+            } label: {
+                Image(systemName: "trash.circle")
+            }
+            .tint(.red)
+            
+            Button {
+                isEditPresented.toggle()
+            } label: {
+                Image(systemName: "pencil.circle")
+            }
+            .tint(.gray)
+        }
+        .confirmationDialog("Are you sure?", isPresented: $isConfirmationPresented) {
+            Button("Yes, delete", role: .destructive) {
+                withAnimation {
+                    persistenceController.delete(item: account)
+                }
+            }
+        }
+        .sheet(isPresented: $isEditPresented) {
+            ManagedBankAccountFormView(presetAccount: .constant(account))
+                .navigationTitle("Edit an account")
         }
     }
 }
