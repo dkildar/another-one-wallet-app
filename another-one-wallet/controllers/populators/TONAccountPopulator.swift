@@ -14,10 +14,9 @@ class TONAccountPopulator : AccountPopulator {
         }
         
         account.balance = 0.0
-        account.tokens = []
         
         let normalizedBalance = (Double(balanceDetails.result.balance) ?? 0.0) / 1000000000.0
-        let tokenEntity = CryptoToken(context: viewContext)
+        let tokenEntity = account.getCryptoTokenByAbbr(abbr: "ton") ?? CryptoToken(context: viewContext)
         tokenEntity.balance = String(normalizedBalance)
         tokenEntity.logo = "https://ton.org/download/ton_symbol.png"
         tokenEntity.name = "TON"
@@ -30,7 +29,9 @@ class TONAccountPopulator : AccountPopulator {
             account.balance = tokenDetails.currentPrice * Double(normalizedBalance)
         }
         
-        account.addToTokens(tokenEntity)
+        if account.getCryptoTokenByAbbr(abbr: "ton") == nil {
+            account.addToTokens(tokenEntity)
+        }
     }
     
     private func fetchAccountInfo(address: String?) async throws -> TONAccountResponse? {

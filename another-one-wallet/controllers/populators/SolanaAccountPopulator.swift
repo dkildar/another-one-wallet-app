@@ -15,10 +15,9 @@ class SolanaAccountPopulator : AccountPopulator {
         }
         
         account.balance = 0.0
-        account.tokens = []
         
         let normalizedBalance = Double(balanceDetails.result.value) / 1000000000.0
-        let tokenEntity = CryptoToken(context: viewContext)
+        let tokenEntity = account.getCryptoTokenByAbbr(abbr: "sol") ?? CryptoToken(context: viewContext)
         tokenEntity.balance = String(normalizedBalance)
         tokenEntity.logo = "https://solana.com/src/img/branding/solanaLogoMark.png"
         tokenEntity.name = "Solana"
@@ -30,8 +29,10 @@ class SolanaAccountPopulator : AccountPopulator {
             
             account.balance = tokenDetails.currentPrice * Double(normalizedBalance)
         }
-        
-        account.addToTokens(tokenEntity)
+    
+        if account.getCryptoTokenByAbbr(abbr: "sol") == nil {
+            account.addToTokens(tokenEntity)
+        }
     }
     
     private func fetchSOLAccountBalance(address: String?) async throws -> SolanaBalanceRPCResponse? {

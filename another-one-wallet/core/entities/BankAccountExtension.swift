@@ -38,6 +38,12 @@ extension BankAccount {
         return balance * 1/conversionRateFromAccountToUsd
     }
     
+    func getCryptoTokenByAbbr(abbr: String) -> CryptoToken? {
+        return tokens?.first(where: { element in
+            return (element as! CryptoToken).abbr == "sol"
+        }) as! CryptoToken?
+    }
+    
     static func getNumberFormatter(currency: RealCurrency = CurrenciesWatcherController.shared.currency) -> NumberFormatter {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
