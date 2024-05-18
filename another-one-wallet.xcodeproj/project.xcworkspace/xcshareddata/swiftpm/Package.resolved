@@ -1,4 +1,5 @@
 {
+  "originHash" : "a38790bee57900facce41dcb1db06dd17100394a3f23d8abc1629291c7df3b75",
   "pins" : [
     {
       "identity" : "pigeon",
@@ -46,5 +47,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

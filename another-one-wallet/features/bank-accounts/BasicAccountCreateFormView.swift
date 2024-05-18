@@ -29,39 +29,38 @@ struct BasicAccountCreateFormView<Content: View>: View {
     
     var body: some View {
         List {
-            TextField("Name", text: $name)
-            Button {
-                isSymbolPickerShow.toggle()
-            } label: {
-                HStack {
-                    Image(systemName: icon)
-                    Text("Pick an icon")
+            Section("Account information") {
+                TextField("Name", text: $name)
+                Button {
+                    isSymbolPickerShow.toggle()
+                } label: {
+                    HStack {
+                        Image(systemName: icon)
+                        Text("Pick an icon")
+                    }
                 }
             }
             
-            content
-            
-            Button("Create") {
-                let account = BankAccount(context: managedObjectContext)
-                account.id = UUID.init()
-                account.name = name
-                account.icon = icon
-                account.type = type.rawValue
-                
-                submit(account)
+            Section {
+                content
             }
-            .disabled(name.isEmpty)
+            
+            Section {
+                Button("Create") {
+                    let account = BankAccount(context: managedObjectContext)
+                    account.id = UUID.init()
+                    account.name = name
+                    account.icon = icon
+                    account.type = type.rawValue
+                    
+                    submit(account)
+                }
+                .disabled(name.isEmpty)
+            }
         }
         
         .sheet(isPresented: $isSymbolPickerShow, content: {
             SymbolsPicker(selection: $icon, title: "Pick a symbol", autoDismiss: true)
         })
-    }
-}
-
-#Preview {
-    BasicAccountCreateFormView(type: .Managing, submit: { account in
-        
-    }) {
     }
 }

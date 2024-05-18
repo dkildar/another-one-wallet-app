@@ -15,22 +15,22 @@ struct CreateBankAccountView: View {
                     ManagedBankAccountFormView()
                         .navigationTitle("Managing bank account")
                 } label: {
-                    Text("Managing bank account")
+                    Label("Managing bank account", systemImage: "list.bullet.rectangle")
+                        .padding(.vertical, 8)
+                        .foregroundColor(.blue)
                 }
                 
                 NavigationLink {
                     LinkedCryptoAccountFormView()
                         .navigationTitle("Linked crypto account")
                 } label: {
-                    Text("Linked crypto account")
+                    Label("Linked crypto account", systemImage: "safari")
+                        .padding(.vertical, 8)
+                        .foregroundColor(.green)
                 }
             }
             .navigationTitle("Create an account")
             .navigationBarTitleDisplayMode(.inline)
         }
     }
-}
-
-#Preview {
-    CreateBankAccountView()
 }
