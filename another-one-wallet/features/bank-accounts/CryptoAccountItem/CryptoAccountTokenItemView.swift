@@ -88,14 +88,14 @@ struct CryptoAccountItemView: View {
         }
         .swipeActions {
             Button {
-                isConfirmationPresented.toggle()
+                isConfirmationPresented = true
             } label: {
                 Image(systemName: "trash.circle")
             }
             .tint(.red)
             
             Button {
-                isEditPresented.toggle()
+                isEditPresented = true
             } label: {
                 Image(systemName: "pencil.circle")
             }
