@@ -15,15 +15,16 @@ class TRC20AccountPopulator : AccountPopulator {
         account.balance = 0.0
         
         details.data?.forEach { token in
-            let tokenEntity = account.getCryptoTokenByAbbr(abbr: token.tokenAbbr ?? "") ?? CryptoToken(context: viewContext)
-            tokenEntity.id = UUID()
+            let existingToken = account.getCryptoTokenByAbbr(abbr: token.tokenAbbr ?? "")
+            let tokenEntity = existingToken ?? CryptoToken(context: viewContext)
             tokenEntity.name = token.tokenName
             tokenEntity.balance = token.quantity
             tokenEntity.usdBalance = String(token.amountInUsd ?? 0.0)
             tokenEntity.logo = token.tokenLogo
             tokenEntity.abbr = token.tokenAbbr
             
-            if account.getCryptoTokenByAbbr(abbr: token.tokenAbbr ?? "") == nil {
+            if existingToken == nil {
+                tokenEntity.id = UUID()
                 account.addToTokens(tokenEntity)
             }
             

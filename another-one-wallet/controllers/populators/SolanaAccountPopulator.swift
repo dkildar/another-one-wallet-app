@@ -16,12 +16,12 @@ class SolanaAccountPopulator : AccountPopulator {
         
         account.balance = 0.0
         
+        let existingToken = account.getCryptoTokenByAbbr(abbr: "sol")
         let normalizedBalance = Double(balanceDetails.result.value) / 1000000000.0
-        let tokenEntity = account.getCryptoTokenByAbbr(abbr: "sol") ?? CryptoToken(context: viewContext)
+        let tokenEntity = existingToken ?? CryptoToken(context: viewContext)
         tokenEntity.balance = String(normalizedBalance)
         tokenEntity.logo = "https://solana.com/src/img/branding/solanaLogoMark.png"
         tokenEntity.name = "Solana"
-        tokenEntity.id = UUID()
         tokenEntity.abbr = "sol"
         
         if let tokenDetails = try? await CoinGeckoClient.shared.fetchTokenDetails(currency: "solana", opposite: "usd") {
@@ -30,7 +30,8 @@ class SolanaAccountPopulator : AccountPopulator {
             account.balance = tokenDetails.currentPrice * Double(normalizedBalance)
         }
     
-        if account.getCryptoTokenByAbbr(abbr: "sol") == nil {
+        if existingToken == nil {
+            tokenEntity.id = UUID()
             account.addToTokens(tokenEntity)
         }
     }

@@ -15,12 +15,12 @@ class TONAccountPopulator : AccountPopulator {
         
         account.balance = 0.0
         
+        let existingToken = account.getCryptoTokenByAbbr(abbr: "ton")
         let normalizedBalance = (Double(balanceDetails.result.balance) ?? 0.0) / 1000000000.0
-        let tokenEntity = account.getCryptoTokenByAbbr(abbr: "ton") ?? CryptoToken(context: viewContext)
+        let tokenEntity = existingToken ?? CryptoToken(context: viewContext)
         tokenEntity.balance = String(normalizedBalance)
         tokenEntity.logo = "https://ton.org/download/ton_symbol.png"
         tokenEntity.name = "TON"
-        tokenEntity.id = UUID()
         tokenEntity.abbr = "ton"
         
         if let tokenDetails = try? await CoinGeckoClient.shared.fetchTokenDetails(currency: "the-open-network", opposite: "usd") {
@@ -29,7 +29,8 @@ class TONAccountPopulator : AccountPopulator {
             account.balance = tokenDetails.currentPrice * Double(normalizedBalance)
         }
         
-        if account.getCryptoTokenByAbbr(abbr: "ton") == nil {
+        if existingToken == nil {
+            tokenEntity.id = UUID()
             account.addToTokens(tokenEntity)
         }
     }

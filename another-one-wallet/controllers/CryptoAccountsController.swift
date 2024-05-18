@@ -28,8 +28,11 @@ class CryptoAccountsController : ObservableObject {
                     await populateAccount(account: account)
                 }
                 
-                // Update cached balance
-                PersistenceController.shared.save(affectedItems: results)
+                DispatchQueue.main.async {
+                    withAnimation {
+                        PersistenceController.shared.save(affectedItems: results)
+                    }
+                }
             } catch {
                 print("Crypto accounts fetch failed")
             }

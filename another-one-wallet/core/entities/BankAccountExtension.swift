@@ -39,9 +39,11 @@ extension BankAccount {
     }
     
     func getCryptoTokenByAbbr(abbr: String) -> CryptoToken? {
-        return tokens?.first(where: { element in
-            return (element as! CryptoToken).abbr == "sol"
-        }) as! CryptoToken?
+        let list = tokens?.array as? [CryptoToken] ?? []
+        
+        return list.first(where: { element in
+            return element.abbr == abbr
+        })
     }
     
     static func getNumberFormatter(currency: RealCurrency = CurrenciesWatcherController.shared.currency) -> NumberFormatter {

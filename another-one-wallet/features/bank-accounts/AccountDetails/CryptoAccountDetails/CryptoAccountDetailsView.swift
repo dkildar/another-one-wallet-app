@@ -9,6 +9,9 @@ import SwiftUI
 import Pigeon
 
 struct CryptoAccountDetailsView: View {
+    @Environment(\.managedObjectContext) var context
+    @Environment(\.dismiss) var dismiss
+    
     @EnvironmentObject var persistenceController: PersistenceController
     @EnvironmentObject var currenciesWatcherController: CurrenciesWatcherController
     @StateObject var trc20StateObject = TRC20DetailsStateObject()
@@ -16,6 +19,8 @@ struct CryptoAccountDetailsView: View {
     
     @Binding var account: BankAccount
     @Binding var token: CryptoToken
+    
+    @State var isConfirmationPresented = false
     
     @ViewBuilder
     var exchangeRate: some View {
@@ -60,7 +65,7 @@ struct CryptoAccountDetailsView: View {
                 case .TRC20:
                     if token.abbr == AppCurrency.CryptoCurrencies.USDT.rawValue {
                         TRC20UsdtTokenDetailsView(
-                            stateObject: trc20StateObject, 
+                            stateObject: trc20StateObject,
                             account: $account,
                             token: $token
                         )
@@ -73,13 +78,36 @@ struct CryptoAccountDetailsView: View {
         }
         .onAppear {
             switch AppCurrency.CryptoNetwork.init(rawValue: account.cryptoNetwork!) {
-            case .TRC20: 
+            case .TRC20:
                 if token.abbr == AppCurrency.CryptoCurrencies.USDT.rawValue {
                     trc20StateObject.trc20UsdtTransfersQuery.refetch(request: account.address ?? "")
                 }
             case .TON:
                 tonStateObject.tonTransfersQuery.refetch(request: account.address ?? "")
             default: return
+            }
+        }
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Menu {
+                    Button {
+                        isConfirmationPresented.toggle()
+                    } label: {
+                        Label("Delete account", systemImage: "trash")
+                    }
+                    .foregroundStyle(.red)
+                } label: {
+                    Image(systemName: "gear.circle")
+                }
+            }
+        }
+        .confirmationDialog("Are you sure?", isPresented: $isConfirmationPresented) {
+            Button("Yes, delete", role: .destructive) {
+                dismiss()
+                (account.tokens?.array as! [CryptoToken?]).forEach { token in
+                    persistenceController.delete(item: token!)
+                }
+                persistenceController.delete(item: account)
             }
         }
     }
