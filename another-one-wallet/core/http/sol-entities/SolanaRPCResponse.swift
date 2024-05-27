@@ -5,21 +5,9 @@
 //  Created by Ildar Timerbaev on 15.04.2024.
 //
 
-/**
- {
-     "jsonrpc": "2.0",
-     "result": {
-         "context": {
-             "apiVersion": "1.17.28",
-             "slot": 260125255
-         },
-         "value": 6348499411
-     },
-     "id": 1
- }
- */
 
 import Foundation
+import SolanaSwift
 
 class SolanaBalanceRPCResultResponse : Codable {
     var value: Int

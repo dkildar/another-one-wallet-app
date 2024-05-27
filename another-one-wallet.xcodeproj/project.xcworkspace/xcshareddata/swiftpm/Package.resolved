@@ -1,5 +1,5 @@
 {
-  "originHash" : "a38790bee57900facce41dcb1db06dd17100394a3f23d8abc1629291c7df3b75",
+  "originHash" : "d3bc56204a7b5ed3c5b80d6559f45f3cb98cb027c8a399e1115d7c911c0aa611",
   "pins" : [
     {
       "identity" : "pigeon",
@@ -8,6 +8,15 @@
       "state" : {
         "revision" : "18c29b2cf1735afd5ef33bb1e983cbed9932c313",
         "version" : "0.1.17"
+      }
+    },
+    {
+      "identity" : "secp256k1.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Boilertalk/secp256k1.swift.git",
+      "state" : {
+        "revision" : "cd187c632fb812fd93711a9f7e644adb7e5f97f0",
+        "version" : "0.1.7"
       }
     },
     {
@@ -20,12 +29,39 @@
       }
     },
     {
+      "identity" : "solana-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/p2p-org/solana-swift",
+      "state" : {
+        "revision" : "010a3e3a4cb583ccc3150a04d4270ad37d784ee8",
+        "version" : "5.0.0"
+      }
+    },
+    {
       "identity" : "swiftui-image-viewer",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Jake-Short/swiftui-image-viewer.git",
       "state" : {
         "revision" : "f61f298c0100c81dfb0c7908091e68aad12a892c",
         "version" : "2.3.1"
+      }
+    },
+    {
+      "identity" : "task-retrying-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/bigearsenal/task-retrying-swift.git",
+      "state" : {
+        "revision" : "208f1e8dfa93022a7d39ab5b334d5f43a934d4b1",
+        "version" : "2.0.0"
+      }
+    },
+    {
+      "identity" : "tweetnacl-swiftwrap",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/bitmark-inc/tweetnacl-swiftwrap.git",
+      "state" : {
+        "revision" : "f8fd111642bf2336b11ef9ea828510693106e954",
+        "version" : "1.1.0"
       }
     },
     {

@@ -16,6 +16,7 @@ struct CryptoAccountDetailsView: View {
     @EnvironmentObject var currenciesWatcherController: CurrenciesWatcherController
     @StateObject var trc20StateObject = TRC20DetailsStateObject()
     @StateObject var tonStateObject = TONDetailsStateObject()
+    @StateObject var solStateObject = SOLDetailsStateObject()
     
     @Binding var account: BankAccount
     @Binding var token: CryptoToken
@@ -72,6 +73,8 @@ struct CryptoAccountDetailsView: View {
                     }
                 case .TON:
                     TONTokenDetailsView(stateObject: tonStateObject, account: $account, token: $token)
+                case .SOL:
+                    SOLTokenDetailsView(stateObject: solStateObject, account: $account, token: $token)
                 default: EmptyView()
                 }
             }
@@ -84,6 +87,8 @@ struct CryptoAccountDetailsView: View {
                 }
             case .TON:
                 tonStateObject.tonTransfersQuery.refetch(request: account.address ?? "")
+            case .SOL:
+                solStateObject.solTransfersQuery.refetch(request: account.address ?? "")
             default: return
             }
         }

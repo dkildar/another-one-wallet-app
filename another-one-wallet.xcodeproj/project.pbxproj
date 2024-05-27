@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7807E8C12C04A8610095D9A0 /* SolanaTransactionsRPCResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7807E8C02C04A8610095D9A0 /* SolanaTransactionsRPCResponse.swift */; };
 		780DEFA92BD6D76D00352E93 /* ManagedAccountHistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780DEFA82BD6D76D00352E93 /* ManagedAccountHistoryController.swift */; };
 		780DEFAB2BD6E6FD00352E93 /* ManagedAccountHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780DEFAA2BD6E6FD00352E93 /* ManagedAccountHistoryView.swift */; };
 		780DEFAD2BD6E79B00352E93 /* ManagedAccountChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780DEFAC2BD6E79B00352E93 /* ManagedAccountChartView.swift */; };
@@ -73,6 +74,9 @@
 		788A898A2BC519050002F91E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788A89892BC519050002F91E /* HomeView.swift */; };
 		788A898C2BC519160002F91E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788A898B2BC519160002F91E /* SettingsView.swift */; };
 		788A898E2BC519440002F91E /* BankAccountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788A898D2BC519440002F91E /* BankAccountsView.swift */; };
+		7898CBD42BF9FD3B00623F50 /* SolanaSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7898CBD32BF9FD3B00623F50 /* SolanaSwift */; };
+		7898CBD72BFA0BFE00623F50 /* SOLDetailsStateObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7898CBD62BFA0BFE00623F50 /* SOLDetailsStateObject.swift */; };
+		7898CBD92BFA0C0C00623F50 /* SOLTokenDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7898CBD82BFA0C0C00623F50 /* SOLTokenDetailsView.swift */; };
 		78A14B0D2BC712EC00CA7B12 /* BankAccountExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A14B0C2BC712EC00CA7B12 /* BankAccountExtension.swift */; };
 		78A14B122BC71B0600CA7B12 /* SFSymbolsPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 78A14B112BC71B0600CA7B12 /* SFSymbolsPicker */; };
 		78A14B152BC71F4400CA7B12 /* ListIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A14B142BC71F4400CA7B12 /* ListIconView.swift */; };
@@ -90,6 +94,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7807E8C02C04A8610095D9A0 /* SolanaTransactionsRPCResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolanaTransactionsRPCResponse.swift; sourceTree = "<group>"; };
 		780DEFA82BD6D76D00352E93 /* ManagedAccountHistoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedAccountHistoryController.swift; sourceTree = "<group>"; };
 		780DEFAA2BD6E6FD00352E93 /* ManagedAccountHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedAccountHistoryView.swift; sourceTree = "<group>"; };
 		780DEFAC2BD6E79B00352E93 /* ManagedAccountChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedAccountChartView.swift; sourceTree = "<group>"; };
@@ -156,6 +161,8 @@
 		788A898B2BC519160002F91E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		788A898D2BC519440002F91E /* BankAccountsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountsView.swift; sourceTree = "<group>"; };
 		788A89932BC51DBA0002F91E /* another-one-wallet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "another-one-wallet.entitlements"; sourceTree = "<group>"; };
+		7898CBD62BFA0BFE00623F50 /* SOLDetailsStateObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOLDetailsStateObject.swift; sourceTree = "<group>"; };
+		7898CBD82BFA0C0C00623F50 /* SOLTokenDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOLTokenDetailsView.swift; sourceTree = "<group>"; };
 		78A14B0C2BC712EC00CA7B12 /* BankAccountExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountExtension.swift; sourceTree = "<group>"; };
 		78A14B142BC71F4400CA7B12 /* ListIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListIconView.swift; sourceTree = "<group>"; };
 		78D205B32BC91C550083CF53 /* TRC20TokensResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRC20TokensResponse.swift; sourceTree = "<group>"; };
@@ -174,6 +181,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7898CBD42BF9FD3B00623F50 /* SolanaSwift in Frameworks */,
 				78E83D7C2BDFADA400B1EEE4 /* ImageViewer in Frameworks */,
 				78E83D7E2BDFADA400B1EEE4 /* ImageViewerRemote in Frameworks */,
 				780DEFB02BD6ECB100352E93 /* WhatsNewKit in Frameworks */,
@@ -241,6 +249,7 @@
 		781B9AF42BDBC74D00286C37 /* CryptoAccountDetails */ = {
 			isa = PBXGroup;
 			children = (
+				7898CBD52BFA0BEC00623F50 /* SOL */,
 				7813D8612BF8E6F00060D97D /* shared */,
 				7813D85C2BF8DEA00060D97D /* TON */,
 				7813D85B2BF8DE960060D97D /* TRC20 */,
@@ -267,6 +276,7 @@
 			isa = PBXGroup;
 			children = (
 				784A65EF2BCC6967007D5677 /* SolanaRPCResponse.swift */,
+				7807E8C02C04A8610095D9A0 /* SolanaTransactionsRPCResponse.swift */,
 			);
 			path = "sol-entites";
 			sourceTree = "<group>";
@@ -452,6 +462,15 @@
 			path = entities;
 			sourceTree = "<group>";
 		};
+		7898CBD52BFA0BEC00623F50 /* SOL */ = {
+			isa = PBXGroup;
+			children = (
+				7898CBD62BFA0BFE00623F50 /* SOLDetailsStateObject.swift */,
+				7898CBD82BFA0C0C00623F50 /* SOLTokenDetailsView.swift */,
+			);
+			path = SOL;
+			sourceTree = "<group>";
+		};
 		78A14B132BC71F3500CA7B12 /* shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -506,6 +525,7 @@
 				781B9AF02BDAD9CA00286C37 /* Pigeon */,
 				78E83D7B2BDFADA400B1EEE4 /* ImageViewer */,
 				78E83D7D2BDFADA400B1EEE4 /* ImageViewerRemote */,
+				7898CBD32BF9FD3B00623F50 /* SolanaSwift */,
 			);
 			productName = "another-one-wallet";
 			productReference = 788A896F2BC514930002F91E /* another-one-wallet.app */;
@@ -540,6 +560,7 @@
 				780DEFAE2BD6ECB000352E93 /* XCRemoteSwiftPackageReference "WhatsNewKit" */,
 				781B9AEF2BDAD9CA00286C37 /* XCRemoteSwiftPackageReference "Pigeon" */,
 				78E83D7A2BDFADA400B1EEE4 /* XCRemoteSwiftPackageReference "swiftui-image-viewer" */,
+				7898CBD22BF9FD3B00623F50 /* XCRemoteSwiftPackageReference "solana-swift" */,
 			);
 			productRefGroup = 788A89702BC514930002F91E /* Products */;
 			projectDirPath = "";
@@ -568,6 +589,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				78E83D792BDFA7BA00B1EEE4 /* ManagedAccountHistoryDetailsView.swift in Sources */,
+				7807E8C12C04A8610095D9A0 /* SolanaTransactionsRPCResponse.swift in Sources */,
 				784A66052BCCF053007D5677 /* SolanaAccountPopulator.swift in Sources */,
 				780F3D092BF546470095BE48 /* TONAccountResponse.swift in Sources */,
 				780DEFB62BD6F1C700352E93 /* SettingsCurrencySelectionView.swift in Sources */,
@@ -594,6 +616,7 @@
 				78A14B152BC71F4400CA7B12 /* ListIconView.swift in Sources */,
 				788A897F2BC514940002F91E /* another_one_wallet.xcdatamodeld in Sources */,
 				780DEFB92BD782EB00352E93 /* ExchangeRatesResponse.swift in Sources */,
+				7898CBD92BFA0C0C00623F50 /* SOLTokenDetailsView.swift in Sources */,
 				78D205B72BC92EF50083CF53 /* ToolbarPlusMenuView.swift in Sources */,
 				780DEFB42BD6F00E00352E93 /* CurrenciesWatcherController.swift in Sources */,
 				784A65FA2BCC6A98007D5677 /* CoinGeckoMarketDataResponse.swift in Sources */,
@@ -613,6 +636,7 @@
 				78526A0C2BC7BDF300757C02 /* ManagedAccountItemView.swift in Sources */,
 				784A66092BCCF44C007D5677 /* CryptoAccountDetailsView.swift in Sources */,
 				780DEFAD2BD6E79B00352E93 /* ManagedAccountChartView.swift in Sources */,
+				7898CBD72BFA0BFE00623F50 /* SOLDetailsStateObject.swift in Sources */,
 				788A89752BC514930002F91E /* ContentView.swift in Sources */,
 				7830CD3B2BD3CA2B00E5535D /* ManagedAccountRecordFormView.swift in Sources */,
 				780DEFAB2BD6E6FD00352E93 /* ManagedAccountHistoryView.swift in Sources */,
@@ -875,6 +899,14 @@
 				minimumVersion = 0.1.17;
 			};
 		};
+		7898CBD22BF9FD3B00623F50 /* XCRemoteSwiftPackageReference "solana-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/p2p-org/solana-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		78A14B102BC71B0600CA7B12 /* XCRemoteSwiftPackageReference "SFSymbolsPicker" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/alessiorubicini/SFSymbolsPicker";
@@ -903,6 +935,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 781B9AEF2BDAD9CA00286C37 /* XCRemoteSwiftPackageReference "Pigeon" */;
 			productName = Pigeon;
+		};
+		7898CBD32BF9FD3B00623F50 /* SolanaSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7898CBD22BF9FD3B00623F50 /* XCRemoteSwiftPackageReference "solana-swift" */;
+			productName = SolanaSwift;
 		};
 		78A14B112BC71B0600CA7B12 /* SFSymbolsPicker */ = {
 			isa = XCSwiftPackageProductDependency;
