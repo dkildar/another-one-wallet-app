@@ -55,7 +55,7 @@ class SolanaClient {
                     "method": "getConfirmedSignaturesForAddress2",
                     "params": [
                         address,
-                        ["limit":10]
+                        ["limit":50]
                     ]
                 ])
             )
@@ -65,7 +65,9 @@ class SolanaClient {
             transaction.signature ?? ""
         }) ?? [])
         
-        return transactions
+        return transactions?.filter({ transaction in
+            return transaction.getAmount(host: address) != 0.0
+        })
     }
     
     func fetchTransactionsDetails(transactions: [String]) async throws -> [SolanaTransactionResponse]? {

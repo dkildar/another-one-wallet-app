@@ -72,29 +72,26 @@ struct SolanaTransactionResponse: Codable, Identifiable {
         }
     }
     
-    var amount: Double {
+    var isWithdraw: Bool {
         get {
-            guard let preTokenBalances = result?.meta?.preTokenBalances,
-                  let postTokenBalances = result?.meta?.postTokenBalances else {
-                return 0.0
-                }
-
-                var totalPreAmount: Double = 0
-                var totalPostAmount: Double = 0
-                
-                for preBalance in preTokenBalances {
-                    if let preAmount = preBalance.uiTokenAmount?.uiAmount {
-                        totalPreAmount += preAmount
+            guard let instructions = result?.transaction?.message?.instructions else {
+                return false
+            }
+            
+            for instruction in instructions {
+                if let programIdIndex = instruction.programIdIndex,
+                   programIdIndex < (result?.transaction?.message?.accountKeys?.count ?? 0) {
+                    let programId = result?.transaction?.message?.accountKeys?[programIdIndex]
+                    
+                    // Check if the program ID is the Stake program
+                    if programId == "Stake11111111111111111111111111111111111111" {
+                        // Analyze instruction data to determine if it's a withdraw operation
+                        return true
                     }
                 }
-
-                for postBalance in postTokenBalances {
-                    if let postAmount = postBalance.uiTokenAmount?.uiAmount {
-                        totalPostAmount += postAmount
-                    }
-                }
-
-                return totalPreAmount - totalPostAmount
+            }
+            
+            return false
         }
     }
     
@@ -109,6 +106,24 @@ struct SolanaTransactionResponse: Codable, Identifiable {
         jsonrpc = try container.decodeIfPresent(String.self, forKey: .jsonrpc)
         result = try container.decodeIfPresent(SolanaTransactionResult.self, forKey: .result)
         id = try container.decodeIfPresent(Int.self, forKey: .id)
+    }
+    
+    func getAmount(host: String) -> Double {
+        guard let meta = result?.meta,
+              let preBalances = meta.preBalances,
+              let postBalances = meta.postBalances,
+              let accounts = result?.transaction?.message?.accountKeys,
+              preBalances.count > 0,
+              postBalances.count > 0 else {
+            return 0.0
+        }
+        
+        let index = accounts.firstIndex { key in
+            return key == host
+        } ?? 0
+        let solAmountChange = Double(preBalances[index] - postBalances[index]) / 1_000_000_000 // SOL balance is in lamports, convert to SOL
+        
+        return abs(solAmountChange)
     }
 }
 

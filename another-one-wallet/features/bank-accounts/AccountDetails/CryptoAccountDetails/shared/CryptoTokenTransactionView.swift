@@ -16,6 +16,8 @@ struct CryptoTokenTransactionView: View {
     @Binding var amount: Double
     @Binding var dateFormat: String
     @Binding var detailsLinkURLString: String
+    @Binding var labelIconName: String?
+    @Binding var labelText: String?
     
     var usdAmount: Double {
         get {
@@ -33,17 +35,17 @@ struct CryptoTokenTransactionView: View {
         HStack(alignment: .top, spacing: 8) {
             VStack(alignment: .leading, spacing: 8) {
                 HStack {
-                    Image(systemName: incoming ? "arrow.down.right" : "arrow.up.right")
+                    Image(systemName: labelIconName ?? (incoming ? "arrow.down.right" : "arrow.up.right"))
                         .resizable()
                         .scaledToFit()
                         .frame(width: 10, height: 10)
-                    Text(incoming ? "Received" : "Sent")
+                    Text(labelText ?? (incoming ? "Received" : "Sent"))
                         .font(.system(size: 14))
                 }
                 .foregroundColor(.blue)
                 .padding(.bottom, 4)
                 
-                Text("\(incoming ? "+" : "-")\(String(format: "%.2f", amount))\((token.abbr ?? "").uppercased())")
+                Text("\(incoming ? "+" : "-")\(String(format: "%.6f", amount)) \((token.abbr ?? "").uppercased())")
                     .foregroundStyle(incoming ? .green : .red)
                 
                 Text(BankAccount.getNumberFormatter().string(from: appCurrencyAmount as NSNumber)!)

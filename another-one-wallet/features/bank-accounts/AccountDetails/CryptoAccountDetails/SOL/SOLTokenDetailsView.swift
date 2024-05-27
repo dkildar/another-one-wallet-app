@@ -15,13 +15,43 @@ struct SOLTokenTransactionItemView: View {
     @Binding var token: CryptoToken
     @Binding var record: SolanaTransactionResponse
     
+    var iconName: String {
+        get {
+            if record.isWithdraw {
+                return "percent"
+            }
+            
+            if record.fromAddress != account.address {
+                return "arrow.down.right"
+            }
+            
+            return "arrow.up.right"
+        }
+    }
+    
+    var labelText: String {
+        get {
+            if record.isWithdraw {
+                return "Staking operation"
+            }
+            
+            if record.fromAddress != account.address {
+                return "Received"
+            }
+            
+            return "Sent"
+        }
+    }
+    
     var body: some View {
         CryptoTokenTransactionView(
             token: $token,
             incoming: .constant(record.fromAddress != account.address),
-            amount: .constant((record.amount)),
+            amount: .constant((record.getAmount(host: account.address ?? ""))),
             dateFormat: .constant(Date(timeIntervalSince1970: TimeInterval(record.result?.blockTime ?? 0)).formatted(.dateTime.hour().minute())),
-            detailsLinkURLString: .constant("https://solscan.org/tx/\(record.result?.transaction?.signatures?.first ?? "")")
+            detailsLinkURLString: .constant("https://solscan.io/tx/\(record.result?.transaction?.signatures?.first ?? "")"),
+            labelIconName: .constant(iconName),
+            labelText: .constant(labelText)
         )
     }
 }
@@ -43,7 +73,7 @@ struct SOLTokenDetailsView: View {
     private func recordsSection(date: Date, recordsList: [SolanaTransactionResponse]) -> some View {
         let dateFormat = date.formatted(.dateTime.day().month().year())
         Section(dateFormat) {
-            ForEach(recordsList) { record in
+            ForEach(recordsList, id: \.result?.transaction?.signatures?.first) { record in
                 SOLTokenTransactionItemView(account: $account, token: $token, record: .constant(record))
             }
         }

@@ -34,7 +34,9 @@ struct TRC20UsdtTokenDetailsView: View {
                     incoming: .constant(record.toAddress == account.address),
                     amount: .constant((record.quant / 1000000) * currenciesWatcherController.rateRelatedToUsd),
                     dateFormat: .constant(record.blockTimestamp?.formatted(.dateTime.hour().minute()) ?? ""),
-                    detailsLinkURLString: .constant("https://tronscan.org/#/transaction/\(record.transactionId)")
+                    detailsLinkURLString: .constant("https://tronscan.org/#/transaction/\(record.transactionId)"),
+                    labelIconName: .constant(nil),
+                    labelText: .constant(nil)
                 )
             }
         }

@@ -23,7 +23,9 @@ struct TONTokenTransactionItemView: View {
             incoming: .constant(record.address?.account_address != account.address),
             amount: .constant((doubleAmount / 1000000000)),
             dateFormat: .constant(Date(timeIntervalSince1970: TimeInterval(record.utime ?? 0)).formatted(.dateTime.hour().minute())),
-            detailsLinkURLString: .constant("https://tonscan.org/tx/\(record.transaction_id?.value ?? "")")
+            detailsLinkURLString: .constant("https://tonscan.org/tx/\(record.transaction_id?.value ?? "")"),
+            labelIconName: .constant(nil),
+            labelText: .constant(nil)
         )
     }
 }
